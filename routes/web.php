@@ -16,6 +16,27 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/login', function () {
-    return view('/login/login');
+
+// Login dan register
+Route::group(['prefix' => '/login'], function () {
+    Route::get('/', function () {
+        return view('login.login');
+    });
+
+});
+
+Route::get('/register', function () {
+    return view('login.register');
+});
+//  Konten
+Route::get('/article', function () {
+    return view('content.article');
+});
+Route::get('/story', function () {
+    return view('content.story');
+});
+
+// profil
+Route::get('/profile', function () {
+    return view('profile.profile');
 });

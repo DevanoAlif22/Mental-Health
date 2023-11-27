@@ -6,13 +6,14 @@
     <title>Mental Health - Login</title>
     <link rel="stylesheet" href="{{asset('/css/login/style.css')}}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  </head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
   <body>
 
 
-    <div class="container-fluid" style="height: 100vh;">
+    <div class="container-fluid" style="">
             <div class="row">
-                <div class="col-6"  style="background-color: #0A6EF6; height: 100vh;">
+                <div class="col-md-6"  style="background-color: #0A6EF6; height:100vh">
                     <div class="container">
                         <img class="logo" src="{{ asset('images/login/logo.png')}}" alt="">
                         <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
@@ -23,22 +24,22 @@
                             </div>
                             <div class="carousel-inner">
                                 <div class="carousel-item active text-center">
-                                    <img src="{{asset("/images/login/slide1.png")}}" class="img-caraousel d-block mx-auto w-50" alt="...">
-                                    <div style="text-align: left" class="carousel-caption d-none d-md-block">
+                                    <img src="{{asset("/images/login/slide1.png")}}" class="img-caraousel d-block mx-auto " alt="...">
+                                    <div style="text-align: left" class="carousel-caption">
                                         <h5>First slide label</h5>
                                         <p>Some representative placeholder content for the first slide.</p>
                                     </div>
                                 </div>
                                 <div class="carousel-item text-center">
-                                    <img src="{{asset("/images/login/slide2.png")}}" class="d-block mx-auto w-50 img-caraousel" alt="...">
-                                    <div style="text-align: left" class="carousel-caption d-none d-md-block">
+                                    <img src="{{asset("/images/login/slide2.png")}}" class="d-block mx-auto  img-caraousel" alt="...">
+                                    <div style="text-align: left" class="carousel-caption">
                                         <h5>Second slide label</h5>
                                         <p>Some representative placeholder content for the second slide.</p>
                                     </div>
                                 </div>
                                 <div class="carousel-item text-center">
-                                    <img src="{{asset("/images/login/slide3.png")}}" class="d-block mx-auto w-50 img-caraousel" alt="...">
-                                    <div style="text-align: left" class="carousel-caption d-none d-md-block">
+                                    <img src="{{asset("/images/login/slide3.png")}}" class="d-block mx-auto  img-caraousel" alt="...">
+                                    <div style="text-align: left" class="carousel-caption">
                                         <h5>Third slide label</h5>
                                         <p>Some representative placeholder content for the third slide.</p>
                                     </div>
@@ -48,16 +49,33 @@
 
                         <div class="container" style="color: white; ">
                             <h2 style="padding-left: 15px;">Selamat datang!</h2>
-                            <p style="padding-left: 15px;">Di website Mental health, Pulihkan kesehatan mental mu disini!</p>
+                            <p style="padding-left: 15px;  margin-bottom: 65px">Di website Mental health, Pulihkan kesehatan mental mu disini!</p>
 
                         </div>
 
 
                     </div>
                 </div>
-                <div class="col-6" style="display: flex;">
+                <div class="col-md-6" style="display: flex;">
                     <div class="form-login" style="margin: auto">
-                        <h3>Masuk</h3>
+                        <h1 style="color: #0A6EF6">Masuk</h1>
+                        <p style="color: #999999; margin-bottom:20px; font-size: 15px">Ini akan memakan waktu kurang dari 1 menit</p>
+                        <div class="d-flex flex-column">
+                            <div class="d-flex">
+                                <input class="input-login" type="text" name="" id="" placeholder="Nama">
+                                <i class="fa-solid fa-user" style="color: #a6a6a6; padding-top: 10px; padding-left: 10px"></i>
+                            </div>
+                            <div class="d-flex">
+                                <input class="input-login" type="text" name="" id="" placeholder="Kata sandi">
+                                <i class="fa-solid fa-lock" style="color: #a6a6a6; padding-top: 10px; padding-left: 10px"></i>
+                            </div>
+                            <div class="d-flex">
+                                <input type="checkbox" name="" id="">
+                                <p style="color: #999999; margin-left: 10px; padding-top:10px;">ingat saya</p>
+                            </div>
+                            <button class="btn" style="background-color: #0A6EF6; color: white; height: 40px !important; width:300px !important;">Masuk</button>
+                            <a href="/register"> <span style="color: #a6a6a6">Belum punya akun?</span>  Daftar</a>
+                        </div>
                     </div>
                 </div>
             </div>
