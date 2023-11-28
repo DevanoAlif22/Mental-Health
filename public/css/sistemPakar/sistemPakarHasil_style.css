@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    padding: 0;
+}
+p,h1,h2,h3,h4,h5,h6,a{
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    overflow-x: hidden;
+    font-family: 'Poppins', sans-serif;
+}
+.navbar-brand img{
+    width: 40px;
+    height: auto;
+    margin-right: 0.5rem;
+}
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+a.navbar-brand{
+    color: #042E80;
+    font-weight: 600;
+}
+a.navbar-brand:hover{
+    color: #042E80;
+}
+a.nav-link {
+    font-weight: 500;
+    margin-right: 3rem;
+    color: black;
+}
+a.nav-link:hover{
+
+    color: #0A6EF6;
+}
+.nav-link.aktive {
+    color: #0A6EF6; /* Atur warna teks menjadi biru */
+    /* Anda juga dapat menambahkan properti gaya lainnya sesuai kebutuhan */
+}
+.navbar-nav button{
+    background-color: #0A6EF6;
+    border: none;
+    padding: 0 2rem;
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+    transition: .2s ease-in-out;
+    width: 100px !important;
+    
+    
+}
+.navbar-nav button:hover{
+    background-color: #0044a3;
+    
+    
+}
+button a{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+.wrap-section-sistempakar{
+    height: auto;
+    padding-bottom: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 30px;
+    margin: 0;
+    width: 100%;
+}
+.nav-sistempakar{
+    width: 100%;
+    border-radius: 30px 30px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+   padding: 1rem 2rem;
+   margin: 0;
+   background-color: #042E80;
+    
+}
+
+.link-pertanyaan-hasil a{
+text-decoration: none;
+font-weight: 500;
+color: white;
+font-size: 15px;
+margin-right: 2rem;
+}
+a.active{
+    padding: 0.5rem 1rem;
+    background-color: #0A6EF6;
+    border-radius: 20px;
+}
+.nav-sistempakar h4{
+    color: white;
+}
+.judul-pertanyaan h4{
+    color: #042E80;
+    font-weight: 600;
+}
+.wrap-pertanyaan{
+    padding: 2rem;
+}
+.border-pertanyaan{
+    display: flex;
+    align-items: center;
+    padding: 0rem 1rem;
+    border-radius: 20px;
+    border: 2px solid #042E80;
+    justify-content: space-between;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    transition: .2s ease-in-out;
+}
+.border-pertanyaan:hover{
+    background-color: #042E80;
+    color: white;
+}
+.border-pertanyaan p{
+    margin-top: 1rem;
+}
+.border-pertanyaan p{
+    font-size: 13px;
+    font-weight: 600;
+}
+.kirim a{
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+
+    border-radius: 20px;
+    background-color: #0A6EF6;
+    padding: 0.3rem 2rem;
+    transition: .2s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+}
+.kirim a:hover{
+ background-color: #042E80;
+}
+.kirim{
+    margin-right: 2rem;
+}
+
+/* perubahan */
+.hasil-diagnosa h6{
+    font-weight: 600;
+}
+.hasil-diagnosa ul li{
+    font-weight: 500;
+}
+.hasil-diagnosa ol li{
+    font-weight: 500;
+}
+.hasil-diagnosa h6{
+    font-weight: 700;
+}
+@media (max-width:400px){
+    .nav-sistempakar{
+        border-radius: 30px 30px 0 0;
+        display: flex;
+        align-items: center;
+      justify-content: space-between;
+      width: 100%;
+       padding: 1rem 2rem;
+       margin: 0;
+       background-color: #042E80;
+        
+    }
+    .nav-sistempakar h4{
+        color: white;
+        width: 100%;
+        font-size: 15px;
+    }
+    .link-pertanyaan-hasil a{
+        text-decoration: none;
+        font-weight: 500;
+        color: white;
+        font-size: 11px;
+        margin-right: 2rem;
+        }
+        .link-pertanyaan-hasil{
+            display: flex;
+            width: 100%;
+            align-items: center;
+        }
+        a.active{
+            padding: 0.2rem 0.7rem;
+            background-color: #0A6EF6;
+            border-radius: 20px;
+        }
+  }

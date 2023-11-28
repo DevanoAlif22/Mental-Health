@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    padding: 0;
+}
+p,h1,h2,h3,h4,h5,h6,a{
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    overflow-x: hidden;
+    font-family: 'Poppins', sans-serif;
+}
+.navbar-brand img{
+    width: 40px;
+    height: auto;
+    margin-right: 0.5rem;
+}
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+a.navbar-brand{
+    color: #042E80;
+    font-weight: 600;
+}
+a.navbar-brand:hover{
+    color: #042E80;
+}
+a.nav-link {
+    font-weight: 500;
+    margin-right: 3rem;
+    color: black;
+}
+a.nav-link:hover{
+
+    color: #0A6EF6;
+}
+.nav-link.aktive {
+    color: #0A6EF6; /* Atur warna teks menjadi biru */
+    /* Anda juga dapat menambahkan properti gaya lainnya sesuai kebutuhan */
+}
+.navbar-nav button{
+    background-color: #0A6EF6;
+    border: none;
+    padding: 0 2rem;
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+    transition: .2s ease-in-out;
+    width: 100px !important;
+    
+    
+}
+.navbar-nav button:hover{
+    background-color: #0044a3;
+    
+    
+}
+button a{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+.inputan input{
+    background-color: transparent;
+    border: none;
+}
+.inputan input:focus {
+    outline: none; /* Untuk menghapus garis fokus bawaan pada beberapa browser */
+    border: none; /* Menghapus batas saat dalam keadaan aktif (focus) */
+    /* Anda dapat menambahkan properti gaya lainnya sesuai kebutuhan */
+}
+.search{
+    display: flex;
+    align-items: center;
+    background-color: white;
+    margin-top: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    padding: 0.5rem 1rem;
+    width: 400px !important;
+    
+    border-radius: 2rem;
+}
+.search i{
+    margin-right: 1.5rem;
+}
+.filter a{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    background-color: #BDBDBD;
+    color: white;
+    padding: 0.4rem 2rem;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    transition: .2s ease-in-out;
+}
+.filter a:hover{
+    background-color: #0044a3;
+}
+.filter{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-around;
+}
+a.active{
+    background-color: #0044a3;
+}
+/* isi */
+.wrap-profil{
+    width: 100%;
+    height: auto;
+    padding-bottom: 3rem;
+}
+
+.section-profil h4{
+    padding-top: 1rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+.judul-profil h4{
+    color: #042E80;
+    font-size: 2rem;
+}
+.section-profil p{
+   
+    margin-top: -0.5rem;
+    font-size: 0.8rem;
+}
+.section-profil{
+padding-bottom: 1rem;
+}
+.des-profile{
+    width: 30%;
+    display: flex;
+    margin: auto;
+
+}
+.card-profil{
+    transition: .2s ease-in-out;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.image-profil img{
+    border-radius: 10px;
+    width: 100%;
+    height: auto;
+}
+.section-profil a{
+    text-decoration: none;
+    color: white;
+    padding: 0.5rem 1.4rem;
+    border-radius: 20px;
+    background-color: #006BFC;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: .2s;
+    font-weight: 600;
+}
+.section-profil a:hover{
+background-color: #0044a3;
+}
+.card-profil{
+    margin-right: 20px;
+}
+.card-profil:hover{
+ background-color: #0044a3;
+ color: white;
+}
+.sosial-media img{
+width: 30px;
+}
+.media{
+    display: flex;
+    align-items: center;
+}
+.media a{
+    padding: 0.7rem 0.7rem;
+    background-color: #006BFC;
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  cursor: default;
+}
+
+.sosial-media {
+ padding: 1rem;  
+ display: flex;
+ justify-content: space-evenly;
+}
+.des-media{
+    margin-top: 1rem;
+    font-weight: 500;
+    line-height: 5px;
+}
+/* responsif */
+@media (max-width:400px){
+    .search{
+        width: 300px !important;
+    
+    }
+    .filter{
+        margin-top: 2rem;
+ 
+    }
+    .filter a{
+       
+        padding: 0.2rem 1rem;
+        font-size: 13px;
+        border-radius: 20px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
+  }
