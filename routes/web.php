@@ -40,3 +40,20 @@ Route::get('/story', function () {
 Route::get('/profile', function () {
     return view('profile.profile');
 });
+
+Route::get('/list-article', function () {
+    return view('content.listArticle');
+});
+Route::get('/list-story', function () {
+    return view('content.listStory');
+});
+Route::get('/list-profile', function () {
+    return view('content.listProfile');
+});
+Route::get('/sistem-pakar', function () {
+    return view('sistempakar.sistemPakar');
+});
+Route::get('/sistem-pakar-hasil', function () {
+    return view('sistempakar.sistemPakarHasil');
+});
+
