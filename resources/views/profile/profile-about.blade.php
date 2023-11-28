@@ -12,9 +12,9 @@
 
       <img class="bg-profile" src="{{asset('images/profile/bg.png')}}" alt="">
 
-      <div class="container mb-3" style="margin-top: -145px">
+      <div class="container mb-3 p-5" style="margin-top: -145px">
         <div class="row">
-            <div class="col-3 wrap-profile">
+            <div class="col-lg-4 col-md-12 wrap-profile">
                 <div class="wrap">
                     <div>
                         <img class="img-profile" src="{{asset('images/profile/user.png')}}" alt="">
@@ -25,26 +25,30 @@
                     <p style="color: #a6a6a6; text-align: center">Bergabung pada 2023-02-13</p>
                 </div>
                 <div class="wrap category">
-                    <div style="width: 85%; align-items:center; text-align:center;">
-                        <div style="width: 100%; display:flex;">
-                            <div style="margin-right: 20px; display:flex">
-                                <img style="background-color: #0a6ef6;" src="{{asset('images/profile/follower.png')}}" alt="">
-                                <div style="margin-left: 10px; padding-top:5px">
-                                    <h6 style="line-height: 0.3cm">Pengikut</h6>
-                                    <h6>3.452</h6>
+                    <div style="width: 100%; display:flex; justify-content:center;">
+                        <div style="width: 100%;">
+                            <div style="width: 100%; display:flex; justify-content:center;">
+                                <div style="margin-right: 20px; display:flex; ">
+                                    <img style="background-color: #0a6ef6;" src="{{asset('images/profile/follower.png')}}" alt="">
+                                    <div style="margin-left: 10px; padding-top:5px">
+                                        <h6 style="line-height: 0.3cm">Pengikut</h6>
+                                        <h6>3.452</h6>
+                                    </div>
+                                </div>
+                                <div style="margin-right: 20px; display:flex">
+                                    <button style="background-color: white; border: none; ">
+                                        <img style="background-color:  #0a6ef6;" src="{{asset('images/profile/view.png')}}" alt="">
+                                    </button>
+                                    <div style="margin-left: 10px; padding-top:5px">
+                                        <h6 style="line-height: 0.3cm">Dilihat</h6>
+                                        <h6>4.052</h6>
+                                    </div>
                                 </div>
                             </div>
-                            <div style="margin-right: 20px; display:flex">
-                                <button style="background-color: white; border: none; ">
-                                    <img style="background-color:  #0a6ef6;" src="{{asset('images/profile/view.png')}}" alt="">
-                                </button>
-                                <div style="margin-left: 10px; padding-top:5px">
-                                    <h6 style="line-height: 0.3cm">Dilihat</h6>
-                                    <h6>4.052</h6>
-                                </div>
+                            <div class="wrap">
+                                <button class="btn-follow margin-auto"><b style="font-size: 20px">Ikuti</b></button>
                             </div>
                         </div>
-                        <button class="btn-follow margin-auto"><b style="font-size: 20px">Ikuti</b></button>
                     </div>
                 </div>
                 <div class="wrap">
@@ -62,13 +66,16 @@
                     </div>
                 </div>
             </div>
-            <div class="col-8 ms-3 wrap-profile-2">
-                <div class="container-fluid" style="border-bottom: 3px solid #D9D9D9; padding-left :10px; padding-top :30px; padding-bottom: 5px;">
-                    <div style="width: 50%; display: flex; justify-content:space-between">
-                        <h5><a style="color: #0a6ef6" href="">Tentang</a></h5>
-                        <h5><a href="">Tentang</a></h5>
-                        <h5><a href="">Tentang</a></h5>
+            <div class="col-lg-7 col-md-12 wrap-profile-2 description">
+                <div class="container-fluid wrap-list" style="border-bottom: 3px solid #D9D9D9;">
+                    <div class="list" style="display: flex; justify-content:space-between">
+                        <h5><a style="color: #0a6ef6" href="profile-about">Tentang</a></h5>
+                        <h5><a href="profile-article">Artikel</a></h5>
+                        <h5><a href="profile-story">Cerita</a></h5>
                     </div>
+                </div>
+                <div class="container" style="padding-top: 25px">
+                    Saya Devano Alif Ramadhan umur 20 tahun, mahasiswa sistem informasi di Institut Teknologi Adhi Tama Surabaya. Saya aktif di website ini untuk sharing cerita untuk membangun mental kita semua. Kesehatan mental tidak bisa di pandang remeh akhir-akhir ini, karena memang kesehatan mental sepenting itu
                 </div>
             </div>
         </div>

@@ -36,9 +36,7 @@
                     <a class="nav-link aktive" href="#aboutme">Home</a>
                     <a class="nav-link " href="#aboutme">Home</a>
                     <a class="nav-link" href="#biodata">Sistem pakar</a>
-                    <button><a style="" href="">Login</a></button>
-
-
+                    <button><a style="" href="{{route('auth')}}">Login</a></button>
                 </div>
             </div>
         </div>

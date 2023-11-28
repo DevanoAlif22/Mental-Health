@@ -65,6 +65,15 @@
     overflow-x: hidden;
 }
 
+@media (max-width: 800px) {
+    .list-comment h5 {
+        padding-left: 30px;
+    }
+    .date-comment {
+        padding-left: 30px;
+    }
+}
+
 @media (max-width: 400px) {
     .img-article {
         height: 400px;
@@ -82,14 +91,5 @@
     }
     .category {
         margin-left: 0px;
-    }
-}
-
-@media (max-width: 800px) {
-    .list-comment h5 {
-        padding-left: 30px;
-    }
-    .date-comment {
-        padding-left: 30px;
     }
 }

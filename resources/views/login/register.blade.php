@@ -60,24 +60,32 @@
                     <div class="form-login" style="margin: auto">
                         <h1 style="color: #0A6EF6">Daftar</h1>
                         <p style="color: #999999; margin-bottom:20px; font-size: 15px">Ini akan memakan waktu kurang dari 1 menit</p>
+
+
                         <div class="d-flex flex-column">
+                            @if ($errors->any() || Session::get('success'))
+                                @include('layout/message')
+                            @endif
+                            <form action="/register" method="POST">
+                            @csrf
                             <div class="d-flex">
-                                <input class="input-login" type="text" name="" id="" placeholder="Nama">
+                                <input class="input-login" type="text" name="name" id="" placeholder="Nama">
                                 <i class="fa-solid fa-user" style="color: #a6a6a6; padding-top: 10px; padding-left: 10px"></i>
                             </div>
                             <div class="d-flex">
-                                <input class="input-login" type="email" name="" id="" placeholder="Email">
+                                <input class="input-login" type="email" name="email" id="" placeholder="Email">
                                 <i class="fa-solid fa-user" style="color: #a6a6a6; padding-top: 10px; padding-left: 10px"></i>
                             </div>
                             <div class="d-flex">
-                                <input class="input-login" type="text" name="" id="" placeholder="Kata sandi">
+                                <input class="input-login" type="password" name="password" id="" placeholder="Kata sandi">
                                 <i class="fa-solid fa-lock" style="color: #a6a6a6; padding-top: 10px; padding-left: 10px"></i>
                             </div>
                             <div class="d-flex">
-                                <input type="checkbox" name="" id="">
+                                <input type="checkbox" name="remember" id="">
                                 <p style="color: #999999; margin-left: 10px; padding-top:10px;">ingat saya</p>
                             </div>
-                            <button class="btn" style="background-color: #0A6EF6; color: white; height: 40px !important; width:300px !important;">Daftar</button>
+                            <button type="submit" class="btn" style="background-color: #0A6EF6; color: white; height: 40px !important; width:300px !important;">Daftar</button>
+                            </form>
                             <a href="/login"> <span style="color: #a6a6a6">Sudah punya akun?</span>  Masuk</a>
                         </div>
                     </div>

@@ -24,21 +24,21 @@
                             </div>
                             <div class="carousel-inner">
                                 <div class="carousel-item active text-center">
-                                    <img src="{{asset("/images/login/slide1.png")}}" class="img-caraousel d-block mx-auto " alt="...">
+                                    <img src="{{asset("/images/login/slide1.png")}}" class= "img-caraousel d-block mx-auto " alt="...">
                                     <div style="text-align: left" class="carousel-caption">
                                         <h5>First slide label</h5>
                                         <p>Some representative placeholder content for the first slide.</p>
                                     </div>
                                 </div>
                                 <div class="carousel-item text-center">
-                                    <img src="{{asset("/images/login/slide2.png")}}" class="d-block mx-auto  img-caraousel" alt="...">
+                                    <img src="{{asset("/images/login/slide2.png")}}" class="d-block mx-auto   img-caraousel" alt="...">
                                     <div style="text-align: left" class="carousel-caption">
                                         <h5>Second slide label</h5>
                                         <p>Some representative placeholder content for the second slide.</p>
                                     </div>
                                 </div>
                                 <div class="carousel-item text-center">
-                                    <img src="{{asset("/images/login/slide3.png")}}" class="d-block mx-auto  img-caraousel" alt="...">
+                                    <img src="{{asset("/images/login/slide3.png")}}" class="d-block mx-auto   img-caraousel" alt="...">
                                     <div style="text-align: left" class="carousel-caption">
                                         <h5>Third slide label</h5>
                                         <p>Some representative placeholder content for the third slide.</p>
@@ -60,21 +60,28 @@
                     <div class="form-login" style="margin: auto">
                         <h1 style="color: #0A6EF6">Masuk</h1>
                         <p style="color: #999999; margin-bottom:20px; font-size: 15px">Ini akan memakan waktu kurang dari 1 menit</p>
+
                         <div class="d-flex flex-column">
-                            <div class="d-flex">
-                                <input class="input-login" type="text" name="" id="" placeholder="Nama">
-                                <i class="fa-solid fa-user" style="color: #a6a6a6; padding-top: 10px; padding-left: 10px"></i>
-                            </div>
-                            <div class="d-flex">
-                                <input class="input-login" type="text" name="" id="" placeholder="Kata sandi">
-                                <i class="fa-solid fa-lock" style="color: #a6a6a6; padding-top: 10px; padding-left: 10px"></i>
-                            </div>
-                            <div class="d-flex">
-                                <input type="checkbox" name="" id="">
-                                <p style="color: #999999; margin-left: 10px; padding-top:10px;">ingat saya</p>
-                            </div>
-                            <button class="btn" style="background-color: #0A6EF6; color: white; height: 40px !important; width:300px !important;">Masuk</button>
-                            <a href="/register"> <span style="color: #a6a6a6">Belum punya akun?</span>  Daftar</a>
+                                @if ($errors->any() || Session::get('success'))
+                                    @include('layout/message')
+                                @endif
+                            <form action="/login" method="POST">
+                                @csrf
+                                <div class="d-flex">
+                                    <input class="input-login" type="text" name="name" id="" placeholder="Nama">
+                                    <i class="fa-solid fa-user" style="color: #a6a6a6; padding-top: 10px; padding-left: 10px"></i>
+                                </div>
+                                <div class="d-flex">
+                                    <input class="input-login" type="password" name="password" id="" placeholder="Kata sandi">
+                                    <i class="fa-solid fa-lock" style="color: #a6a6a6; padding-top: 10px; padding-left: 10px"></i>
+                                </div>
+                                <div class="d-flex">
+                                    <input type="checkbox" name="remember" id="">
+                                    <p style="color: #999999; margin-left: 10px; padding-top:10px;">ingat saya</p>
+                                </div>
+                                <button class="btn" type="submit" style="background-color: #0A6EF6; color: white; height: 40px !important; width:300px !important;">Masuk</button>
+                            </form>
+                                <a href="/register"> <span style="color: #a6a6a6">Belum punya akun?</span>  Daftar</a>
                         </div>
                     </div>
                 </div>
