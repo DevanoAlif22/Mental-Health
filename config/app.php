@@ -212,4 +212,10 @@ return [
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),
 
+    'cloudinary' => [
+        'cloud_name' => env('dr1qyzdld'),
+        'api_key' => env('418777794132375'),
+        'api_secret' => env('EJRRbYz3ODvQz1QlfQ3aW0Zo4SI'),
+    ],
+
 ];

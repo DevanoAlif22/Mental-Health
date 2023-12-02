@@ -10,5 +10,9 @@
         "lodash": "^4.17.19",
         "postcss": "^8.1.14",
         "vite": "^4.0.0"
+    },
+    "dependencies": {
+        "ckeditor4": "^4.23.0",
+        "tinymce": "^6.8.1"
     }
 }

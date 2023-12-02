@@ -3,10 +3,13 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Story;
+use App\Models\ArticleLike;
+use App\Models\ArticleComments;
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
@@ -42,4 +45,21 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function articles()
+    {
+        return $this->hasMany(Article::class, 'id_user', 'id');
+    }
+    public function commentArticle()
+    {
+        return $this->hasMany(ArticleComments::class, 'id_user', 'id');
+    }
+    public function articleLike()
+    {
+        return $this->hasMany(ArticleLike::class, 'id_user', 'id');
+    }
+    public function stories()
+    {
+        return $this->hasMany(Story::class, 'id_user', 'id');
+    }
 }

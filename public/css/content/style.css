@@ -23,7 +23,12 @@
 .content {
     width: 100%;
 }
-
+.back {
+    color: black;
+}
+.back:hover {
+    color: black;
+}
 .img-article {
     margin-bottom: 40px;
     width: 100%;

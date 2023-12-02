@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\StoryController;
+use App\Http\Controllers\ArticleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,15 +16,24 @@ use App\Http\Controllers\MainController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/coba', function () {
+    return view('coba');
+});
 
 Route::get('/home', [MainController::class, 'index'])->name('home');
+
 //  Konten
-Route::get('/article', function () {
-    return view('content.article');
-});
-Route::get('/story', function () {
-    return view('content.story');
-});
+Route::post('/coba', [ArticleController::class, 'coba']);
+Route::get('/coba2', [StoryController::class, 'coba']);
+Route::post('/coba2', [StoryController::class, 'coba2']);
+
+Route::get('/article/{id}', [ArticleController::class,'detail']);
+Route::post('/comment-article/{id}', [ArticleController::class,'addComment']);
+Route::get('/like-article/{id}', [ArticleController::class,'addLike']);
+Route::get('/story/{id}', [StoryController::class,'detail']);
+Route::post('/comment-story/{id}', [StoryController::class,'addComment']);
+Route::get('/like-story/{id}', [StoryController::class,'addLike']);
+
 
 Route::middleware('guest')->group(function () {
     // Login dan register
