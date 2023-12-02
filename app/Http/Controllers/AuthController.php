@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Story;
 use App\Mail\AuthMail;
+use App\Models\Article;
+use App\Models\Profile;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -34,7 +37,16 @@ class AuthController extends Controller
 
         if(Auth::attempt($infologin)) {
             if(Auth::user()->email_verified_at != null) {
-                return redirect('/home')->with('success', 'Anda berhasil login');
+                $popularArticles = Article::with('users')  // Jangan lupa ganti 'users' dengan nama relasi yang sesuai pada model Article
+                ->orderBy('view', 'desc')
+                ->take(6) // Ambil 6 artikel teratas
+                ->get();
+                $popularStories = Story::with('users')  // Jangan lupa ganti 'users' dengan nama relasi yang sesuai pada model Article
+                ->orderBy('view', 'desc')
+                ->take(3) // Ambil 3 cerita teratas
+                ->get();
+                $userProfile = Profile::where('id_user', '=', Auth::user()->id)->first();
+                return view('main.index', ['imageProfile' => $userProfile->image,'popularArticle' => $popularArticles, 'popularStory' => $popularStories]);
             } else {
                 Auth::logout();
                 return redirect('/login')->withErrors('Akun anda belum di verifikasi. Harap verifikasi terlebih dahulu');
@@ -72,7 +84,10 @@ class AuthController extends Controller
             'verify_key' => $str
         ];
 
+
         User::create($inforegister);
+        $user = User::where('name', '=', $request->name)->first();
+        Profile::create(['id_user' => $user->id, 'view' => 0]);
         $details = [
             'name' => $inforegister['name'],
             'website' => "Website Mental Health",

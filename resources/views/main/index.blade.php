@@ -34,9 +34,16 @@
             <div class="collapse navbar-collapse" style="justify-content: end" id="navbarNavAltMarkup">
                 <div class="navbar-nav" id="aboutme">
                     <a class="nav-link aktive" href="#aboutme">Home</a>
-                    <a class="nav-link " href="#aboutme">Home</a>
                     <a class="nav-link" href="#biodata">Sistem pakar</a>
+                    @if (Auth::user())
+                        @if($imageProfile == null)
+                            <a class="nav-link" href="/profile-about"><img style="width: 35px; height: 35px; margin-top:-10px" src="{{asset('images/profile/profile-null.png')}}" alt=""></a>
+                        @else
+                            <a class="nav-link" href="/profile-about"><img style="width: 40px; height: 40px;" src="{{asset('images/main/user.png')}}" alt=""></a>
+                        @endif
+                    @else
                     <button><a style="" href="{{route('auth')}}">Login</a></button>
+                    @endif
                 </div>
             </div>
         </div>
@@ -520,75 +527,26 @@
                     <a href="" class="text-white">See All..</a>
                 </div>
                 <div class="row mb-3">
+                    @foreach ($popularArticle as $article)
                     <div class="col-lg-4 mb-3">
                         <div class="card-artikel">
                             <div class="gambar-artikel">
-                                <img class="img-fluid" src="{{ asset('images/main/gambar-artikel.png') }}"
+                                <img class="img-fluid" src="{{ asset($article->image) }}"
                                     alt="">
                             </div>
                             <div class="isi-artikel">
-                                <h4>Pelangi setelah hujan badai</h4>
+                                <h4>{{$article->title}}</h4>
                                 <div class="penuli-tombol">
                                     <div class="fery">
 
-                                        <p>Ferry yulia</p>
-                                        <a href="">Lihat</a>
+                                        <p>{{$article->users->name}}</p>
+                                        <a href="/article/{{$article->id}}">Lihat</a>
                                     </div>
                                     <div class="icon-mata">
 
                                         <a> <img class="img-fluid"
                                                 src="{{ asset('images/main/icon_view.png') }}"></a>
-                                        <p>25K</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-lg-4 mb-3">
-                        <div class="card-artikel">
-                            <div class="gambar-artikel">
-                                <img class="img-fluid" src="{{ asset('images/main/gambar-artikel.png') }}"
-                                    alt="">
-                            </div>
-                            <div class="isi-artikel">
-                                <h4>Pelangi setelah hujan badai</h4>
-                                <div class="penuli-tombol">
-                                    <div class="fery">
-
-                                        <p>Ferry yulia</p>
-                                        <a href="">Lihat</a>
-                                    </div>
-                                    <div class="icon-mata">
-
-                                        <a> <img class="img-fluid"
-                                                src="{{ asset('images/main/icon_view.png') }}"></a>
-                                        <p>25K</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-lg-4 mb-3">
-                        <div class="card-artikel">
-                            <div class="gambar-artikel">
-                                <img class="img-fluid" src="{{ asset('images/main/gambar-artikel.png') }}"
-                                    alt="">
-                            </div>
-                            <div class="isi-artikel">
-                                <h4>Pelangi setelah hujan badai</h4>
-                                <div class="penuli-tombol">
-                                    <div class="fery">
-
-                                        <p>Ferry yulia</p>
-                                        <a href="">Lihat</a>
-                                    </div>
-                                    <div class="icon-mata">
-
-                                        <a> <img class="img-fluid"
-                                                src="{{ asset('images/main/icon_view.png') }}"></a>
-                                        <p>25K</p>
+                                        <p>{{$article->view}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -596,90 +554,13 @@
                         </div>
                     </div>
 
-                </div>
-                <div class="row mb-3">
-                    <div class="col-lg-4 mb-3">
-                        <div class="card-artikel">
-                            <div class="gambar-artikel">
-                                <img class="img-fluid" src="{{ asset('images/main/gambar-artikel.png') }}"
-                                    alt="">
-                            </div>
-                            <div class="isi-artikel">
-                                <h4>Pelangi setelah hujan badai</h4>
-                                <div class="penuli-tombol">
-                                    <div class="fery">
-
-                                        <p>Ferry yulia</p>
-                                        <a href="">Lihat</a>
-                                    </div>
-                                    <div class="icon-mata">
-
-                                        <a> <img class="img-fluid"
-                                                src="{{ asset('images/main/icon_view.png') }}"></a>
-                                        <p>25K</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-lg-4 mb-3">
-                        <div class="card-artikel">
-                            <div class="gambar-artikel">
-                                <img class="img-fluid" src="{{ asset('images/main/gambar-artikel.png') }}"
-                                    alt="">
-                            </div>
-                            <div class="isi-artikel">
-                                <h4>Pelangi setelah hujan badai</h4>
-                                <div class="penuli-tombol">
-                                    <div class="fery">
-
-                                        <p>Ferry yulia</p>
-                                        <a href="">Lihat</a>
-                                    </div>
-                                    <div class="icon-mata">
-
-                                        <a> <img class="img-fluid"
-                                                src="{{ asset('images/main/icon_view.png') }}"></a>
-                                        <p>25K</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-lg-4 mb-3">
-                        <div class="card-artikel">
-                            <div class="gambar-artikel">
-                                <img class="img-fluid" src="{{ asset('images/main/gambar-artikel.png') }}"
-                                    alt="">
-                            </div>
-                            <div class="isi-artikel">
-                                <h4>Pelangi setelah hujan badai</h4>
-                                <div class="penuli-tombol">
-                                    <div class="fery">
-
-                                        <p>Ferry yulia</p>
-                                        <a href="">Lihat</a>
-                                    </div>
-                                    <div class="icon-mata">
-
-                                        <a> <img class="img-fluid"
-                                                src="{{ asset('images/main/icon_view.png') }}"></a>
-                                        <p>25K</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
+                    @endforeach
 
                 </div>
 
             </div>
 
         </div>
-
 
 
         </div>
@@ -716,6 +597,7 @@
 
                 <div class="row">
 
+                    @foreach ($popularStory as $story)
                     <div class="col-12">
 
                         <div class="cart-cerita mt-3">
@@ -731,10 +613,9 @@
 
                                     <div class="isi-cart-cerita">
                                         <div class="judul-cerita">
-                                            <h4>Judul cerita</h4>
-                                            <p>It is a long established fact that a reader
-                                                will be distracted by the readable content
-                                                of a page when looking at its layout.</p>
+                                            <h4>{{$story->title}}</h4>
+                                            <p style="color:white;">{{$story->users->name}}</p>
+                                            <p>{{ Illuminate\Support\Str::limit($article->content, 100) }}</p>
                                         </div>
                                         <div class="kategori">
                                             <a class="text-white " style="text-decoration: none;">Bahagia</a>
@@ -751,10 +632,10 @@
 
                                                 <div class="isi_icon">
                                                     <p class="text-white">View artikel</p>
-                                                    <h5 class="text-white">25.k</h5>
+                                                    <h5 class="text-white">{{$story->view}}</h5>
                                                 </div>
                                                 <div class="tombol-cerita">
-                                                    <a href="">Lihat</a>
+                                                    <a href="/story/{{$story->id}}">Lihat</a>
 
                                                 </div>
                                             </div>
@@ -764,102 +645,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12">
 
-                        <div class="cart-cerita mt-3">
-                            <div class="row">
-                                <div class="col-lg-6">
-
-                                    <div class="gambar-cerita">
-                                        <img class="img-fluid" src="{{ asset('images/main/gambar-cerita.png') }}"
-                                            alt="">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-
-                                    <div class="isi-cart-cerita">
-                                        <div class="judul-cerita">
-                                            <h4>Judul cerita</h4>
-                                            <p>It is a long established fact that a reader
-                                                will be distracted by the readable content
-                                                of a page when looking at its layout.</p>
-                                        </div>
-                                        <div class="kategori">
-                                            <a class="text-white " style="text-decoration: none;">Bahagia</a>
-                                            <a class="text-white" style="text-decoration: none;">Motivasi</a>
-                                        </div>
-                                        <div class="icon-view-artikel pt-3">
-                                            <div class="gambar-view-artikel">
-
-                                                <a href=""><img class="img-fluid"
-                                                        src="{{ asset('images/main/icon_view.png') }}"
-                                                        alt=""></a>
-                                            </div>
-                                            <div class="bungkus-icon-tombol">
-
-                                                <div class="isi_icon">
-                                                    <p class="text-white">View artikel</p>
-                                                    <h5 class="text-white">25.k</h5>
-                                                </div>
-                                                <div class="tombol-cerita">
-                                                    <a href="">Lihat</a>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12">
-
-                        <div class="cart-cerita mt-3">
-                            <div class="row">
-                                <div class="col-lg-6">
-
-                                    <div class="gambar-cerita">
-                                        <img class="img-fluid" src="{{ asset('images/main/gambar-cerita.png') }}"
-                                            alt="">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-
-                                    <div class="isi-cart-cerita">
-                                        <div class="judul-cerita">
-                                            <h4>Judul cerita</h4>
-                                            <p>It is a long established fact that a reader
-                                                will be distracted by the readable content
-                                                of a page when looking at its layout.</p>
-                                        </div>
-                                        <div class="kategori">
-                                            <a class="text-white " style="text-decoration: none;">Bahagia</a>
-                                            <a class="text-white" style="text-decoration: none;">Motivasi</a>
-                                        </div>
-                                        <div class="icon-view-artikel pt-3">
-                                            <div class="gambar-view-artikel">
-
-                                                <a href=""><img class="img-fluid"
-                                                        src="{{ asset('images/main/icon_view.png') }}"
-                                                        alt=""></a>
-                                            </div>
-                                            <div class="bungkus-icon-tombol">
-
-                                                <div class="isi_icon">
-                                                    <p class="text-white">View artikel</p>
-                                                    <h5 class="text-white">25.k</h5>
-                                                </div>
-                                                <div class="tombol-cerita">
-                                                    <a href="">Lihat</a>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
 
 
                 </div>
