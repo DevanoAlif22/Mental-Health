@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Mental Health - Profil</title>
-    <link rel="stylesheet" href="{{ asset('/css/profile/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/profileuser/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     {{-- <link rel="stylesheet" href="{{ asset('/css/content/listArticle_style.css') }}"> --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -15,12 +15,11 @@
 
 <body>
 
-
     <img class="bg-profile" src="{{ asset('images/profile/bg.png') }}" alt="">
 
     <div class="container-fluid mb-3 p-5" style="margin-top: -145px">
         <div class="row">
-            <div class="col-lg-3 col-md-12  wrap-profile">
+            <div class="col-lg-3 col-md-12 wrap-profile">
                 <div class="wrap">
                     <div>
                         <div class="img-profile"
@@ -57,7 +56,9 @@
                                 </div>
                             </div>
                             <div class="wrap">
-                                <button class="btn-follow margin-auto"><b style="font-size: 20px">Ikuti</b></button>
+                                <a href="edit-profileuser"> <button class="btn-follow margin-auto"><b
+                                            style="font-size: 20px">Edit
+                                            Profile</b></button></a>
                             </div>
                         </div>
                     </div>
@@ -79,36 +80,50 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-8 col-md-12  animate__animated animate__slideInRight wrap-profile-2 description">
+            <div class="col-lg-8 col-md-12 animate__animated animate__slideInRight wrap-profile-2 description">
                 <div class="container-fluid wrap-list" style="border-bottom: 3px solid #D9D9D9;">
                     <div class="list" style="display: flex; justify-content:space-between">
-                        <h5><a href="profile-about">Tentang</a></h5>
-                        <h5><a style="color: #0a6ef6" href="profile-article">Artikel</a></h5>
-                        <h5><a href="profile-story">Cerita</a></h5>
+                        <h5><a href="profile-aboutuser">Tentang</a></h5>
+                        <h5><a style="color: #0a6ef6" href="profile-articleuser">Artikel</a></h5>
+                        <h5><a href="profile-storyuser">Cerita</a></h5>
                     </div>
                 </div>
                 <div class="container list-article" style="padding-top: 25px">
                     <div class="row mb-3">
+                        <div class="upload-story mb-5" style="text-align: right;">
+                            <a href="upload-asticleuser">Upload</a>
+                        </div>
                         <div class="col-lg-4 mb-3">
                             <div class="card-artikel">
                                 <div class="gambar-artikel"
-                                    style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; width: 100%; height: auto;">
+                                    style="background-image: url('{{ asset('images/main/gambar-artikel.png') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; width: 100%; height: auto;">
 
                                 </div>
+
                                 <div class="isi-artikel">
                                     <h4>Pelangi setelah hujan badai</h4>
                                     <div class="penuli-tombol">
-                                        <div class="fery">
+                                        <div class="nama-tombol">
 
                                             <p>Ferry yulia</p>
                                             <a href="">Lihat</a>
                                         </div>
-                                        <div class="icon-mata">
+                                        <div class="hapus-edit mt-2">
+                                            <div class="edit">
 
-                                            <a> <img class="img-fluid"
-                                                    src="{{ asset('images/main/icon_view.png') }}"></a>
-                                            <p>25K</p>
+                                                <a href="">Edit</a>
+                                            </div>
+                                            <div class="hapus mt-3">
+
+                                                <a href="">Hapus</a>
+                                            </div>
                                         </div>
+
+                                    </div>
+                                    <div class="icon-mata pt-3">
+
+                                        <a> <img class="img-fluid" src="{{ asset('images/main/icon_view.png') }}"></a>
+                                        <p>25K</p>
                                     </div>
                                 </div>
 
@@ -120,20 +135,32 @@
                                     style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; width: 100%; height: auto;">
 
                                 </div>
+
                                 <div class="isi-artikel">
                                     <h4>Pelangi setelah hujan badai</h4>
                                     <div class="penuli-tombol">
-                                        <div class="fery">
+                                        <div class="nama-tombol">
 
                                             <p>Ferry yulia</p>
                                             <a href="">Lihat</a>
                                         </div>
-                                        <div class="icon-mata">
+                                        <div class="hapus-edit mt-2">
+                                            <div class="edit">
 
-                                            <a> <img class="img-fluid"
-                                                    src="{{ asset('images/main/icon_view.png') }}"></a>
-                                            <p>25K</p>
+                                                <a href="">Edit</a>
+                                            </div>
+                                            <div class="hapus mt-3">
+
+                                                <a href="">Hapus</a>
+                                            </div>
                                         </div>
+
+                                    </div>
+                                    <div class="icon-mata pt-3">
+
+                                        <a> <img class="img-fluid"
+                                                src="{{ asset('images/main/icon_view.png') }}"></a>
+                                        <p>25K</p>
                                     </div>
                                 </div>
 
@@ -142,51 +169,78 @@
                         <div class="col-lg-4 mb-3">
                             <div class="card-artikel">
                                 <div class="gambar-artikel"
-                                    style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; width: 100%; height: auto;">
+                                    style="background-image: url('{{ asset('images/main/gambar-artikel.png') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; width: 100%; height: auto;">
 
                                 </div>
+
                                 <div class="isi-artikel">
                                     <h4>Pelangi setelah hujan badai</h4>
                                     <div class="penuli-tombol">
-                                        <div class="fery">
+                                        <div class="nama-tombol">
 
                                             <p>Ferry yulia</p>
                                             <a href="">Lihat</a>
                                         </div>
-                                        <div class="icon-mata">
+                                        <div class="hapus-edit mt-2">
+                                            <div class="edit">
 
-                                            <a> <img class="img-fluid"
-                                                    src="{{ asset('images/main/icon_view.png') }}"></a>
-                                            <p>25K</p>
+                                                <a href="">Edit</a>
+                                            </div>
+                                            <div class="hapus mt-3">
+
+                                                <a href="">Hapus</a>
+                                            </div>
                                         </div>
+
+                                    </div>
+                                    <div class="icon-mata pt-3">
+
+                                        <a> <img class="img-fluid"
+                                                src="{{ asset('images/main/icon_view.png') }}"></a>
+                                        <p>25K</p>
                                     </div>
                                 </div>
 
                             </div>
                         </div>
+
+
+
 
                     </div>
                     <div class="row mb-3">
                         <div class="col-lg-4 mb-3">
                             <div class="card-artikel">
                                 <div class="gambar-artikel"
-                                    style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; width: 100%; height: auto;">
+                                    style="background-image: url('{{ asset('images/main/gambar-artikel.png') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; width: 100%; height: auto;">
 
                                 </div>
+
                                 <div class="isi-artikel">
                                     <h4>Pelangi setelah hujan badai</h4>
                                     <div class="penuli-tombol">
-                                        <div class="fery">
+                                        <div class="nama-tombol">
 
                                             <p>Ferry yulia</p>
                                             <a href="">Lihat</a>
                                         </div>
-                                        <div class="icon-mata">
+                                        <div class="hapus-edit mt-2">
+                                            <div class="edit">
 
-                                            <a> <img class="img-fluid"
-                                                    src="{{ asset('images/main/icon_view.png') }}"></a>
-                                            <p>25K</p>
+                                                <a href="">Edit</a>
+                                            </div>
+                                            <div class="hapus mt-3">
+
+                                                <a href="">Hapus</a>
+                                            </div>
                                         </div>
+
+                                    </div>
+                                    <div class="icon-mata pt-3">
+
+                                        <a> <img class="img-fluid"
+                                                src="{{ asset('images/main/icon_view.png') }}"></a>
+                                        <p>25K</p>
                                     </div>
                                 </div>
 
@@ -198,20 +252,32 @@
                                     style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; width: 100%; height: auto;">
 
                                 </div>
+
                                 <div class="isi-artikel">
                                     <h4>Pelangi setelah hujan badai</h4>
                                     <div class="penuli-tombol">
-                                        <div class="fery">
+                                        <div class="nama-tombol">
 
                                             <p>Ferry yulia</p>
                                             <a href="">Lihat</a>
                                         </div>
-                                        <div class="icon-mata">
+                                        <div class="hapus-edit mt-2">
+                                            <div class="edit">
 
-                                            <a> <img class="img-fluid"
-                                                    src="{{ asset('images/main/icon_view.png') }}"></a>
-                                            <p>25K</p>
+                                                <a href="">Edit</a>
+                                            </div>
+                                            <div class="hapus mt-3">
+
+                                                <a href="">Hapus</a>
+                                            </div>
                                         </div>
+
+                                    </div>
+                                    <div class="icon-mata pt-3">
+
+                                        <a> <img class="img-fluid"
+                                                src="{{ asset('images/main/icon_view.png') }}"></a>
+                                        <p>25K</p>
                                     </div>
                                 </div>
 
@@ -220,51 +286,78 @@
                         <div class="col-lg-4 mb-3">
                             <div class="card-artikel">
                                 <div class="gambar-artikel"
-                                    style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; width: 100%; height: auto;">
+                                    style="background-image: url('{{ asset('images/main/gambar-artikel.png') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; width: 100%; height: auto;">
 
                                 </div>
+
                                 <div class="isi-artikel">
                                     <h4>Pelangi setelah hujan badai</h4>
                                     <div class="penuli-tombol">
-                                        <div class="fery">
+                                        <div class="nama-tombol">
 
                                             <p>Ferry yulia</p>
                                             <a href="">Lihat</a>
                                         </div>
-                                        <div class="icon-mata">
+                                        <div class="hapus-edit mt-2">
+                                            <div class="edit">
 
-                                            <a> <img class="img-fluid"
-                                                    src="{{ asset('images/main/icon_view.png') }}"></a>
-                                            <p>25K</p>
+                                                <a href="">Edit</a>
+                                            </div>
+                                            <div class="hapus mt-3">
+
+                                                <a href="">Hapus</a>
+                                            </div>
                                         </div>
+
+                                    </div>
+                                    <div class="icon-mata pt-3">
+
+                                        <a> <img class="img-fluid"
+                                                src="{{ asset('images/main/icon_view.png') }}"></a>
+                                        <p>25K</p>
                                     </div>
                                 </div>
 
                             </div>
                         </div>
+
+
+
 
                     </div>
                     <div class="row mb-3">
                         <div class="col-lg-4 mb-3">
                             <div class="card-artikel">
                                 <div class="gambar-artikel"
-                                    style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; width: 100%; height: auto;">
+                                    style="background-image: url('{{ asset('images/main/gambar-artikel.png') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; width: 100%; height: auto;">
 
                                 </div>
+
                                 <div class="isi-artikel">
                                     <h4>Pelangi setelah hujan badai</h4>
                                     <div class="penuli-tombol">
-                                        <div class="fery">
+                                        <div class="nama-tombol">
 
                                             <p>Ferry yulia</p>
                                             <a href="">Lihat</a>
                                         </div>
-                                        <div class="icon-mata">
+                                        <div class="hapus-edit mt-2">
+                                            <div class="edit">
 
-                                            <a> <img class="img-fluid"
-                                                    src="{{ asset('images/main/icon_view.png') }}"></a>
-                                            <p>25K</p>
+                                                <a href="">Edit</a>
+                                            </div>
+                                            <div class="hapus mt-3">
+
+                                                <a href="">Hapus</a>
+                                            </div>
                                         </div>
+
+                                    </div>
+                                    <div class="icon-mata pt-3">
+
+                                        <a> <img class="img-fluid"
+                                                src="{{ asset('images/main/icon_view.png') }}"></a>
+                                        <p>25K</p>
                                     </div>
                                 </div>
 
@@ -276,20 +369,32 @@
                                     style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; width: 100%; height: auto;">
 
                                 </div>
+
                                 <div class="isi-artikel">
                                     <h4>Pelangi setelah hujan badai</h4>
                                     <div class="penuli-tombol">
-                                        <div class="fery">
+                                        <div class="nama-tombol">
 
                                             <p>Ferry yulia</p>
                                             <a href="">Lihat</a>
                                         </div>
-                                        <div class="icon-mata">
+                                        <div class="hapus-edit mt-2">
+                                            <div class="edit">
 
-                                            <a> <img class="img-fluid"
-                                                    src="{{ asset('images/main/icon_view.png') }}"></a>
-                                            <p>25K</p>
+                                                <a href="">Edit</a>
+                                            </div>
+                                            <div class="hapus mt-3">
+
+                                                <a href="">Hapus</a>
+                                            </div>
                                         </div>
+
+                                    </div>
+                                    <div class="icon-mata pt-3">
+
+                                        <a> <img class="img-fluid"
+                                                src="{{ asset('images/main/icon_view.png') }}"></a>
+                                        <p>25K</p>
                                     </div>
                                 </div>
 
@@ -298,30 +403,49 @@
                         <div class="col-lg-4 mb-3">
                             <div class="card-artikel">
                                 <div class="gambar-artikel"
-                                    style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; width: 100%; height: auto;">
+                                    style="background-image: url('{{ asset('images/main/gambar-artikel.png') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; width: 100%; height: auto;">
 
                                 </div>
+
                                 <div class="isi-artikel">
                                     <h4>Pelangi setelah hujan badai</h4>
                                     <div class="penuli-tombol">
-                                        <div class="fery">
+                                        <div class="nama-tombol">
 
                                             <p>Ferry yulia</p>
                                             <a href="">Lihat</a>
                                         </div>
-                                        <div class="icon-mata">
+                                        <div class="hapus-edit mt-2">
+                                            <div class="edit">
 
-                                            <a> <img class="img-fluid"
-                                                    src="{{ asset('images/main/icon_view.png') }}"></a>
-                                            <p>25K</p>
+                                                <a href="">Edit</a>
+                                            </div>
+                                            <div class="hapus mt-3">
+
+                                                <a href="">Hapus</a>
+                                            </div>
                                         </div>
+
+                                    </div>
+                                    <div class="icon-mata pt-3">
+
+                                        <a> <img class="img-fluid"
+                                                src="{{ asset('images/main/icon_view.png') }}"></a>
+                                        <p>25K</p>
                                     </div>
                                 </div>
 
                             </div>
                         </div>
+
+
+
 
                     </div>
+
+
+
+
 
                 </div>
             </div>

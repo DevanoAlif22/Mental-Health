@@ -5,9 +5,8 @@
 body{
     overflow-x: hidden;
 }
-/* navbar */
 
-/* navbar */
+
 .bg-profile {
     width: 100%;
     height: 300px;
@@ -92,6 +91,41 @@ body{
     padding-left: 10px;
     padding-top: 20px;
     padding-bottom: 5px;
+}
+.link-edit{
+    margin-top: 2rem;
+    text-align: right;
+    margin-right: 2rem;
+}
+.link-edit a{
+    text-decoration: none;
+    color: white;
+    background-color: #0a6ef6;
+    padding: 0.5rem 2rem;
+    border-radius: 20px;
+
+}
+.link-edit a{
+    text-decoration: none;
+    color: white;
+    background-color: #0a6ef6;
+    padding: 0.5rem 2rem;
+    border-radius: 20px;
+    transition: .2s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    font-weight: 600;
+
+}
+.link-edit a:hover{
+    background-color: #0044a3;
+    color: white;
+ 
+}
+.isi-tentang{
+   margin-top: 1rem;
+}
+.isi-tentang p{
+width: 80%;
 }
 /* isi artikel */
 .card-artikel{
@@ -178,11 +212,11 @@ body{
     .icon-mata p{
         margin-top: 0.7rem;
     }
-    .fery p{
+    .nama-tombol p{
     
         font-size: 12px;
     }
-    .fery a{
+    .nama-tombol a{
         font-size: 15px;
         padding: 0.2rem 1.5rem;
         color: white;
@@ -207,18 +241,44 @@ body{
     .icon-mata p{
         font-weight: 700;
     }
-    .fery a:hover{
+    .nama-tombol a:hover{
         background-color: #005cdd;
         color: white;
     }
+    .edit a{
+color: white;
+background-color: #00D2FF;
+padding: 0.3rem 2rem;
+border-radius: 20px;
+font-weight: 600;
+box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
+    .edit a:hover{
+color: white;
+    }
+    .hapus a{
+color: white;
+background-color: #F60A26;
+padding: 0.3rem 1.5rem;
+border-radius: 20px;
+font-weight: 600;
+box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
+    .hapus a:hover{
+color: white;
+    }
     .gambar-artikel{
-        
+      
         padding-bottom: 10rem;
     }
-    /* isi cerita */
-    .wrap-card-cerita{
+     /* isi cerita */
+     .wrap-card-cerita{
         height: auto;
         
+    }
+    .gambar-cerita{
+        padding-right: 10rem;
+        padding-bottom: 15rem;
     }
     .gambar-cerita img{
         height: 100%;
@@ -247,6 +307,11 @@ body{
         padding: 0.3rem 2rem;
         background-color: #006BFC;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+    .tombol-cerita a:hover{
+       
+        color: white;
+        
     }
     .cart-cerita{
         display: flex;
@@ -304,19 +369,28 @@ body{
     .isi_icon h5{
         margin-top: -1rem;
     }
-    .gambar-cerita{
-        border-radius: 10px 0 0 10px;
-        padding-right: 5rem;
-        padding-left: 5rem;
-        margin-bottom: -0.1rem;
-        padding-bottom: 13rem;
+    .link-edit-hapus{
+        display: flex;
+        
+        margin-bottom: 1rem;
+        margin-top: 1rem;
     }
-    /* isi cerita */
-/* user */
-.img-profile{
-    border-radius: 50%;
+    .upload-story a{
+        color: white;
+        font-weight: 700;
+        padding: 0.5rem 2rem;
+        border-radius: 20px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        background-color: #0044a3;
+
+    }
+    .upload-story a:hover{
+color: white;
+    }
+  .img-profile{
     padding-bottom: 10rem;
-}
+    border-radius: 50%;
+  }
 @media (max-width: 1000px) {
     .description {
         margin-left: 0px;
@@ -354,8 +428,28 @@ body{
         width: 90%;
         font-size: 0.6rem;
     }
+    .isi-tentang p{
+        width: 100%;
+        font-size: 12px;
+    }
+    .link-edit-hapus .edit a{
+font-size: 10px;
+    }
+    .link-edit-hapus .hapus a{
+font-size: 10px;
+    }
+    .tombol-cerita{
+        margin-left: -5px;
+    }
     .img-profile{
         border-radius: 50%;
         padding-bottom: 9rem;
+    }
+    .img-profile{
+        padding-bottom: 8rem;
+        border-radius: 50%;
+      }
+      .wrap-profile{
+        margin-left: 0rem;
     }
 }

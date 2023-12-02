@@ -8,13 +8,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="{{ asset('/css/content/profile_style.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-trasnparant">
+    <nav class="navbar navbar-expand-lg bg-trasnparant animate__animated animate__fadeInDown">
         <div class="container wrap_navbar pt-3">
             <a class="navbar-brand" href="#">
                 <img src="{{ asset('images/main/logo_mentahan.png') }}" alt="">Mental Health
@@ -75,110 +76,9 @@
                         <div class="card-profil">
 
 
-                            <div class="image-profil">
-                                <img class="img-fluid" src="{{ asset('images/main/profil1.png') }}" alt="">
-                            </div>
+                            <div class="img-profile"
+                                style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; width: 100%; height: auto;">
 
-                            <div class="section-profil text-center">
-                                <h4>Maharani f</h4>
-                                <p>is simply dummy text of </p>
-                                <a href="">Lihat Saya</a>
-                            </div>
-                            <div class="sosial-media text-center">
-                                <div class="wrap-media">
-
-
-                                    <div class="media ms-2">
-                                        <a><img class="img-fluid" src="{{ asset('images/main/icon_pengikut.png') }}"
-                                                alt=""></a>
-
-
-                                    </div>
-                                    <div class="des-media">
-
-                                        <p>Followers</p>
-                                        <p>25k</p>
-                                    </div>
-                                </div>
-
-                                <div class="wrap-media">
-
-                                    <div class="media">
-                                        <a><img class="img-fluid" src="{{ asset('images/main/icon_view.png') }}"
-                                                alt=""></a>
-                                    </div>
-                                    <div class="des-media text-center">
-
-                                        <p>Viewers</p>
-                                        <p>25k</p>
-                                    </div>
-                                </div>
-
-
-                            </div>
-
-
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 mt-2">
-
-                        <div class="card-profil">
-
-
-                            <div class="image-profil">
-                                <img class="img-fluid" src="{{ asset('images/main/profil1.png') }}" alt="">
-                            </div>
-
-                            <div class="section-profil text-center">
-                                <h4>Maharani f</h4>
-                                <p>is simply dummy text of </p>
-                                <a href="">Lihat Saya</a>
-                            </div>
-                            <div class="sosial-media text-center">
-                                <div class="wrap-media">
-
-
-                                    <div class="media ms-2">
-                                        <a><img class="img-fluid" src="{{ asset('images/main/icon_pengikut.png') }}"
-                                                alt=""></a>
-
-
-                                    </div>
-                                    <div class="des-media">
-
-                                        <p>Followers</p>
-                                        <p>25k</p>
-                                    </div>
-                                </div>
-
-                                <div class="wrap-media">
-
-                                    <div class="media">
-                                        <a><img class="img-fluid" src="{{ asset('images/main/icon_view.png') }}"
-                                                alt=""></a>
-                                    </div>
-                                    <div class="des-media text-center">
-
-                                        <p>Viewers</p>
-                                        <p>25k</p>
-                                    </div>
-                                </div>
-
-
-                            </div>
-
-
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 mt-2">
-
-                        <div class="card-profil">
-
-
-                            <div class="image-profil">
-                                <img class="img-fluid" src="{{ asset('images/main/profil1.png') }}" alt="">
                             </div>
 
                             <div class="section-profil text-center">
@@ -227,8 +127,9 @@
                         <div class="card-profil">
 
 
-                            <div class="image-profil">
-                                <img class="img-fluid" src="{{ asset('images/main/profil1.png') }}" alt="">
+                            <div class="img-profile"
+                                style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; width: 100%; height: auto;">
+
                             </div>
 
                             <div class="section-profil text-center">
@@ -272,6 +173,110 @@
 
                         </div>
                     </div>
+                    <div class="col-lg-3 mt-2">
+
+                        <div class="card-profil">
+
+
+                            <div class="img-profile"
+                                style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; width: 100%; height: auto;">
+
+                            </div>
+
+                            <div class="section-profil text-center">
+                                <h4>Maharani f</h4>
+                                <p>is simply dummy text of </p>
+                                <a href="">Lihat Saya</a>
+                            </div>
+                            <div class="sosial-media text-center">
+                                <div class="wrap-media">
+
+
+                                    <div class="media ms-2">
+                                        <a><img class="img-fluid" src="{{ asset('images/main/icon_pengikut.png') }}"
+                                                alt=""></a>
+
+
+                                    </div>
+                                    <div class="des-media">
+
+                                        <p>Followers</p>
+                                        <p>25k</p>
+                                    </div>
+                                </div>
+
+                                <div class="wrap-media">
+
+                                    <div class="media">
+                                        <a><img class="img-fluid" src="{{ asset('images/main/icon_view.png') }}"
+                                                alt=""></a>
+                                    </div>
+                                    <div class="des-media text-center">
+
+                                        <p>Viewers</p>
+                                        <p>25k</p>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="col-lg-3 mt-2">
+
+                        <div class="card-profil">
+
+
+                            <div class="img-profile"
+                                style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; width: 100%; height: auto;">
+
+                            </div>
+
+                            <div class="section-profil text-center">
+                                <h4>Maharani f</h4>
+                                <p>is simply dummy text of </p>
+                                <a href="">Lihat Saya</a>
+                            </div>
+                            <div class="sosial-media text-center">
+                                <div class="wrap-media">
+
+
+                                    <div class="media ms-2">
+                                        <a><img class="img-fluid" src="{{ asset('images/main/icon_pengikut.png') }}"
+                                                alt=""></a>
+
+
+                                    </div>
+                                    <div class="des-media">
+
+                                        <p>Followers</p>
+                                        <p>25k</p>
+                                    </div>
+                                </div>
+
+                                <div class="wrap-media">
+
+                                    <div class="media">
+                                        <a><img class="img-fluid" src="{{ asset('images/main/icon_view.png') }}"
+                                                alt=""></a>
+                                    </div>
+                                    <div class="des-media text-center">
+
+                                        <p>Viewers</p>
+                                        <p>25k</p>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
 
                 </div>
                 <div class="row mt-5">
@@ -280,110 +285,9 @@
                         <div class="card-profil">
 
 
-                            <div class="image-profil">
-                                <img class="img-fluid" src="{{ asset('images/main/profil1.png') }}" alt="">
-                            </div>
+                            <div class="img-profile"
+                                style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; width: 100%; height: auto;">
 
-                            <div class="section-profil text-center">
-                                <h4>Maharani f</h4>
-                                <p>is simply dummy text of </p>
-                                <a href="">Lihat Saya</a>
-                            </div>
-                            <div class="sosial-media text-center">
-                                <div class="wrap-media">
-
-
-                                    <div class="media ms-2">
-                                        <a><img class="img-fluid" src="{{ asset('images/main/icon_pengikut.png') }}"
-                                                alt=""></a>
-
-
-                                    </div>
-                                    <div class="des-media">
-
-                                        <p>Followers</p>
-                                        <p>25k</p>
-                                    </div>
-                                </div>
-
-                                <div class="wrap-media">
-
-                                    <div class="media">
-                                        <a><img class="img-fluid" src="{{ asset('images/main/icon_view.png') }}"
-                                                alt=""></a>
-                                    </div>
-                                    <div class="des-media text-center">
-
-                                        <p>Viewers</p>
-                                        <p>25k</p>
-                                    </div>
-                                </div>
-
-
-                            </div>
-
-
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 mt-2">
-
-                        <div class="card-profil">
-
-
-                            <div class="image-profil">
-                                <img class="img-fluid" src="{{ asset('images/main/profil1.png') }}" alt="">
-                            </div>
-
-                            <div class="section-profil text-center">
-                                <h4>Maharani f</h4>
-                                <p>is simply dummy text of </p>
-                                <a href="">Lihat Saya</a>
-                            </div>
-                            <div class="sosial-media text-center">
-                                <div class="wrap-media">
-
-
-                                    <div class="media ms-2">
-                                        <a><img class="img-fluid" src="{{ asset('images/main/icon_pengikut.png') }}"
-                                                alt=""></a>
-
-
-                                    </div>
-                                    <div class="des-media">
-
-                                        <p>Followers</p>
-                                        <p>25k</p>
-                                    </div>
-                                </div>
-
-                                <div class="wrap-media">
-
-                                    <div class="media">
-                                        <a><img class="img-fluid" src="{{ asset('images/main/icon_view.png') }}"
-                                                alt=""></a>
-                                    </div>
-                                    <div class="des-media text-center">
-
-                                        <p>Viewers</p>
-                                        <p>25k</p>
-                                    </div>
-                                </div>
-
-
-                            </div>
-
-
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 mt-2">
-
-                        <div class="card-profil">
-
-
-                            <div class="image-profil">
-                                <img class="img-fluid" src="{{ asset('images/main/profil1.png') }}" alt="">
                             </div>
 
                             <div class="section-profil text-center">
@@ -432,8 +336,9 @@
                         <div class="card-profil">
 
 
-                            <div class="image-profil">
-                                <img class="img-fluid" src="{{ asset('images/main/profil1.png') }}" alt="">
+                            <div class="img-profile"
+                                style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; width: 100%; height: auto;">
+
                             </div>
 
                             <div class="section-profil text-center">
@@ -477,6 +382,110 @@
 
                         </div>
                     </div>
+                    <div class="col-lg-3 mt-2">
+
+                        <div class="card-profil">
+
+
+                            <div class="img-profile"
+                                style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; width: 100%; height: auto;">
+
+                            </div>
+
+                            <div class="section-profil text-center">
+                                <h4>Maharani f</h4>
+                                <p>is simply dummy text of </p>
+                                <a href="">Lihat Saya</a>
+                            </div>
+                            <div class="sosial-media text-center">
+                                <div class="wrap-media">
+
+
+                                    <div class="media ms-2">
+                                        <a><img class="img-fluid" src="{{ asset('images/main/icon_pengikut.png') }}"
+                                                alt=""></a>
+
+
+                                    </div>
+                                    <div class="des-media">
+
+                                        <p>Followers</p>
+                                        <p>25k</p>
+                                    </div>
+                                </div>
+
+                                <div class="wrap-media">
+
+                                    <div class="media">
+                                        <a><img class="img-fluid" src="{{ asset('images/main/icon_view.png') }}"
+                                                alt=""></a>
+                                    </div>
+                                    <div class="des-media text-center">
+
+                                        <p>Viewers</p>
+                                        <p>25k</p>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="col-lg-3 mt-2">
+
+                        <div class="card-profil">
+
+
+                            <div class="img-profile"
+                                style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; width: 100%; height: auto;">
+
+                            </div>
+
+                            <div class="section-profil text-center">
+                                <h4>Maharani f</h4>
+                                <p>is simply dummy text of </p>
+                                <a href="">Lihat Saya</a>
+                            </div>
+                            <div class="sosial-media text-center">
+                                <div class="wrap-media">
+
+
+                                    <div class="media ms-2">
+                                        <a><img class="img-fluid" src="{{ asset('images/main/icon_pengikut.png') }}"
+                                                alt=""></a>
+
+
+                                    </div>
+                                    <div class="des-media">
+
+                                        <p>Followers</p>
+                                        <p>25k</p>
+                                    </div>
+                                </div>
+
+                                <div class="wrap-media">
+
+                                    <div class="media">
+                                        <a><img class="img-fluid" src="{{ asset('images/main/icon_view.png') }}"
+                                                alt=""></a>
+                                    </div>
+                                    <div class="des-media text-center">
+
+                                        <p>Viewers</p>
+                                        <p>25k</p>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
 
                 </div>
                 <div class="row mt-5">
@@ -485,110 +494,9 @@
                         <div class="card-profil">
 
 
-                            <div class="image-profil">
-                                <img class="img-fluid" src="{{ asset('images/main/profil1.png') }}" alt="">
-                            </div>
+                            <div class="img-profile"
+                                style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; width: 100%; height: auto;">
 
-                            <div class="section-profil text-center">
-                                <h4>Maharani f</h4>
-                                <p>is simply dummy text of </p>
-                                <a href="">Lihat Saya</a>
-                            </div>
-                            <div class="sosial-media text-center">
-                                <div class="wrap-media">
-
-
-                                    <div class="media ms-2">
-                                        <a><img class="img-fluid" src="{{ asset('images/main/icon_pengikut.png') }}"
-                                                alt=""></a>
-
-
-                                    </div>
-                                    <div class="des-media">
-
-                                        <p>Followers</p>
-                                        <p>25k</p>
-                                    </div>
-                                </div>
-
-                                <div class="wrap-media">
-
-                                    <div class="media">
-                                        <a><img class="img-fluid" src="{{ asset('images/main/icon_view.png') }}"
-                                                alt=""></a>
-                                    </div>
-                                    <div class="des-media text-center">
-
-                                        <p>Viewers</p>
-                                        <p>25k</p>
-                                    </div>
-                                </div>
-
-
-                            </div>
-
-
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 mt-2">
-
-                        <div class="card-profil">
-
-
-                            <div class="image-profil">
-                                <img class="img-fluid" src="{{ asset('images/main/profil1.png') }}" alt="">
-                            </div>
-
-                            <div class="section-profil text-center">
-                                <h4>Maharani f</h4>
-                                <p>is simply dummy text of </p>
-                                <a href="">Lihat Saya</a>
-                            </div>
-                            <div class="sosial-media text-center">
-                                <div class="wrap-media">
-
-
-                                    <div class="media ms-2">
-                                        <a><img class="img-fluid" src="{{ asset('images/main/icon_pengikut.png') }}"
-                                                alt=""></a>
-
-
-                                    </div>
-                                    <div class="des-media">
-
-                                        <p>Followers</p>
-                                        <p>25k</p>
-                                    </div>
-                                </div>
-
-                                <div class="wrap-media">
-
-                                    <div class="media">
-                                        <a><img class="img-fluid" src="{{ asset('images/main/icon_view.png') }}"
-                                                alt=""></a>
-                                    </div>
-                                    <div class="des-media text-center">
-
-                                        <p>Viewers</p>
-                                        <p>25k</p>
-                                    </div>
-                                </div>
-
-
-                            </div>
-
-
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 mt-2">
-
-                        <div class="card-profil">
-
-
-                            <div class="image-profil">
-                                <img class="img-fluid" src="{{ asset('images/main/profil1.png') }}" alt="">
                             </div>
 
                             <div class="section-profil text-center">
@@ -637,8 +545,9 @@
                         <div class="card-profil">
 
 
-                            <div class="image-profil">
-                                <img class="img-fluid" src="{{ asset('images/main/profil1.png') }}" alt="">
+                            <div class="img-profile"
+                                style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; width: 100%; height: auto;">
+
                             </div>
 
                             <div class="section-profil text-center">
@@ -682,8 +591,113 @@
 
                         </div>
                     </div>
+                    <div class="col-lg-3 mt-2">
+
+                        <div class="card-profil">
+
+
+                            <div class="img-profile"
+                                style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; width: 100%; height: auto;">
+
+                            </div>
+
+                            <div class="section-profil text-center">
+                                <h4>Maharani f</h4>
+                                <p>is simply dummy text of </p>
+                                <a href="">Lihat Saya</a>
+                            </div>
+                            <div class="sosial-media text-center">
+                                <div class="wrap-media">
+
+
+                                    <div class="media ms-2">
+                                        <a><img class="img-fluid" src="{{ asset('images/main/icon_pengikut.png') }}"
+                                                alt=""></a>
+
+
+                                    </div>
+                                    <div class="des-media">
+
+                                        <p>Followers</p>
+                                        <p>25k</p>
+                                    </div>
+                                </div>
+
+                                <div class="wrap-media">
+
+                                    <div class="media">
+                                        <a><img class="img-fluid" src="{{ asset('images/main/icon_view.png') }}"
+                                                alt=""></a>
+                                    </div>
+                                    <div class="des-media text-center">
+
+                                        <p>Viewers</p>
+                                        <p>25k</p>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="col-lg-3 mt-2">
+
+                        <div class="card-profil">
+
+
+                            <div class="img-profile"
+                                style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; width: 100%; height: auto;">
+
+                            </div>
+
+                            <div class="section-profil text-center">
+                                <h4>Maharani f</h4>
+                                <p>is simply dummy text of </p>
+                                <a href="">Lihat Saya</a>
+                            </div>
+                            <div class="sosial-media text-center">
+                                <div class="wrap-media">
+
+
+                                    <div class="media ms-2">
+                                        <a><img class="img-fluid" src="{{ asset('images/main/icon_pengikut.png') }}"
+                                                alt=""></a>
+
+
+                                    </div>
+                                    <div class="des-media">
+
+                                        <p>Followers</p>
+                                        <p>25k</p>
+                                    </div>
+                                </div>
+
+                                <div class="wrap-media">
+
+                                    <div class="media">
+                                        <a><img class="img-fluid" src="{{ asset('images/main/icon_view.png') }}"
+                                                alt=""></a>
+                                    </div>
+                                    <div class="des-media text-center">
+
+                                        <p>Viewers</p>
+                                        <p>25k</p>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
 
                 </div>
+
 
 
             </div>

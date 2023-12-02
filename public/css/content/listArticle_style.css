@@ -208,6 +208,10 @@ a.active{
     .icon-mata p{
         font-weight: 700;
     }
+    .gambar-artikel{
+        padding-bottom: 13rem;
+        border-radius: 10px 10px 0 0;
+    }
     @media (max-width:400px){
         .search{
             width: 300px !important;

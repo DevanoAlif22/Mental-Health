@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -14,7 +15,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-trasnparant">
+    <nav class="navbar navbar-expand-lg bg-trasnparant animate__animated animate__fadeInDown">
         <div class="container wrap_navbar pt-3">
             <a class="navbar-brand" href="#">
                 <img src="{{ asset('images/main/logo_mentahan.png') }}" alt="">Mental Health
@@ -74,9 +75,9 @@
                 <div class="row mb-3">
                     <div class="col-lg-4 mb-3">
                         <div class="card-artikel">
-                            <div class="gambar-artikel">
-                                <img class="img-fluid" src="{{ asset('images/main/gambar-artikel.png') }}"
-                                    alt="">
+                            <div class="gambar-artikel"
+                                style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; width: 100%; height: auto;">
+
                             </div>
                             <div class="isi-artikel">
                                 <h4>Pelangi setelah hujan badai</h4>
@@ -98,9 +99,9 @@
                     </div>
                     <div class="col-lg-4 mb-3">
                         <div class="card-artikel">
-                            <div class="gambar-artikel">
-                                <img class="img-fluid" src="{{ asset('images/main/gambar-artikel.png') }}"
-                                    alt="">
+                            <div class="gambar-artikel"
+                                style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; width: 100%; height: auto;">
+
                             </div>
                             <div class="isi-artikel">
                                 <h4>Pelangi setelah hujan badai</h4>
@@ -122,9 +123,9 @@
                     </div>
                     <div class="col-lg-4 mb-3">
                         <div class="card-artikel">
-                            <div class="gambar-artikel">
-                                <img class="img-fluid" src="{{ asset('images/main/gambar-artikel.png') }}"
-                                    alt="">
+                            <div class="gambar-artikel"
+                                style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; width: 100%; height: auto;">
+
                             </div>
                             <div class="isi-artikel">
                                 <h4>Pelangi setelah hujan badai</h4>
@@ -144,14 +145,15 @@
 
                         </div>
                     </div>
+
 
                 </div>
                 <div class="row mb-3">
                     <div class="col-lg-4 mb-3">
                         <div class="card-artikel">
-                            <div class="gambar-artikel">
-                                <img class="img-fluid" src="{{ asset('images/main/gambar-artikel.png') }}"
-                                    alt="">
+                            <div class="gambar-artikel"
+                                style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; width: 100%; height: auto;">
+
                             </div>
                             <div class="isi-artikel">
                                 <h4>Pelangi setelah hujan badai</h4>
@@ -173,9 +175,9 @@
                     </div>
                     <div class="col-lg-4 mb-3">
                         <div class="card-artikel">
-                            <div class="gambar-artikel">
-                                <img class="img-fluid" src="{{ asset('images/main/gambar-artikel.png') }}"
-                                    alt="">
+                            <div class="gambar-artikel"
+                                style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; width: 100%; height: auto;">
+
                             </div>
                             <div class="isi-artikel">
                                 <h4>Pelangi setelah hujan badai</h4>
@@ -198,9 +200,9 @@
                     </div>
                     <div class="col-lg-4 mb-3">
                         <div class="card-artikel">
-                            <div class="gambar-artikel">
-                                <img class="img-fluid" src="{{ asset('images/main/gambar-artikel.png') }}"
-                                    alt="">
+                            <div class="gambar-artikel"
+                                style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; width: 100%; height: auto;">
+
                             </div>
                             <div class="isi-artikel">
                                 <h4>Pelangi setelah hujan badai</h4>
@@ -221,14 +223,15 @@
 
                         </div>
                     </div>
+
 
                 </div>
                 <div class="row mb-3">
                     <div class="col-lg-4 mb-3">
                         <div class="card-artikel">
-                            <div class="gambar-artikel">
-                                <img class="img-fluid" src="{{ asset('images/main/gambar-artikel.png') }}"
-                                    alt="">
+                            <div class="gambar-artikel"
+                                style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; width: 100%; height: auto;">
+
                             </div>
                             <div class="isi-artikel">
                                 <h4>Pelangi setelah hujan badai</h4>
@@ -251,9 +254,9 @@
                     </div>
                     <div class="col-lg-4 mb-3">
                         <div class="card-artikel">
-                            <div class="gambar-artikel">
-                                <img class="img-fluid" src="{{ asset('images/main/gambar-artikel.png') }}"
-                                    alt="">
+                            <div class="gambar-artikel"
+                                style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; width: 100%; height: auto;">
+
                             </div>
                             <div class="isi-artikel">
                                 <h4>Pelangi setelah hujan badai</h4>
@@ -276,9 +279,9 @@
                     </div>
                     <div class="col-lg-4 mb-3">
                         <div class="card-artikel">
-                            <div class="gambar-artikel">
-                                <img class="img-fluid" src="{{ asset('images/main/gambar-artikel.png') }}"
-                                    alt="">
+                            <div class="gambar-artikel"
+                                style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; width: 100%; height: auto;">
+
                             </div>
                             <div class="isi-artikel">
                                 <h4>Pelangi setelah hujan badai</h4>
@@ -299,8 +302,10 @@
 
                         </div>
                     </div>
+
 
                 </div>
+
 
             </div>
 
