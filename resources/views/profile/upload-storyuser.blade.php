@@ -92,17 +92,30 @@
                 <div class="container list-article" style="padding-top: 25px">
 
                     <div class="row">
+                        <!-- ... (previous code) ... -->
                         <div class="col-lg-5">
-                            <div class="tempat-upload-gambar mt-4">
-                                <div class="gambar-upload">
+                            <div class="judul-form mt-4">
+                                <h6>Gambar Cerita</h6>
+                            </div>
 
-                                    <img src="{{ asset('images/profile/upload.png') }}" class="img-fluid"
-                                        alt="">
-                                    <h6>Drop Files to Upload
-                                        or <a href="">Browse</a></h6>
-                                </div>
+                            <div class="tempat-upload-gambar mt-4">
+                                <form action="/upload-image" method="post" enctype="multipart/form-data">
+                                    <div class="gambar-upload">
+                                        <label for="imageUpload" class="custom-file-upload">
+                                            <img src="{{ asset('images/profile/upload.png') }}" class="img-fluid"
+                                                alt="">
+                                            <h6>Klik Disini Untuk Memilih gambar</h6>
+                                        </label>
+                                        <input type="file" class="masukgambar" name="image" id="imageUpload"
+                                            accept="image/*">
+                                    </div>
+                                    <!-- Add a submit button if needed -->
+                                    <!-- <button type="submit">Upload</button> -->
+                                </form>
                             </div>
                         </div>
+                        <!-- ... (remaining code) ... -->
+
                         <div class="col-lg-7">
                             <div class="judul-form mt-4">
                                 <h6>Judul Cerita</h6>
@@ -110,6 +123,31 @@
                             <div class="form-upload">
                                 <input type="text">
                             </div>
+                            <!-- ... (previous code) ... -->
+                            <!-- ... (previous code) ... -->
+                            <div class="judul-form mt-4">
+                                <h6>Kategori Cerita</h6>
+                            </div>
+                            <div class="form-upload checkbox-container">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="category[]" value="pengalaman">
+                                    Pengalaman
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="category[]" value="bahagia">
+                                    Bahagia
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="category[]" value="sedih">
+                                    Sedih
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="category[]" value="motivasi">
+                                    Motivasi
+                                </label>
+                            </div>
+                            <!-- ... (remaining code) ... -->
+
                             <div class="judul-form mt-4">
                                 <h6>Deskipsi Cerita</h6>
                             </div>
@@ -135,6 +173,7 @@
         </div>
     </div>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
     </script>

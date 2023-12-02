@@ -251,6 +251,50 @@ textarea{
 textarea{
 padding: 1rem;
 }
+.judul-form {
+    margin-top: 1rem;
+}
+
+.checkbox-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Adjust the spacing between checkboxes */
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.checkbox-label input {
+    margin-right: 5px;
+}
+.custom-file-upload {
+    display: inline-block;
+    cursor: pointer;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: transparent;
+    color: #333;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.custom-file-upload img {
+    max-width: 90px;
+    max-height:90px;
+    margin-right: 8px;
+}
+
+.gambar-upload input {
+    display: none;
+}
+.gambar-upload h6{
+    color: #0a6ef6;
+    
+}
 @media (max-width: 1000px) {
     .description {
         margin-left: 0px;

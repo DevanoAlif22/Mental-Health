@@ -93,14 +93,24 @@
 
                     <div class="row">
                         <div class="col-lg-5">
-                            <div class="tempat-upload-gambar mt-4">
-                                <div class="gambar-upload">
+                            <div class="judul-form mt-4">
+                                <h6>Gambar Cerita</h6>
+                            </div>
 
-                                    <img src="{{ asset('images/profile/upload.png') }}" class="img-fluid"
-                                        alt="">
-                                    <h6>Drop Files to Upload
-                                        or <a href="">Browse</a></h6>
-                                </div>
+                            <div class="tempat-upload-gambar mt-4">
+                                <form action="/upload-image" method="post" enctype="multipart/form-data">
+                                    <div class="gambar-upload">
+                                        <label for="imageUpload" class="custom-file-upload">
+                                            <img src="{{ asset('images/profile/upload.png') }}" class="img-fluid"
+                                                alt="">
+                                            <h6>Klik Disini Untuk Memilih gambar</h6>
+                                        </label>
+                                        <input type="file" class="masukgambar" name="image" id="imageUpload"
+                                            accept="image/*">
+                                    </div>
+                                    <!-- Add a submit button if needed -->
+                                    <!-- <button type="submit">Upload</button> -->
+                                </form>
                             </div>
                         </div>
                         <div class="col-lg-7">
