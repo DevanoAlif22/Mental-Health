@@ -33,15 +33,40 @@ Route::middleware('guest')->group(function () {
     Route::get('/verify/{verify_key}', [AuthController::class, 'verify']);
 
 });
-Route::middleware('auth')->group(function () {
-    Route::get('/profile-about', function () {
-        return view('profile.profile-about');
-    });
-    Route::get('/profile-article', function () {
-        return view('profile.profile-article');
-    });
-    Route::get('/logout', [AuthController::class, 'logout']);
+// Route::middleware('auth')->group(function () {
+Route::get('/profile-about', function () {
+    return view('profile.profile-about');
 });
+Route::get('/profile-article', function () {
+    return view('profile.profile-article');
+});
+Route::get('/profile-story', function () {
+    return view('profile.profile-story');
+});
+Route::get('/profile-aboutuser', function () {
+    return view('profile.profile-aboutuser');
+});
+Route::get('/profile-articleuser', function () {
+    return view('profile.profile-articleuser');
+});
+Route::get('/profile-storyuser', function () {
+    return view('profile.profile-storyuser');
+});
+// edit user
+Route::get('/edit-profileuser', function () {
+    return view('profile.edit-profileuser');
+});
+Route::get('/upload-asticleuser', function () {
+    return view('profile.upload-articleuser');
+});
+Route::get('/upload-storyuser', function () {
+    return view('profile.upload-storyuser');
+});
+Route::get('/upload-aboutuser', function () {
+    return view('profile.upload-aboutuser');
+});
+Route::get('/logout', [AuthController::class, 'logout']);
+// });
 
 Route::get('/list-article', function () {
     return view('content.listArticle');

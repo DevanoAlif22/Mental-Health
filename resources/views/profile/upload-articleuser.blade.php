@@ -5,8 +5,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Mental Health - Profil</title>
+    <link rel="stylesheet" href="{{ asset('/css/edituser/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <link rel="stylesheet" href="{{ asset('/css/profile/style.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('/css/content/listStory_style.css') }}"> --}}
+    {{-- <link rel="stylesheet" href="{{ asset('/css/content/listArticle_style.css') }}"> --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -16,9 +18,9 @@
 
     <img class="bg-profile" src="{{ asset('images/profile/bg.png') }}" alt="">
 
-    <div class="container-fluid mb-3 p-5 " style="margin-top: -145px">
+    <div class="container-fluid mb-3 p-5" style="margin-top: -145px">
         <div class="row">
-            <div class="col-lg-3   wrap-profile">
+            <div class="col-lg-3 col-md-12 wrap-profile">
                 <div class="wrap">
                     <div>
                         <div class="img-profile"
@@ -55,7 +57,9 @@
                                 </div>
                             </div>
                             <div class="wrap">
-                                <button class="btn-follow margin-auto"><b style="font-size: 20px">Ikuti</b></button>
+                                <a href="edit-profileuser"><button class="btn-follow margin-auto"> <b
+                                            style="font-size: 20px">Edit
+                                            Profile</b></button></a>
                             </div>
                         </div>
                     </div>
@@ -77,23 +81,51 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-8 animate__animated animate__slideInRight wrap-profile-2 description">
+            <div class="col-lg-8 animate__animated animate__slideInRight  col-md-12 wrap-profile-2 description">
                 <div class="container-fluid wrap-list" style="border-bottom: 3px solid #D9D9D9;">
                     <div class="list" style="display: flex; justify-content:space-between">
-                        <h5><a style="color: #0a6ef6" href="profile-about">Tentang</a></h5>
-                        <h5><a href="profile-article">Artikel</a></h5>
-                        <h5><a href="profile-story">Cerita</a></h5>
+                        <h5><a href="profile-about" style="font-weight: 700">POSTING ARTIKEL</a></h5>
+                        <h5><a href="profile-articleuser"><i class="fa-solid fa-xmark"></i></a></h5>
+
                     </div>
                 </div>
-                <div class="container" style="padding-top: 25px">
-                    Saya Devano Alif Ramadhan umur 20 tahun, mahasiswa sistem informasi di Institut Teknologi Adhi Tama
-                    Surabaya. Saya aktif di website ini untuk sharing cerita untuk membangun mental kita semua.
-                    Kesehatan mental tidak bisa di pandang remeh akhir-akhir ini, karena memang kesehatan mental
-                    sepenting itu
+                <div class="container list-article" style="padding-top: 25px">
+
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <div class="tempat-upload-gambar mt-4">
+                                <div class="gambar-upload">
+
+                                    <img src="{{ asset('images/profile/upload.png') }}" class="img-fluid"
+                                        alt="">
+                                    <h6>Drop Files to Upload
+                                        or <a href="">Browse</a></h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-7">
+                            <div class="judul-form mt-4">
+                                <h6>Judul Artikel</h6>
+                            </div>
+                            <div class="form-upload">
+                                <input type="text">
+                            </div>
+                            <div class="judul-form mt-4">
+                                <h6>Isi Artikel</h6>
+                            </div>
+
+                            <textarea name="" id="" style="width: 100%" rows="14"></textarea>
+                            <div class="tombol-kirim" style="text-align: right">
+                                <a href="">Kirim</a>
+                            </div>
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
         </div>
-
+    </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">

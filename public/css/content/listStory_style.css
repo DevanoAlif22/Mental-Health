@@ -194,6 +194,12 @@ a.active{
 .isi_icon h5{
     margin-top: -1rem;
 }
+.gambar-cerita{
+    padding-bottom: 17rem;
+    padding-right: 10rem;
+    border-radius: 10px 0 0 10px;
+}
+
 @media (max-width:400px){
     .search{
         width: 300px !important;
