@@ -4,6 +4,8 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Models\Story;
+use App\Models\Profile;
+use App\Models\Follower;
 use App\Models\ArticleLike;
 use App\Models\ArticleComments;
 use Laravel\Sanctum\HasApiTokens;
@@ -46,6 +48,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function profiles()
+    {
+        return $this->hasOne(Profile::class, 'id_user', 'id');
+    }
+    public function followers()
+    {
+        return $this->hasOne(Follower::class, 'id_user', 'id');
+    }
     public function articles()
     {
         return $this->hasMany(Article::class, 'id_user', 'id');

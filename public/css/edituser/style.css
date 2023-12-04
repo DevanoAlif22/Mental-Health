@@ -1,14 +1,13 @@
-
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 
 * {
     margin: 0px;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     padding: 0px;
 }
-body{
+body {
     overflow-x: hidden;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 .bg-profile {
@@ -20,7 +19,7 @@ body{
     width: 170px;
     margin-top: 15px;
     margin-bottom: 15px;
-    border-radius: 50px;
+    border-radius: 50%;
 }
 
 .wrap-profile {
@@ -72,7 +71,7 @@ body{
 .description {
     margin-left: 20px;
 }
-.wrap-profile{
+.wrap-profile {
     margin-left: 1rem;
 }
 .btn-follow {
@@ -97,33 +96,28 @@ body{
     padding-bottom: 5px;
 }
 /* isi edit */
-.gambar-user{
-   border: 2px dashed black;
+.gambar-user {
+    border: 2px dashed black;
     padding-bottom: 11rem;
-   
 }
-.ubah-profileuser a{
+.ubah-profileuser a {
     color: white;
     background-color: #0044a3;
     padding: 0.5rem 1.5rem;
     border-radius: 20px;
     font-weight: 600;
-    transition: .2s ease-in-out;
+    transition: 0.2s ease-in-out;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  
 }
-.ubah-profileuser a:hover{
+.ubah-profileuser a:hover {
     background-color: #0a6ef6;
     color: white;
-
-  
 }
 .ubah-profileuser {
-margin-top: 1.5rem;
-margin-left: 1rem;
-  
+    margin-top: 1.5rem;
+    margin-left: 1rem;
 }
-.edit-isi input{
+.edit-isi input {
     border: none;
     color: white;
     background-color: transparent;
@@ -133,16 +127,17 @@ margin-left: 1rem;
     outline: none; /* Untuk menghapus outline default pada beberapa browser */
     /* Anda dapat menambahkan properti lain sesuai kebutuhan */
 }
-.edit-judul h6{
+.edit-judul h6 {
     font-weight: bold;
 }
-.edit-isi{
+.edit-isi {
     padding: 0.4rem 1rem;
     background-color: #0044a3;
     border-radius: 15px;
     width: 80%;
 }
-.kirim-edit a{
+.kirim-edit button {
+    border: none;
     text-decoration: none;
     color: white;
     background-color: #0044a3;
@@ -150,67 +145,67 @@ margin-left: 1rem;
     border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     font-weight: bold;
-    transition: .2s ease-in-out;
+    transition: 0.2s ease-in-out;
 }
-.kirim-edit a:hover{
-background-color: #0a6ef6;
+.kirim-edit a:hover {
+    background-color: #0a6ef6;
     color: white;
 }
-.kirim-edit{
+.kirim-edit {
     margin-top: 3rem;
     text-align: right;
 }
-.img-profile{
+.img-profile {
     border-radius: 50%;
     padding-bottom: 10rem;
 }
 /* isi edit */
 /* isi upload article dan story */
-.tempat-upload-gambar{
+.tempat-upload-gambar {
     border: 2px dashed black;
     height: 290px;
     background-color: rgb(202, 202, 202);
 }
-.gambar-upload{
-    
-  text-align: center;
+.gambar-upload {
+    text-align: center;
 }
-.gambar-upload img{
+.gambar-upload img {
     width: 90px;
 }
-.gambar-upload a{
+.gambar-upload a {
     color: #0a6ef6;
     text-align: center;
     width: 50%;
     text-decoration: underline;
 }
-.gambar-upload{
+.gambar-upload {
     margin-top: 4rem;
 }
-.judul-form h6{
+.judul-form h6 {
     font-weight: 600;
 }
-.form-upload input{
+.form-upload input {
     background-color: transparent;
     border: none;
     width: 100%;
     outline: none;
 }
-.form-upload{
-padding: 0.5rem 1rem;
-border: 1px solid black;
-border-radius: 10px;
-box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+.form-upload {
+    padding: 0.5rem 1rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
-textarea{
+textarea {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     border-radius: 10px;
     padding: 0.5rem;
 }
-.mp3{
+.mp3 {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
-.tombol-kirim a{
+.tombol-kirim button {
+    border: none;
     margin-top: 2rem;
     background-color: #0044a3;
     padding: 0.5rem 2rem;
@@ -218,38 +213,36 @@ textarea{
     color: white;
     font-weight: 600;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-
 }
 .tombol-kirim {
     margin-top: 2rem;
-   
-
 }
 /* isi about */
-.judul-tbl-kirim{
+.judul-tbl-kirim {
     display: flex;
     justify-content: space-between;
     width: 90%;
 }
-.judul-tbl-kirim h6{
+.judul-tbl-kirim h6 {
     font-weight: 600;
 }
-.judul-tbl-kirim a{
+.judul-tbl-kirim button {
     color: white;
     background-color: #0044a3;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     padding: 0.4rem 2rem;
     border-radius: 20px;
     font-weight: 600;
+    border: none;
 }
-.judul-tbl-kirim a:hover{
+.judul-tbl-kirim a:hover {
     color: white;
 }
-.tombol-kirim a:hover{
+.tombol-kirim a:hover {
     color: white;
 }
-textarea{
-padding: 1rem;
+textarea {
+    padding: 1rem;
 }
 .judul-form {
     margin-top: 1rem;
@@ -284,16 +277,15 @@ padding: 1rem;
 
 .custom-file-upload img {
     max-width: 90px;
-    max-height:90px;
+    max-height: 90px;
     margin-right: 8px;
 }
 
 .gambar-upload input {
     display: none;
 }
-.gambar-upload h6{
+.gambar-upload h6 {
     color: #0a6ef6;
-    
 }
 @media (max-width: 1000px) {
     .description {
@@ -302,22 +294,28 @@ padding: 1rem;
     .wrap-profile {
         margin-bottom: 20px;
     }
-    .wrap-profile{
+    .wrap-profile {
         margin-left: 0;
+    }
+
+    .img-profile {
+        width: 70px;
     }
 }
 @media (max-width: 400px) {
-    .edit-isi{
+    .edit-isi {
         padding: 0.4rem 1rem;
         background-color: #0044a3;
         border-radius: 15px;
         width: 100%;
     }
-    .wrap-profile{
+    .wrap-profile {
         margin-left: 0;
     }
-    .wrap-profile-2{
+    .wrap-profile-2 {
         margin-left: 0;
     }
-   
+    .img-profile {
+        width: 70px;
+    }
 }

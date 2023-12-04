@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\StoryController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,10 +24,6 @@ Route::get('/coba', function () {
 Route::get('/home', [MainController::class, 'index'])->name('home');
 
 //  Konten
-Route::post('/coba', [ArticleController::class, 'coba']);
-Route::get('/coba2', [StoryController::class, 'coba']);
-Route::post('/coba2', [StoryController::class, 'coba2']);
-
 Route::get('/article/{id}', [ArticleController::class,'detail']);
 Route::post('/comment-article/{id}', [ArticleController::class,'addComment']);
 Route::get('/like-article/{id}', [ArticleController::class,'addLike']);
@@ -42,43 +39,37 @@ Route::middleware('guest')->group(function () {
     Route::get('/register', [AuthController::class, 'create']);
     Route::post('/register', [AuthController::class, 'register']);
     Route::get('/verify/{verify_key}', [AuthController::class, 'verify']);
+});
 
-});
-// Route::middleware('auth')->group(function () {
-Route::get('/profile-about', function () {
-    return view('profile.profile-about');
-});
-Route::get('/profile-article', function () {
-    return view('profile.profile-article');
-});
-Route::get('/profile-story', function () {
-    return view('profile.profile-story');
-});
-Route::get('/profile-aboutuser', function () {
-    return view('profile.profile-aboutuser');
-});
-Route::get('/profile-articleuser', function () {
-    return view('profile.profile-articleuser');
-});
-Route::get('/profile-storyuser', function () {
-    return view('profile.profile-storyuser');
-});
+Route::middleware('auth')->group(function () {
+Route::get('/profile-aboutuser/{id}', [ProfileController::class, 'detailUser']);
+Route::get('/profile-articleuser/{id}', [ProfileController::class, 'listArticle']);
+Route::get('/profile-storyuser/{id}', [ProfileController::class, 'listStory']);
+
 // edit user
-Route::get('/edit-profileuser', function () {
-    return view('profile.edit-profileuser');
-});
-Route::get('/upload-asticleuser', function () {
-    return view('profile.upload-articleuser');
-});
-Route::get('/upload-storyuser', function () {
-    return view('profile.upload-storyuser');
-});
-Route::get('/upload-aboutuser', function () {
-    return view('profile.upload-aboutuser');
-});
-Route::get('/logout', [AuthController::class, 'logout']);
-// });
+Route::get('/upload-articleuser', [ArticleController::class,'getUploadArticle']);
+Route::post('/upload-articleuser', [ArticleController::class,'uploadArticle']);
+Route::get('/delete-article/{id}', [ArticleController::class,'deleteArticle']);
+Route::get('/edit-article/{id}', [ArticleController::class,'getEditArticle']);
+Route::post('/edit-article/{id}', [ArticleController::class,'editArticle']);
 
+Route::get('/upload-storyuser', [StoryController::class,'getUploadStory']);
+Route::post('/upload-storyuser', [StoryController::class,'uploadStory']);
+Route::get('/delete-story/{id}', [StoryController::class,'deleteStory']);
+Route::get('/edit-story/{id}', [StoryController::class,'getEditStory']);
+Route::post('/edit-story/{id}', [StoryController::class,'editStory']);
+
+Route::get('/edit-aboutuser', [ProfileController::class, 'getEditAbout']);
+Route::post('/edit-aboutuser', [ProfileController::class, 'editAbout']);
+Route::get('/edit-profileuser', [ProfileController::class, 'getEditProfil']);
+Route::post('/edit-profileuser', [ProfileController::class, 'editProfil']);
+Route::get('/logout', [AuthController::class, 'logout']);
+
+Route::get('/follow/{id}', [ProfileController::class, 'follow']);
+
+});
+
+// list konten
 Route::get('/list-article', function () {
     return view('content.listArticle');
 });

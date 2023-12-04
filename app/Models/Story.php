@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Category;
 use App\Models\StoryLike;
 use App\Models\StoryComment;
 use Illuminate\Database\Eloquent\Model;
@@ -11,7 +12,7 @@ class Story extends Model
 {
     use HasFactory;
     protected $table = 'stories';
-    protected $fillable = ['id_user','audio','title','description','image','view'];
+    protected $fillable = ['id_user','audio','title','description','image','view','image_path','audio_path'];
 
     public function users()
     {
@@ -24,5 +25,10 @@ class Story extends Model
     public function storyLike()
     {
         return $this->hasMany(StoryLike::class, 'id_story', 'id');
+    }
+
+    public function category()
+    {
+        return $this->hasMany(Category::class, 'id_story', 'id');
     }
 }
