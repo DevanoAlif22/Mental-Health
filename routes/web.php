@@ -27,12 +27,12 @@ Route::post('/coba', [ArticleController::class, 'coba']);
 Route::get('/coba2', [StoryController::class, 'coba']);
 Route::post('/coba2', [StoryController::class, 'coba2']);
 
-Route::get('/article/{id}', [ArticleController::class,'detail']);
-Route::post('/comment-article/{id}', [ArticleController::class,'addComment']);
-Route::get('/like-article/{id}', [ArticleController::class,'addLike']);
-Route::get('/story/{id}', [StoryController::class,'detail']);
-Route::post('/comment-story/{id}', [StoryController::class,'addComment']);
-Route::get('/like-story/{id}', [StoryController::class,'addLike']);
+Route::get('/article/{id}', [ArticleController::class, 'detail']);
+Route::post('/comment-article/{id}', [ArticleController::class, 'addComment']);
+Route::get('/like-article/{id}', [ArticleController::class, 'addLike']);
+Route::get('/story/{id}', [StoryController::class, 'detail']);
+Route::post('/comment-story/{id}', [StoryController::class, 'addComment']);
+Route::get('/like-story/{id}', [StoryController::class, 'addLike']);
 
 
 Route::middleware('guest')->group(function () {
@@ -75,6 +75,10 @@ Route::get('/upload-storyuser', function () {
 });
 Route::get('/upload-aboutuser', function () {
     return view('profile.upload-aboutuser');
+});
+// all search
+Route::get('/allsearch', function () {
+    return view('allsearch.allsearch');
 });
 Route::get('/logout', [AuthController::class, 'logout']);
 // });

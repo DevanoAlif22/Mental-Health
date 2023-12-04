@@ -165,7 +165,7 @@ a.active{
     
     
     .isi-artikel h4{
-        font-size: 20px;
+        font-size: 16px;
         font-weight: bold;
     }
     .isi-artikel {
@@ -194,6 +194,9 @@ a.active{
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
         background-color: #006BFC;
     }
+    .fery p{
+        font-size: 15px;
+    }
     .penuli-tombol p{
     font-weight: 500;
     }
@@ -209,7 +212,6 @@ a.active{
         font-weight: 700;
     }
     .gambar-artikel{
-        padding-bottom: 13rem;
         border-radius: 10px 10px 0 0;
     }
     @media (max-width:400px){

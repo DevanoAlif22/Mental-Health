@@ -76,7 +76,7 @@
                     <div class="col-lg-4 mb-3">
                         <div class="card-artikel">
                             <div class="gambar-artikel"
-                                style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; width: 100%; height: auto;">
+                                style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; max-width: 357px; height: 200px;">
 
                             </div>
                             <div class="isi-artikel">
@@ -100,7 +100,7 @@
                     <div class="col-lg-4 mb-3">
                         <div class="card-artikel">
                             <div class="gambar-artikel"
-                                style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; width: 100%; height: auto;">
+                                style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; max-width: 357px; height: 200px;">
 
                             </div>
                             <div class="isi-artikel">
@@ -124,7 +124,7 @@
                     <div class="col-lg-4 mb-3">
                         <div class="card-artikel">
                             <div class="gambar-artikel"
-                                style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; width: 100%; height: auto;">
+                                style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; max-width: 357px; height: 200px;">
 
                             </div>
                             <div class="isi-artikel">
@@ -138,163 +138,6 @@
                                     <div class="icon-mata">
 
                                         <a> <img class="img-fluid" src="{{ asset('images/main/icon_view.png') }}"></a>
-                                        <p>25K</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-
-                </div>
-                <div class="row mb-3">
-                    <div class="col-lg-4 mb-3">
-                        <div class="card-artikel">
-                            <div class="gambar-artikel"
-                                style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; width: 100%; height: auto;">
-
-                            </div>
-                            <div class="isi-artikel">
-                                <h4>Pelangi setelah hujan badai</h4>
-                                <div class="penuli-tombol">
-                                    <div class="fery">
-
-                                        <p>Ferry yulia</p>
-                                        <a href="">Lihat</a>
-                                    </div>
-                                    <div class="icon-mata">
-
-                                        <a> <img class="img-fluid" src="{{ asset('images/main/icon_view.png') }}"></a>
-                                        <p>25K</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-lg-4 mb-3">
-                        <div class="card-artikel">
-                            <div class="gambar-artikel"
-                                style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; width: 100%; height: auto;">
-
-                            </div>
-                            <div class="isi-artikel">
-                                <h4>Pelangi setelah hujan badai</h4>
-                                <div class="penuli-tombol">
-                                    <div class="fery">
-
-                                        <p>Ferry yulia</p>
-                                        <a href="">Lihat</a>
-                                    </div>
-                                    <div class="icon-mata">
-
-                                        <a> <img class="img-fluid"
-                                                src="{{ asset('images/main/icon_view.png') }}"></a>
-                                        <p>25K</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-lg-4 mb-3">
-                        <div class="card-artikel">
-                            <div class="gambar-artikel"
-                                style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; width: 100%; height: auto;">
-
-                            </div>
-                            <div class="isi-artikel">
-                                <h4>Pelangi setelah hujan badai</h4>
-                                <div class="penuli-tombol">
-                                    <div class="fery">
-
-                                        <p>Ferry yulia</p>
-                                        <a href="">Lihat</a>
-                                    </div>
-                                    <div class="icon-mata">
-
-                                        <a> <img class="img-fluid"
-                                                src="{{ asset('images/main/icon_view.png') }}"></a>
-                                        <p>25K</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-
-                </div>
-                <div class="row mb-3">
-                    <div class="col-lg-4 mb-3">
-                        <div class="card-artikel">
-                            <div class="gambar-artikel"
-                                style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; width: 100%; height: auto;">
-
-                            </div>
-                            <div class="isi-artikel">
-                                <h4>Pelangi setelah hujan badai</h4>
-                                <div class="penuli-tombol">
-                                    <div class="fery">
-
-                                        <p>Ferry yulia</p>
-                                        <a href="">Lihat</a>
-                                    </div>
-                                    <div class="icon-mata">
-
-                                        <a> <img class="img-fluid"
-                                                src="{{ asset('images/main/icon_view.png') }}"></a>
-                                        <p>25K</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-lg-4 mb-3">
-                        <div class="card-artikel">
-                            <div class="gambar-artikel"
-                                style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; width: 100%; height: auto;">
-
-                            </div>
-                            <div class="isi-artikel">
-                                <h4>Pelangi setelah hujan badai</h4>
-                                <div class="penuli-tombol">
-                                    <div class="fery">
-
-                                        <p>Ferry yulia</p>
-                                        <a href="">Lihat</a>
-                                    </div>
-                                    <div class="icon-mata">
-
-                                        <a> <img class="img-fluid"
-                                                src="{{ asset('images/main/icon_view.png') }}"></a>
-                                        <p>25K</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-lg-4 mb-3">
-                        <div class="card-artikel">
-                            <div class="gambar-artikel"
-                                style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; width: 100%; height: auto;">
-
-                            </div>
-                            <div class="isi-artikel">
-                                <h4>Pelangi setelah hujan badai</h4>
-                                <div class="penuli-tombol">
-                                    <div class="fery">
-
-                                        <p>Ferry yulia</p>
-                                        <a href="">Lihat</a>
-                                    </div>
-                                    <div class="icon-mata">
-
-                                        <a> <img class="img-fluid"
-                                                src="{{ asset('images/main/icon_view.png') }}"></a>
                                         <p>25K</p>
                                     </div>
                                 </div>
