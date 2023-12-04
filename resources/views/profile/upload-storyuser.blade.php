@@ -21,151 +21,148 @@
     <div class="container-fluid mb-3 p-5" style="margin-top: -145px">
         <div class="row">
             <div class="col-lg-3 col-md-12 wrap-profile">
-                <div class="wrap">
-                    <div>
-                        <div class="img-profile"
-                            style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; width: 100%; height: auto;">
-
-                        </div>
-                        <h3><b>Devano Alif</b></h3>
-                    </div>
-                </div>
-                <div class="wrap">
-                    <p style="color: #a6a6a6; text-align: center">Bergabung pada 2023-02-13</p>
-                </div>
-                <div class="wrap category">
-                    <div style="width: 100%; display:flex; justify-content:center;">
-                        <div style="width: 100%;">
-                            <div style="width: 100%; display:flex; justify-content:center;">
-                                <div style="margin-right: 20px; display:flex; ">
-                                    <img style="background-color: #0a6ef6;"
-                                        src="{{ asset('images/profile/follower.png') }}" alt="">
-                                    <div style="margin-left: 10px; padding-top:5px">
-                                        <h6 style="line-height: 0.3cm">Pengikut</h6>
-                                        <h6>3.452</h6>
-                                    </div>
-                                </div>
-                                <div style="margin-right: 20px; display:flex">
-                                    <button style="background-color: white; border: none; ">
-                                        <img style="background-color:  #0a6ef6;"
-                                            src="{{ asset('images/profile/view.png') }}" alt="">
-                                    </button>
-                                    <div style="margin-left: 10px; padding-top:5px">
-                                        <h6 style="line-height: 0.3cm">Dilihat</h6>
-                                        <h6>4.052</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="wrap">
-                                <a href="edit-profileuser"><button class="btn-follow margin-auto"> <b
-                                            style="font-size: 20px">Edit
-                                            Profile</b></button></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="wrap">
-                    <div style="width: 85% ;">
-                        <div class="gender d-flex justify-content-between mb-2" style="width: 100%;">
-                            <h6 style="padding-top: 10px; color:#8F8F8F">Laki-laki</h6>
-                            <img style="width: 40px; height:40px" src="{{ asset('images/profile/gender.png') }}"
-                                alt="">
-                        </div>
-                        <div class="line" style="width:100%; height:3px; background-color: #D9D9D9;"></div>
-                        <div class="gender d-flex justify-content-between mb-2 mt-3" style="width: 100%;">
-                            <h6 style="padding-top: 10px; color:#8F8F8F">20 Tahun</h6>
-                            <img style="width: 40px; height:40px" src="{{ asset('images/profile/age.png') }}"
-                                alt="">
-                        </div>
-                        <div class="line mb-3" style="width:100%; height:3px; background-color: #D9D9D9;"></div>
-                    </div>
-                </div>
+                @include('layout/profile')
             </div>
             <div class="col-lg-8 animate__animated animate__slideInRight col-md-12 wrap-profile-2 description">
                 <div class="container-fluid wrap-list" style="border-bottom: 3px solid #D9D9D9;">
                     <div class="list" style="display: flex; justify-content:space-between">
                         <h5><a href="profile-about" style="font-weight: 700">POSTING CERITA</a></h5>
-                        <h5><a href="profile-storyuser"><i class="fa-solid fa-xmark"></i></a></h5>
-
+                        <h5><a href="/profile-storyuser/{{Auth::user()->id}}"><i class="fa-solid fa-xmark"></i></a></h5>
                     </div>
                 </div>
                 <div class="container list-article" style="padding-top: 25px">
+                    @if ($errors->any() || Session::get('success'))
+                         @include('layout/message')
+                    @endif
 
-                    <div class="row">
-                        <!-- ... (previous code) ... -->
-                        <div class="col-lg-5">
-                            <div class="judul-form mt-4">
-                                <h6>Gambar Cerita</h6>
-                            </div>
+                    @if ($story == null)
+                    <form action="/upload-storyuser" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <div class="judul-form mt-4">
+                                    <h6>Gambar Cerita</h6>
+                                </div>
 
-                            <div class="tempat-upload-gambar mt-4">
-                                <form action="/upload-image" method="post" enctype="multipart/form-data">
-                                    <div class="gambar-upload">
-                                        <label for="imageUpload" class="custom-file-upload">
-                                            <img src="{{ asset('images/profile/upload.png') }}" class="img-fluid"
-                                                alt="">
-                                            <h6>Klik Disini Untuk Memilih gambar</h6>
-                                        </label>
-                                        <input type="file" class="masukgambar" name="image" id="imageUpload"
-                                            accept="image/*">
-                                    </div>
-                                    <!-- Add a submit button if needed -->
-                                    <!-- <button type="submit">Upload</button> -->
-                                </form>
-                            </div>
-                        </div>
-                        <!-- ... (remaining code) ... -->
-
-                        <div class="col-lg-7">
-                            <div class="judul-form mt-4">
-                                <h6>Judul Cerita</h6>
-                            </div>
-                            <div class="form-upload">
-                                <input type="text">
-                            </div>
-                            <!-- ... (previous code) ... -->
-                            <!-- ... (previous code) ... -->
-                            <div class="judul-form mt-4">
-                                <h6>Kategori Cerita</h6>
-                            </div>
-                            <div class="form-upload checkbox-container">
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="category[]" value="pengalaman">
-                                    Pengalaman
-                                </label>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="category[]" value="bahagia">
-                                    Bahagia
-                                </label>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="category[]" value="sedih">
-                                    Sedih
-                                </label>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="category[]" value="motivasi">
-                                    Motivasi
-                                </label>
+                                <div class="tempat-upload-gambar mt-4">
+                                        <div class="gambar-upload">
+                                            <label for="imageUpload" class="custom-file-upload">
+                                                <img src="{{ asset('images/profile/upload.png') }}" class="img-fluid"
+                                                    alt="">
+                                                <h6>Klik Disini Untuk Memilih gambar</h6>
+                                            </label>
+                                            <input type="file" class="masukgambar" name="image" id="imageUpload"
+                                               >
+                                        </div>
+                                </div>
                             </div>
                             <!-- ... (remaining code) ... -->
 
-                            <div class="judul-form mt-4">
-                                <h6>Deskipsi Cerita</h6>
-                            </div>
-
-                            <textarea name="" id="" style="width: 100%" rows="5"></textarea>
-                            <div class="judul-form mt-4">
-                                <h6>Upload MP3</h6>
-                            </div>
-                            <form action="/upload-mp3" class="mp3" method="post" enctype="multipart/form-data">
-                                <div class="input-group">
-                                    <input type="file" name="mp3File" class="form-control">
+                            <div class="col-lg-7">
+                                <div class="judul-form mt-4">
+                                    <h6>Judul Cerita</h6>
                                 </div>
-                            </form>
-                            <div class="tombol-kirim" style="text-align: right">
-                                <a href="">Kirim</a>
+                                <div class="form-upload">
+                                    <input type="text" name="title">
+                                </div>
+                                <div class="judul-form mt-4">
+                                    <h6>Kategori Cerita</h6>
+                                </div>
+                                <div class="form-upload checkbox-container">
+                                    @foreach ($category as $items)
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="{{$items->name}}" value="{{$items->name}}">
+                                        {{$items->name}}
+                                    </label>
+                                    @endforeach
+                                </div>
+
+                                <div class="judul-form mt-4">
+                                    <h6>Deskipsi Cerita</h6>
+                                </div>
+
+                                <textarea name="description" maxlength="250" id="" style="width: 100%" rows="5"></textarea>
+                                <div class="judul-form mt-4">
+                                    <h6>Upload Audio (MP3 atau MPEG)</h6>
+                                </div>
+                                <div class="input-group">
+                                        <input type="file" name="audio" class="form-control">
+                                </div>
+                                <div class="tombol-kirim" style="text-align: right">
+                                    <button type="submit">Kirim</button>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
+
+                    @else
+                    <form action="/edit-story/{{$story->id}}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <div class="judul-form mt-4">
+                                    <h6>Gambar Cerita</h6>
+                                </div>
+
+                                <div class="tempat-upload-gambar mt-4">
+                                        <div class="gambar-upload">
+                                            <label  for="imageUpload" class="custom-file-upload">
+                                                <img src="{{ asset('images/profile/upload.png') }}" class="img-fluid"
+                                                    alt="">
+                                                <h6>Klik Disini Untuk Mengubah gambar (opsional)</h6>
+                                            </label>
+                                            <input type="file" class="masukgambar" name="image" id="imageUpload"
+                                               >
+                                        </div>
+                                </div>
+                                <p style="padding-top: 10px">Gambar sebelumnya</p>
+                                <img style="width: 200px" src="{{$story->image}}" alt="">
+                            </div>
+                            <!-- ... (remaining code) ... -->
+
+                            <div class="col-lg-7">
+                                <div class="judul-form mt-4">
+                                    <h6>Judul Cerita</h6>
+                                </div>
+                                <div class="form-upload">
+                                    <input value="{{$story->title}}" type="text" name="title">
+                                </div>
+                                <div class="judul-form mt-4">
+                                    <h6>Kategori Cerita</h6>
+                                    <p style="color:rgb(255, 86, 86)">Kategori tidak bisa di ubah</p>
+                                </div>
+                                <div class="form-upload checkbox-container">
+                                    @foreach ($category as $items)
+                                    <label class="checkbox-label">
+                                        <input disabled type="checkbox" name="{{$items->name}}" value="{{$items->name}}">
+                                        {{$items->name}}
+                                    </label>
+                                    @endforeach
+                                </div>
+
+                                <div class="judul-form mt-4">
+                                    <h6>Deskipsi Cerita</h6>
+                                </div>
+
+                                <textarea name="description" maxlength="250" id="" style="width: 100%" rows="5">{{$story->description}}</textarea>
+                                <div class="judul-form mt-4">
+                                    <h6>Ubah Audio MP3 atau MPEG (opsional)</h6>
+                                </div>
+                                <div class="input-group">
+                                        <input type="file" name="audio" class="form-control">
+                                    </div>
+                                    <p style="padding-top: 15px">Audio Sebelumnya</p>
+                                    <audio controls style="width: 100%">
+                                        <source src="{{$story->audio}}" type="audio/mp3">
+                                        Your browser does not support the audio element.
+                                      </audio>
+                                <div class="tombol-kirim" style="text-align: right">
+                                    <button type="submit">Kirim</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    @endif
 
 
                 </div>

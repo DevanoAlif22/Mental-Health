@@ -16,11 +16,11 @@
 
         </div>
         <div class="container">
-            <img class="img-article" style="width: 100%" src="{{asset('/images/content/story1.jpg')}}" alt="">
+            <img class="img-article" style="width: 100%" src="{{asset($story->image)}}" alt="">
         </div>
         <div class="container mb-5">
             <audio controls style="width: 100%">
-                <source src="" type="audio/mp3">
+                <source src="{{$story->audio}}" type="audio/mp3">
                 Your browser does not support the audio element.
               </audio>
         </div>
@@ -28,10 +28,14 @@
             <div class="row">
 
                 <div class="col-md-6 d-flex">
-                    <img class="img-profile" src="{{asset('images/content/user1.png')}}" alt="">
+                    @if ($story->users->profiles->image == null)
+                    <img class="img-profile" src="{{asset('images/profile/profile-null.png')}}" alt="">
+                    @else
+                    <img class="img-profile" src="{{asset($story->users->profiles->image)}}" alt="">
+                    @endif
                     <div style="margin-left: 20px">
                         <h3>{{$story->title}}</h3>
-                        <h6>{{$story->users->name}}</h6>
+                        <h6><a style="text-decoration: none; color:black;" href="/profile-aboutuser/{{$story->users->id}}">{{$story->users->name}}</a> </h6>
                     </div>
 
                 </div>
@@ -109,7 +113,7 @@
             <div class="row  d-flex justify-content-between">
                 <div class="col-1 mb-3">
                     <div class="comment d-flex">
-                        @if (Auth::user()->image == NULL)
+                        @if (Auth::user()->profiles->image == NULL)
                             <img class="img-comment" src="{{asset('images/profile/profile-null.png')}}" alt="">
                         @else
                             <img class="img-comment" src="{{asset('images/content/user1.png')}}" alt="">

@@ -45,8 +45,13 @@ class AuthController extends Controller
                 ->orderBy('view', 'desc')
                 ->take(3) // Ambil 3 cerita teratas
                 ->get();
+                $popularUser = User::withCount('followers as follower_count')
+                ->with('profiles')
+                ->orderBy('follower_count', 'desc')
+                ->take(8)
+                ->get();
                 $userProfile = Profile::where('id_user', '=', Auth::user()->id)->first();
-                return view('main.index', ['imageProfile' => $userProfile->image,'popularArticle' => $popularArticles, 'popularStory' => $popularStories]);
+                return view('main.index', ['imageProfile' => $userProfile->image,'popularArticle' => $popularArticles, 'popularStory' => $popularStories,'popularUser'=>$popularUser]);
             } else {
                 Auth::logout();
                 return redirect('/login')->withErrors('Akun anda belum di verifikasi. Harap verifikasi terlebih dahulu');

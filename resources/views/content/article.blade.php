@@ -24,10 +24,16 @@
             <div class="row">
 
                 <div class="col-md-6 d-flex">
-                    <img class="img-profile" src="{{ asset('images/content/user1.png') }}" alt="">
+                    <img class="img-profile" src="
+                    @if ($article->users->profiles->image == null)
+                    /images/profile/profile-null.png
+                    @else
+                    {{$article->users->profiles->image}}
+                    @endif
+                    " alt="">
                     <div style="margin-left: 20px">
                         <h3>{{$article->title}}</h3>
-                        <h6>{{$article->users->name}}</h6>
+                        <h6><a style="text-decoration: none; color:black;" href="/profile-aboutuser/{{$article->users->id}}">{{$article->users->name}}</a> </h6>
                     </div>
 
                 </div>
