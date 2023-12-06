@@ -119,19 +119,25 @@ class StoryController extends Controller
 
     function detail($id) {
         $story = Story::with(['users','storyComment','storyLike'])->find($id);
-        if(Auth::user()) {
-            $like = $story->storyLike->where('id_user',Auth::user()->id)->where('id_story',$id)->first();
-        } else {
-            $like = null;
-        }
+
         if($story) {
-            $story->view = $story->view + 1;
-            $totalComment = $story->storyComment->count();
-            $totalLike = $story->storyLike->count();
-            $story->update();
-            return view('content.story',['story' => $story,'totalComment' => $totalComment, 'like' => $like, 'totalLike' => $totalLike]);
+            if(Auth::user()) {
+                $like = $story->storyLike->where('id_user',Auth::user()->id)->where('id_story',$id)->first();
+            } else {
+                $like = null;
+            }
+            if($story) {
+                $story->view = $story->view + 1;
+                $totalComment = $story->storyComment->count();
+                $totalLike = $story->storyLike->count();
+                $story->update();
+                return view('content.story',['story' => $story,'totalComment' => $totalComment, 'like' => $like, 'totalLike' => $totalLike]);
+            } else {
+                return redirect('/home');
+            }
         } else {
-            return view('main.index');
+            return redirect('/home');
+
         }
     }
 
@@ -261,5 +267,20 @@ class StoryController extends Controller
         ->where('title', 'LIKE', "%{$request->name}%")
         ->get();
         return view('content.listStory',['like' => false, 'view' => false,'listStory' => $listStory]);
+    }
+
+    function report($id) {
+        $validasi = Story::where('id',$id)->first();
+        if($validasi) {
+            if($validasi->report == false) {
+                $validasi->report = true;
+                $validasi->update();
+                return redirect('/story/'.$id);
+            } else {
+                return redirect('/home');
+            }
+        } else {
+            return redirect('/home');
+        }
     }
 }

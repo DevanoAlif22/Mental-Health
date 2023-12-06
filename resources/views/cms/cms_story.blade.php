@@ -19,10 +19,10 @@
                         <a href="" class="mb-4"><img class="img-fluid logo"
                                 src="{{ asset('images/main/logo-putih-kepala.png') }}" alt=""><span>MENTAL
                                 HEALTH</span></a>
-                        <a href="cms-admin" class=""><img class="img-fluid article"
+                        <a href="article-admin" class=""><img class="img-fluid article"
                                 src="{{ asset('images/main/icon-article.png') }}" alt=""><span>List
                                 Artikel</span></a>
-                        <a href="cms-story" class="active"><img class="img-fluid article"
+                        <a href="story-admin" class="active"><img class="img-fluid article"
                                 src="{{ asset('images/main/story.png') }}" alt=""><span>List
                                 Cerita</span></a>
                     </div>
@@ -31,382 +31,61 @@
             <div class="col-lg-10 col-md-11 col-sm-11">
                 <div class="isi-right">
                     <div class="nav-right">
+                        @if ($errors->any() || Session::get('success'))
+                                    @include('layout/message')
+                                @endif
                         <div class="link-right">
                             <p class="">List Artikel</p>
                             <p class="active-p">List Cerita</p>
                         </div>
                         <div class="section-right">
-                            <div class="judul-section">
-                                <div class="profil">
 
-                                    <p>Profil</p>
-                                    <div class="isi">
-                                        <h6>
-                                            <div class="gambar-cerita"
-                                                style="background-image: url('{{ asset('images/main/gambar-cerita.png') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; max-width: 30px; height: 30px;">
-
-                                            </div>
-                                        </h6>
-                                    </div>
-                                    <div class="isi">
-                                        <h6>
-                                            <div class="gambar-cerita"
-                                                style="background-image: url('{{ asset('images/main/gambar-cerita.png') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; max-width: 30px; height: 30px;">
-
-                                            </div>
-                                        </h6>
-                                    </div>
-                                    <div class="isi">
-                                        <h6>
-                                            <div class="gambar-cerita"
-                                                style="background-image: url('{{ asset('images/main/gambar-cerita.png') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; max-width: 30px; height: 30px;">
-
-                                            </div>
-                                        </h6>
-                                    </div>
-                                    <div class="isi">
-                                        <h6>
-                                            <div class="gambar-cerita"
-                                                style="background-image: url('{{ asset('images/main/gambar-cerita.png') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; max-width: 30px; height: 30px;">
+                        <table  style="width: 100%">
+                            <thead>
+                                <tr >
+                                    <th style="text-align: center">ID</th>
+                                    <th style="text-align: center">Profil</th>
+                                    <th style="text-align: center">Nama User</th>
+                                    <th style="text-align: center">Judul Cerita</th>
+                                    <th style="text-align: center">Penonton</th>
+                                    <th style="text-align: center">Menyukai</th>
+                                    <th style="text-align: center">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($story as $item)
+                                <tr >
+                                    <td style="text-align: center">{{$item->id}}</td>
+                                    <td style="">
+                                        <h6 style="margin-top: 20px; ">
+                                            <div class="gambar-cerita m-auto"
+                                                style="background-image: url(
+                                                    @if($item->users->image == null)
+                                                    '/images/profile/null.png'
+                                                    @else
+                                                    '{{ asset($item->users->image) }}'
+                                                    @endif
+                                                    ); background-size: cover;background-position: center;background-repeat: no-repeat; max-width: 30px; height: 30px;">
 
                                             </div>
                                         </h6>
-                                    </div>
-                                    <div class="isi">
-                                        <h6>
-                                            <div class="gambar-cerita"
-                                                style="background-image: url('{{ asset('images/main/gambar-cerita.png') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; max-width: 30px; height: 30px;">
+                                    </td>
+                                    <td style="text-align: center;">{{$item->users->name}}</td>
+                                    <td style="text-align: center;">{{ Illuminate\Support\Str::limit($item->title, 17) }}</td>
+                                    <td style="text-align: center;">{{$item->view}}</td>
+                                    <td style="text-align: center">{{$item->story_like_count}}</td>
+                                    <td class="">
+                                        <div class="d-flex justify-content-center isi isi-aksi">
+                                            <a style="margin-right: 10px" href="/report-story-accept/{{$item->id}}">Hapus</a>
+                                            <a style="margin-right: 10px" href="/story/{{$item->id}}" class="lihat">Lihat</a>
+                                            <a href="/report-story-reject/{{$item->id}}" class="tolak">Tolak</a>
+                                        </div>
+                                    </td>
+                                </tr>
 
-                                            </div>
-                                        </h6>
-                                    </div>
-                                    <div class="isi">
-                                        <h6>
-                                            <div class="gambar-cerita"
-                                                style="background-image: url('{{ asset('images/main/gambar-cerita.png') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; max-width: 30px; height: 30px;">
-
-                                            </div>
-                                        </h6>
-                                    </div>
-                                    <div class="isi">
-                                        <h6>
-                                            <div class="gambar-cerita"
-                                                style="background-image: url('{{ asset('images/main/gambar-cerita.png') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; max-width: 30px; height: 30px;">
-
-                                            </div>
-                                        </h6>
-                                    </div>
-                                    <div class="isi">
-                                        <h6>
-                                            <div class="gambar-cerita"
-                                                style="background-image: url('{{ asset('images/main/gambar-cerita.png') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; max-width: 30px; height: 30px;">
-
-                                            </div>
-                                        </h6>
-                                    </div>
-                                    <div class="isi">
-                                        <h6>
-                                            <div class="gambar-cerita"
-                                                style="background-image: url('{{ asset('images/main/gambar-cerita.png') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; max-width: 30px; height: 30px;">
-
-                                            </div>
-                                        </h6>
-                                    </div>
-                                    <div class="isi">
-                                        <h6>
-                                            <div class="gambar-cerita"
-                                                style="background-image: url('{{ asset('images/main/gambar-cerita.png') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; max-width: 30px; height: 30px;">
-
-                                            </div>
-                                        </h6>
-                                    </div>
-                                    <div class="isi">
-                                        <h6>
-                                            <div class="gambar-cerita"
-                                                style="background-image: url('{{ asset('images/main/gambar-cerita.png') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; max-width: 30px; height: 30px;">
-
-                                            </div>
-                                        </h6>
-                                    </div>
-                                    <div class="isi">
-                                        <h6>
-                                            <div class="gambar-cerita"
-                                                style="background-image: url('{{ asset('images/main/gambar-cerita.png') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; max-width: 30px; height: 30px;">
-
-                                            </div>
-                                        </h6>
-                                    </div>
-                                </div>
-                                <div class="nama-user">
-
-                                    <p>Nama User</p>
-                                    <div class="isi">
-
-                                        <p>Davano</p>
-                                    </div>
-                                    <div class="isi">
-
-                                        <p>Davano</p>
-                                    </div>
-                                    <div class="isi">
-
-                                        <p>Davano</p>
-                                    </div>
-                                    <div class="isi">
-
-                                        <p>Davano</p>
-                                    </div>
-                                    <div class="isi">
-
-                                        <p>Davano</p>
-                                    </div>
-                                    <div class="isi">
-
-                                        <p>Davano</p>
-                                    </div>
-                                    <div class="isi">
-
-                                        <p>Davano</p>
-                                    </div>
-                                    <div class="isi">
-
-                                        <p>Davano</p>
-                                    </div>
-                                    <div class="isi">
-
-                                        <p>Davano</p>
-                                    </div>
-                                    <div class="isi">
-
-                                        <p>Davano</p>
-                                    </div>
-                                    <div class="isi">
-
-                                        <p>Davano</p>
-                                    </div>
-                                    <div class="isi">
-
-                                        <p>Davano</p>
-                                    </div>
-                                </div>
-                                <div class="judul-artikel">
-
-                                    <p>Judul Cerita</p>
-                                    <div class="isi">
-
-                                        <p>Petualangan Tersembunyi di Hutan</p>
-                                    </div>
-                                    <div class="isi">
-
-                                        <p>Petualangan Tersembunyi di Hutan</p>
-                                    </div>
-                                    <div class="isi">
-
-                                        <p>Petualangan Tersembunyi di Hutan</p>
-                                    </div>
-                                    <div class="isi">
-
-                                        <p>Petualangan Tersembunyi di Hutan</p>
-                                    </div>
-                                    <div class="isi">
-
-                                        <p>Petualangan Tersembunyi di Hutan</p>
-                                    </div>
-                                    <div class="isi">
-
-                                        <p>Petualangan Tersembunyi di Hutan</p>
-                                    </div>
-                                    <div class="isi">
-
-                                        <p>Petualangan Tersembunyi di Hutan</p>
-                                    </div>
-                                    <div class="isi">
-
-                                        <p>Petualangan Tersembunyi di Hutan</p>
-                                    </div>
-                                    <div class="isi">
-
-                                        <p>Petualangan Tersembunyi di Hutan</p>
-                                    </div>
-                                    <div class="isi">
-
-                                        <p>Petualangan Tersembunyi di Hutan</p>
-                                    </div>
-                                    <div class="isi">
-
-                                        <p>Petualangan Tersembunyi di Hutan</p>
-                                    </div>
-                                    <div class="isi">
-
-                                        <p>Petualangan Tersembunyi di Hutan</p>
-                                    </div>
-
-                                </div>
-                                <div class="penonton">
-
-                                    <p>Penonton Cerita</p>
-                                    <div class="isi">
-                                        <p>20K</p>
-                                    </div>
-                                    <div class="isi">
-                                        <p>20K</p>
-                                    </div>
-                                    <div class="isi">
-                                        <p>20K</p>
-                                    </div>
-                                    <div class="isi">
-                                        <p>20K</p>
-                                    </div>
-                                    <div class="isi">
-                                        <p>20K</p>
-                                    </div>
-                                    <div class="isi">
-                                        <p>20K</p>
-                                    </div>
-                                    <div class="isi">
-                                        <p>20K</p>
-                                    </div>
-                                    <div class="isi">
-                                        <p>20K</p>
-                                    </div>
-                                    <div class="isi">
-                                        <p>20K</p>
-                                    </div>
-                                    <div class="isi">
-                                        <p>20K</p>
-                                    </div>
-                                    <div class="isi">
-                                        <p>20K</p>
-                                    </div>
-                                    <div class="isi">
-                                        <p>20K</p>
-                                    </div>
-                                </div>
-                                <div class="pengikut">
-
-                                    <p>Pengikut</p>
-                                    <div class="isi">
-
-                                        <p>25K</p>
-                                    </div>
-                                    <div class="isi">
-
-                                        <p>25K</p>
-                                    </div>
-                                    <div class="isi">
-
-                                        <p>25K</p>
-                                    </div>
-                                    <div class="isi">
-
-                                        <p>25K</p>
-                                    </div>
-                                    <div class="isi">
-
-                                        <p>25K</p>
-                                    </div>
-                                    <div class="isi">
-
-                                        <p>25K</p>
-                                    </div>
-                                    <div class="isi">
-
-                                        <p>25K</p>
-                                    </div>
-                                    <div class="isi">
-
-                                        <p>25K</p>
-                                    </div>
-                                    <div class="isi">
-
-                                        <p>25K</p>
-                                    </div>
-                                    <div class="isi">
-
-                                        <p>25K</p>
-                                    </div>
-                                    <div class="isi">
-
-                                        <p>25K</p>
-                                    </div>
-                                    <div class="isi">
-
-                                        <p>25K</p>
-                                    </div>
-                                </div>
-                                <div class="aksi">
-
-                                    <p class="" style="margin-bottom: 1.7rem">Aksi</p>
-                                    <div class="isi isi-aksi">
-
-                                        <a href="">Hapus</a>
-                                        <a href="" class="lihat">Lihat</a>
-                                        <a href="" class="tolak">Tolak</a>
-                                    </div>
-                                    <div class="isi isi-aksi">
-
-                                        <a href="">Hapus</a>
-                                        <a href="" class="lihat">Lihat</a>
-                                        <a href="" class="tolak">Tolak</a>
-                                    </div>
-                                    <div class="isi isi-aksi">
-
-                                        <a href="">Hapus</a>
-                                        <a href="" class="lihat">Lihat</a>
-                                        <a href="" class="tolak">Tolak</a>
-                                    </div>
-                                    <div class="isi isi-aksi">
-
-                                        <a href="">Hapus</a>
-                                        <a href="" class="lihat">Lihat</a>
-                                        <a href="" class="tolak">Tolak</a>
-                                    </div>
-                                    <div class="isi isi-aksi">
-
-                                        <a href="">Hapus</a>
-                                        <a href="" class="lihat">Lihat</a>
-                                        <a href="" class="tolak">Tolak</a>
-                                    </div>
-                                    <div class="isi isi-aksi">
-
-                                        <a href="">Hapus</a>
-                                        <a href="" class="lihat">Lihat</a>
-                                        <a href="" class="tolak">Tolak</a>
-                                    </div>
-                                    <div class="isi isi-aksi">
-
-                                        <a href="">Hapus</a>
-                                        <a href="" class="lihat">Lihat</a>
-                                        <a href="" class="tolak">Tolak</a>
-                                    </div>
-                                    <div class="isi isi-aksi">
-
-                                        <a href="">Hapus</a>
-                                        <a href="" class="lihat">Lihat</a>
-                                        <a href="" class="tolak">Tolak</a>
-                                    </div>
-                                    <div class="isi isi-aksi">
-
-                                        <a href="">Hapus</a>
-                                        <a href="" class="lihat">Lihat</a>
-                                        <a href="" class="tolak">Tolak</a>
-                                    </div>
-                                    <div class="isi isi-aksi">
-
-                                        <a href="">Hapus</a>
-                                        <a href="" class="lihat">Lihat</a>
-                                        <a href="" class="tolak">Tolak</a>
-                                    </div>
-                                    <div class="isi isi-aksi">
-
-                                        <a href="">Hapus</a>
-                                        <a href="" class="lihat">Lihat</a>
-                                        <a href="" class="tolak">Tolak</a>
-                                    </div>
-
-                                </div>
-                            </div>
-
+                                @endforeach
+                            </tbody>
+                        </table>
                         </div>
                     </div>
                 </div>

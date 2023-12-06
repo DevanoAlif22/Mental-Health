@@ -127,7 +127,7 @@
                                             </div>
                                         </div>
                                         <div class="tombol-cerita mb-4">
-                                            <a href="">Lihat</a>
+                                            <a href="/story/{{$story->id}}">Lihat</a>
 
                                         </div>
                                     </div>

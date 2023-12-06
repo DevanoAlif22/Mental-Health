@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\StoryController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ProfileController;
@@ -17,9 +18,6 @@ use App\Http\Controllers\ProfileController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/coba', function () {
-    return view('coba');
-});
 
 Route::get('/home', [MainController::class, 'index'])->name('home');
 
@@ -67,15 +65,22 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/follow/{id}', [ProfileController::class, 'follow']);
 
+    // laporkan
+    Route::get('/report-article/{id}', [ArticleController::class, 'report']);
+    Route::get('/report-story/{id}', [StoryController::class, 'report']);
+
+
+    // cms
+    Route::get('/article-admin',[AdminController::class,'listArticle']);
+    Route::get('/report-article-reject/{id}',[AdminController::class,'reportArticleReject']);
+    Route::get('/report-article-accept/{id}',[AdminController::class,'reportArticleAccept']);
+
+    Route::get('/story-admin',[AdminController::class,'listStory']);
+    Route::get('/report-story-reject/{id}',[AdminController::class,'reportStoryReject']);
+    Route::get('/report-story-accept/{id}',[AdminController::class,'reportStoryAccept']);
 });
 
 // list konten
-Route::get('/list-article', function () {
-    return view('content.listArticle');
-});
-Route::get('/list-story', function () {
-    return view('content.listStory');
-});
 Route::get('/list-profile', [ProfileController::class, 'listUser']);
 Route::get('/list-profile-follower', [ProfileController::class, 'listUserFollow']);
 Route::get('/list-profile-view', [ProfileController::class, 'listUserView']);
@@ -97,10 +102,3 @@ Route::post('/all-search', [MainController::class, 'searchAllSearch']);
 Route::get('/sistem-pakar', [MainController::class,'sistemPakar']);
 Route::post('/sistem-pakar', [MainController::class,'sistemPakarHasil']);
 
-// cms
-Route::get('/cms-admin', function () {
-    return view('cms.cms');
-});
-Route::get('/cms-story', function () {
-    return view('cms.cms_story');
-});
