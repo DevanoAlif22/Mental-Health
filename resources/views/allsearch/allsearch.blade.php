@@ -17,38 +17,6 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-trasnparant">
-        <div class="container wrap_navbar pt-3">
-            <a class="navbar-brand" href="#">
-                <img src="{{ asset('images/main/logo_mentahan.png') }}" alt="">Mental Health
-            </a>
-            <button style="border: none; color: rgba(0, 12, 12, 0)" class="navbar-toggler" type="button"
-                data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
-                aria-expanded="false" aria-label="navigation">
-                <span class="">
-                    <p style="color: #0A6EF6"><i class="fa-solid fa-bars"></i></p>
-                </span>
-            </button>
-            <div class="collapse navbar-collapse" style="justify-content: end" id="navbarNavAltMarkup">
-                <div class="navbar-nav" id="aboutme">
-                    <a class="nav-link aktive" href="#aboutme">Home</a>
-                    <a class="nav-link" href="#biodata">Sistem pakar</a>
-                    @if (Auth::user())
-                        @if ($imageProfile == null)
-                            <a class="nav-link" href="/profile-about"><img
-                                    style="width: 35px; height: 35px; margin-top:-10px"
-                                    src="{{ asset('images/profile/profile-null.png') }}" alt=""></a>
-                        @else
-                            <a class="nav-link" href="/profile-about"><img style="width: 40px; height: 40px;"
-                                    src="{{ asset('images/main/user.png') }}" alt=""></a>
-                        @endif
-                    @else
-                        <button><a style="" href="{{ route('auth') }}">Login</a></button>
-                    @endif
-                </div>
-            </div>
-        </div>
-    </nav>
     {{-- hero --}}
     <section class="hero">
         <div class="container">
@@ -68,7 +36,11 @@
                                     <i class="fa-solid fa-magnifying-glass"></i>
                                 </div>
                                 <div class="inputan">
-                                    <input type="text" placeholder="Cari disini..">
+
+                                    <form action="/all-search" method="post">
+                                        @csrf
+                                        <input name="search" type="text" placeholder="Cari disini..">
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -91,35 +63,41 @@
 
             <div class="wrap-card-profil ">
                 <div class="row mt-5">
+                    @if (count($data[0]) === 0)
+                        <p>Tidak ada profil yang sesuai pencarian</p>
+                    @else
+                    @foreach ($data[0] as $profil)
                     <div class="col-lg-3 mt-2">
 
                         <div class="card-profil">
 
 
                             <div class="img-profile"
-                                style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; max-width: 400; height: 200px;">
+                            @if ($profil->profiles->image == null)
+                                style="background-image: url('{{ asset('images/profile/null.png') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; max-width: 400; height: 200px;">
 
+                            @else
+                                style="background-image: url({{ asset($profil->profiles->image) }}); background-size: cover;background-position: center;background-repeat: no-repeat; max-width: 400; height: 200px;">
+
+                            @endif
                             </div>
 
                             <div class="section-profil text-center">
-                                <h4 class="mb-3">Davano alif</h4>
+                                <h4 class="mb-3">{{$profil->name}}</h4>
 
-                                <a href="">Lihat Saya</a>
+                                <a href="/profile-aboutuser/{{$profil->id}}">Lihat Saya</a>
                             </div>
                             <div class="sosial-media text-center">
                                 <div class="wrap-media">
 
-
                                     <div class="media ms-2">
                                         <a><img class="img-fluid" src="{{ asset('images/main/icon_pengikut.png') }}"
                                                 alt=""></a>
-
-
                                     </div>
                                     <div class="des-media">
 
                                         <p>Followers</p>
-                                        <p>25k</p>
+                                        <p>{{$profil->follower_count}}</p>
                                     </div>
                                 </div>
 
@@ -132,160 +110,7 @@
                                     <div class="des-media text-center">
 
                                         <p>Viewers</p>
-                                        <p>25k</p>
-                                    </div>
-                                </div>
-
-
-                            </div>
-
-
-                        </div>
-                    </div>
-                    <div class="col-lg-3 mt-2">
-
-                        <div class="card-profil">
-
-
-                            <div class="img-profile"
-                                style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; max-width: 400; height: 200px;">
-
-                            </div>
-
-                            <div class="section-profil text-center">
-                                <h4 class="mb-3">Davano alif</h4>
-
-                                <a href="">Lihat Saya</a>
-                            </div>
-                            <div class="sosial-media text-center">
-                                <div class="wrap-media">
-
-
-                                    <div class="media ms-2">
-                                        <a><img class="img-fluid" src="{{ asset('images/main/icon_pengikut.png') }}"
-                                                alt=""></a>
-
-
-                                    </div>
-                                    <div class="des-media">
-
-                                        <p>Followers</p>
-                                        <p>25k</p>
-                                    </div>
-                                </div>
-
-                                <div class="wrap-media">
-
-                                    <div class="media">
-                                        <a><img class="img-fluid" src="{{ asset('images/main/icon_view.png') }}"
-                                                alt=""></a>
-                                    </div>
-                                    <div class="des-media text-center">
-
-                                        <p>Viewers</p>
-                                        <p>25k</p>
-                                    </div>
-                                </div>
-
-
-                            </div>
-
-
-                        </div>
-                    </div>
-                    <div class="col-lg-3 mt-2">
-
-                        <div class="card-profil">
-
-
-                            <div class="img-profile"
-                                style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; max-width: 400; height: 200px;">
-
-                            </div>
-
-                            <div class="section-profil text-center">
-                                <h4 class="mb-3">Davano alif</h4>
-
-                                <a href="">Lihat Saya</a>
-                            </div>
-                            <div class="sosial-media text-center">
-                                <div class="wrap-media">
-
-
-                                    <div class="media ms-2">
-                                        <a><img class="img-fluid" src="{{ asset('images/main/icon_pengikut.png') }}"
-                                                alt=""></a>
-
-
-                                    </div>
-                                    <div class="des-media">
-
-                                        <p>Followers</p>
-                                        <p>25k</p>
-                                    </div>
-                                </div>
-
-                                <div class="wrap-media">
-
-                                    <div class="media">
-                                        <a><img class="img-fluid" src="{{ asset('images/main/icon_view.png') }}"
-                                                alt=""></a>
-                                    </div>
-                                    <div class="des-media text-center">
-
-                                        <p>Viewers</p>
-                                        <p>25k</p>
-                                    </div>
-                                </div>
-
-
-                            </div>
-
-
-                        </div>
-                    </div>
-                    <div class="col-lg-3 mt-2">
-
-                        <div class="card-profil">
-
-
-                            <div class="img-profile"
-                                style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; max-width: 400; height: 200px;">
-
-                            </div>
-
-                            <div class="section-profil text-center">
-                                <h4 class="mb-3">Davano alif</h4>
-
-                                <a href="">Lihat Saya</a>
-                            </div>
-                            <div class="sosial-media text-center">
-                                <div class="wrap-media">
-
-
-                                    <div class="media ms-2">
-                                        <a><img class="img-fluid" src="{{ asset('images/main/icon_pengikut.png') }}"
-                                                alt=""></a>
-
-
-                                    </div>
-                                    <div class="des-media">
-
-                                        <p>Followers</p>
-                                        <p>25k</p>
-                                    </div>
-                                </div>
-
-                                <div class="wrap-media">
-
-                                    <div class="media">
-                                        <a><img class="img-fluid" src="{{ asset('images/main/icon_view.png') }}"
-                                                alt=""></a>
-                                    </div>
-                                    <div class="des-media text-center">
-
-                                        <p>Viewers</p>
-                                        <p>25k</p>
+                                        <p>{{$profil->profiles->view}}</p>
                                     </div>
                                 </div>
 
@@ -296,224 +121,11 @@
                         </div>
                     </div>
 
+                    @endforeach
 
-
+                    @endif
 
                 </div>
-                <div class="row mt-5">
-                    <div class="col-lg-3 mt-2">
-
-                        <div class="card-profil">
-
-
-                            <div class="img-profile"
-                                style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; max-width: 400; height: 200px;">
-
-                            </div>
-
-                            <div class="section-profil text-center">
-                                <h4 class="mb-3">Davano alif</h4>
-
-                                <a href="">Lihat Saya</a>
-                            </div>
-                            <div class="sosial-media text-center">
-                                <div class="wrap-media">
-
-
-                                    <div class="media ms-2">
-                                        <a><img class="img-fluid" src="{{ asset('images/main/icon_pengikut.png') }}"
-                                                alt=""></a>
-
-
-                                    </div>
-                                    <div class="des-media">
-
-                                        <p>Followers</p>
-                                        <p>25k</p>
-                                    </div>
-                                </div>
-
-                                <div class="wrap-media">
-
-                                    <div class="media">
-                                        <a><img class="img-fluid" src="{{ asset('images/main/icon_view.png') }}"
-                                                alt=""></a>
-                                    </div>
-                                    <div class="des-media text-center">
-
-                                        <p>Viewers</p>
-                                        <p>25k</p>
-                                    </div>
-                                </div>
-
-
-                            </div>
-
-
-                        </div>
-                    </div>
-                    <div class="col-lg-3 mt-2">
-
-                        <div class="card-profil">
-
-
-                            <div class="img-profile"
-                                style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; max-width: 400; height: 200px;">
-
-                            </div>
-
-                            <div class="section-profil text-center">
-                                <h4 class="mb-3">Davano alif</h4>
-
-                                <a href="">Lihat Saya</a>
-                            </div>
-                            <div class="sosial-media text-center">
-                                <div class="wrap-media">
-
-
-                                    <div class="media ms-2">
-                                        <a><img class="img-fluid" src="{{ asset('images/main/icon_pengikut.png') }}"
-                                                alt=""></a>
-
-
-                                    </div>
-                                    <div class="des-media">
-
-                                        <p>Followers</p>
-                                        <p>25k</p>
-                                    </div>
-                                </div>
-
-                                <div class="wrap-media">
-
-                                    <div class="media">
-                                        <a><img class="img-fluid" src="{{ asset('images/main/icon_view.png') }}"
-                                                alt=""></a>
-                                    </div>
-                                    <div class="des-media text-center">
-
-                                        <p>Viewers</p>
-                                        <p>25k</p>
-                                    </div>
-                                </div>
-
-
-                            </div>
-
-
-                        </div>
-                    </div>
-                    <div class="col-lg-3 mt-2">
-
-                        <div class="card-profil">
-
-
-                            <div class="img-profile"
-                                style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; max-width: 400; height: 200px;">
-
-                            </div>
-
-                            <div class="section-profil text-center">
-                                <h4 class="mb-3">Davano alif</h4>
-
-                                <a href="">Lihat Saya</a>
-                            </div>
-                            <div class="sosial-media text-center">
-                                <div class="wrap-media">
-
-
-                                    <div class="media ms-2">
-                                        <a><img class="img-fluid" src="{{ asset('images/main/icon_pengikut.png') }}"
-                                                alt=""></a>
-
-
-                                    </div>
-                                    <div class="des-media">
-
-                                        <p>Followers</p>
-                                        <p>25k</p>
-                                    </div>
-                                </div>
-
-                                <div class="wrap-media">
-
-                                    <div class="media">
-                                        <a><img class="img-fluid" src="{{ asset('images/main/icon_view.png') }}"
-                                                alt=""></a>
-                                    </div>
-                                    <div class="des-media text-center">
-
-                                        <p>Viewers</p>
-                                        <p>25k</p>
-                                    </div>
-                                </div>
-
-
-                            </div>
-
-
-                        </div>
-                    </div>
-                    <div class="col-lg-3 mt-2">
-
-                        <div class="card-profil">
-
-
-                            <div class="img-profile"
-                                style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; max-width: 400; height: 200px;">
-
-                            </div>
-
-                            <div class="section-profil text-center">
-                                <h4 class="mb-3">Davano alif</h4>
-
-                                <a href="">Lihat Saya</a>
-                            </div>
-                            <div class="sosial-media text-center">
-                                <div class="wrap-media">
-
-
-                                    <div class="media ms-2">
-                                        <a><img class="img-fluid" src="{{ asset('images/main/icon_pengikut.png') }}"
-                                                alt=""></a>
-
-
-                                    </div>
-                                    <div class="des-media">
-
-                                        <p>Followers</p>
-                                        <p>25k</p>
-                                    </div>
-                                </div>
-
-                                <div class="wrap-media">
-
-                                    <div class="media">
-                                        <a><img class="img-fluid" src="{{ asset('images/main/icon_view.png') }}"
-                                                alt=""></a>
-                                    </div>
-                                    <div class="des-media text-center">
-
-                                        <p>Viewers</p>
-                                        <p>25k</p>
-                                    </div>
-                                </div>
-
-
-                            </div>
-
-
-                        </div>
-                    </div>
-
-
-
-
-                </div>
-
-
-
-
 
             </div>
 
@@ -533,25 +145,30 @@
                     <a href="" class="text-white">See All..</a>
                 </div>
                 <div class="row mb-3">
+                    @if (count($data[1]) === 0)
+                    <p>Tidak ada artikel yang sesuai dengan pencarian</p>
+                    @else
+
+                    @foreach ($data[1] as $article)
                     <div class="col-lg-4 mb-3">
                         <div class="card-artikel">
                             <div class="gambar-artikel"
-                                style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; max-width: 357px; height: 200px;">
+                                style="background-image: url('{{ asset($article->image) }}'); background-size: cover;background-position: center;background-repeat: no-repeat; max-width: 450px; height: 200px;">
 
                             </div>
                             <div class="isi-artikel">
-                                <h4>Pelangi setelah hujan badai</h4>
+                                <h4>{{$article->title}}</h4>
                                 <div class="penuli-tombol">
                                     <div class="fery">
 
-                                        <p>Ferry yulia</p>
-                                        <a href="">Lihat</a>
+                                        <p>{{$article->users->name}}</p>
+                                        <a href="/article/{{$article->id}}">Lihat</a>
                                     </div>
                                     <div class="icon-mata">
 
                                         <a> <img class="img-fluid"
                                                 src="{{ asset('images/main/icon_view.png') }}"></a>
-                                        <p>25K</p>
+                                        <p>{{$article->view}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -559,59 +176,9 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-4 mb-3">
-                        <div class="card-artikel">
-                            <div class="gambar-artikel"
-                                style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; max-width: 357px; height: 200px;">
+                    @endforeach
 
-                            </div>
-                            <div class="isi-artikel">
-                                <h4>Langit Senja: Misteri Hilangnya Waktu</h4>
-                                <div class="penuli-tombol">
-                                    <div class="fery">
-
-                                        <p>Ferry yulia</p>
-                                        <a href="">Lihat</a>
-                                    </div>
-                                    <div class="icon-mata">
-
-                                        <a> <img class="img-fluid"
-                                                src="{{ asset('images/main/icon_view.png') }}"></a>
-                                        <p>25K</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-lg-4 mb-3">
-                        <div class="card-artikel">
-                            <div class="gambar-artikel"
-                                style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; max-width: 357px; height: 200px;">
-
-                            </div>
-                            <div class="isi-artikel">
-                                <h4>Langit Senja: Misteri Hilangnya Waktu</h4>
-                                <div class="penuli-tombol">
-                                    <div class="fery">
-
-                                        <p>Ferry yulia</p>
-                                        <a href="">Lihat</a>
-                                    </div>
-                                    <div class="icon-mata">
-
-                                        <a> <img class="img-fluid"
-                                                src="{{ asset('images/main/icon_view.png') }}"></a>
-                                        <p>25K</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-
-
+                    @endif
                 </div>
 
 
@@ -639,7 +206,10 @@
                 </div>
                 <div class="row">
 
-
+                    @if (count($data[2]) === 0)
+                    <p>Tidak ada cerita yang sesuai dengan pencarian</p>
+                    @else
+                    @foreach ($data[2] as $story)
                     <div class="col-12">
 
                         <div class="cart-cerita mt-3">
@@ -653,16 +223,15 @@
                                 </div>
                                 <div class="col-lg-6">
 
-                                    <div class="isi-cart-cerita">
+                                    <div class="isi-cart-cerita mt-3">
                                         <div class="judul-cerita">
-                                            <h4>Langit Senja: Misteri Hilangnya Waktu</h4>
-                                            <p>Seorang pembaca dapat teralihkan oleh konten yang dapat dibaca ketika
-                                                melihat tata letak halaman. Penting memastikan kontennya mudah dibaca
-                                                dan menarik perhatian. </p>
+                                            <h4>{{$story->title}}</h4>
+                                            <p>{{ Illuminate\Support\Str::limit($story->description, 150) }}</p>
                                         </div>
                                         <div class="kategori">
-                                            <a class="text-white " style="text-decoration: none;">Bahagia</a>
-                                            <a class="text-white" style="text-decoration: none;">Motivasi</a>
+                                            @foreach ($story->category as $category)
+                                            <a class="text-white " style="text-decoration: none;">{{$category}}</a>
+                                            @endforeach
                                         </div>
                                         <div class="icon-view-artikel pt-3">
                                             <div class="gambar-view-artikel">
@@ -688,6 +257,10 @@
                             </div>
                         </div>
                     </div>
+
+                    @endforeach
+
+                    @endif
 
 
 

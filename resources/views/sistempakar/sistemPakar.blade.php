@@ -60,141 +60,31 @@
                         </div>
                     </div>
                 </div>
+                <form action="/sistem-pakar" method="post">
+                @csrf
                 <div class="row">
+                    @php
+                        $i = 1;
+                    @endphp
+                    @foreach ($indikasi as $item)
                     <div class="col-lg-4 mt-3">
                         <div class="border-pertanyaan mb-3">
-                            <p>Sering Menderita Sakit Kepala</p>
-                            <input type="checkbox">
-                        </div>
-                        <div class="border-pertanyaan mb-3">
-                            <p>Tidak Memiliki Nafsu Makan</p>
-                            <input type="checkbox">
-                        </div>
-                        <div class="border-pertanyaan mb-3">
-                            <p>Sulit Tidur</p>
-                            <input type="checkbox">
-                        </div>
-                        <div class="border-pertanyaan mb-3">
-                            <p>Mudah Takut </p>
-                            <input type="checkbox">
-                        </div>
-                        <div class="border-pertanyaan mb-3">
-                            <p>Merasa Tegang, Cemas, Atau Kuatir</p>
-                            <input type="checkbox">
-                        </div>
-                        <div class="border-pertanyaan mb-3">
-                            <p>Tangan Mudah Gemetar</p>
-                            <input type="checkbox">
-                        </div>
-                        <div class="border-pertanyaan mb-3">
-                            <p>Pencernaan Terganggu/Buruk</p>
-                            <input type="checkbox">
-                        </div>
-                        <div class="border-pertanyaan mb-3">
-                            <p>Sulit Berpikir Jernih </p>
-                            <input type="checkbox">
-                        </div>
-                        <div class="border-pertanyaan mb-3">
-                            <p>Merasa Tidak Bahagia</p>
-                            <input type="checkbox">
-                        </div>
-                        <div class="border-pertanyaan mb-3">
-                            <p>Sering Menangis</p>
-                            <input type="checkbox">
+                            <p>{{$item->code}}</p>
+                            <p>{{$item->name}}</p>
+                            <input type="checkbox" name="indikasi[]" value="{{$item->code}}">
                         </div>
 
                     </div>
-                    <div class="col-lg-4 mt-3">
-                        <div class="border-pertanyaan mb-3">
-                            <p>Merasa Sulit Untuk Menikmati Kegiatan Sehari-Hari</p>
-                            <input type="checkbox">
-                        </div>
-                        <div class="border-pertanyaan mb-3">
-                            <p>Sulit Mengambil Keputusan</p>
-                            <input type="checkbox">
-                        </div>
-                        <div class="border-pertanyaan mb-3">
-                            <p>Pekerjaan Sehari-Hari Terganggu</p>
-                            <input type="checkbox">
-                        </div>
-                        <div class="border-pertanyaan mb-3">
-                            <p>Tidak Mampu Melakukan Hal-Hal Yang Bermanfaat Dalam Hidup 0</p>
-                            <input type="checkbox">
-                        </div>
-                        <div class="border-pertanyaan mb-3">
-                            <p>Kehilangan Minat Pada Berbagai Hal </p>
-                            <input type="checkbox">
-                        </div>
-                        <div class="border-pertanyaan mb-3">
-                            <p>Merasa Tidak Berharga</p>
-                            <input type="checkbox">
-                        </div>
-                        <div class="border-pertanyaan mb-3">
-                            <p>Mempunyai Keinginan Untuk Mengakhiri Hidup </p>
-                            <input type="checkbox">
-                        </div>
-                        <div class="border-pertanyaan mb-3">
-                            <p>Merasa Lelah Sepanjang Waktu</p>
-                            <input type="checkbox">
-                        </div>
-                        <div class="border-pertanyaan mb-3">
-                            <p>Mengalami Rasa Tidak Enak Diperut</p>
-                            <input type="checkbox">
-                        </div>
-                        <div class="border-pertanyaan mb-3">
-                            <p>Mudah Lelah</p>
-                            <input type="checkbox">
-                        </div>
-
-                    </div>
-                    <div class="col-lg-4 mt-3">
-                        <div class="border-pertanyaan mb-3">
-                            <p>Lebih Sering Menggunakan Alkohol/Zat Terlarang Dari Biasanya</p>
-                            <input type="checkbox">
-                        </div>
-                        <div class="border-pertanyaan mb-3">
-                            <p>Merasa Seseorang Bermaksud Mencelakai Diri Anda</p>
-                            <input type="checkbox">
-                        </div>
-                        <div class="border-pertanyaan mb-3">
-                            <p>Merasa Ada Sesuatu Yang Mengganggu Pikiran Anda</p>
-                            <input type="checkbox">
-                        </div>
-                        <div class="border-pertanyaan mb-3">
-                            <p>Mendengar Suara-Suara Yang Tidak Didengar Orang Lain</p>
-                            <input type="checkbox">
-                        </div>
-                        <div class="border-pertanyaan mb-3">
-                            <p>Mengalami Mimpi Bencana Atau Seakan Bencana Itu Muncul Kembali</p>
-                            <input type="checkbox">
-                        </div>
-                        <div class="border-pertanyaan mb-3">
-                            <p>Menghindari Berbagai Kegiatan, Tempat, Orang, Atau Pikiran Yang Mengingatkan Akan
-                                Bencana Tersebut
-                            </p>
-                            <input type="checkbox">
-                        </div>
-                        <div class="border-pertanyaan mb-3">
-                            <p>Kurang Tertarik Terhadap Teman-Teman Atau Kegiatan Sehari-Hari </p>
-                            <input type="checkbox">
-                        </div>
-                        <div class="border-pertanyaan mb-3">
-                            <p>Merasa Sangat Sedih Apabila Berada Dalam Situasi Yang Mengingatjan Akan Bencana
-                                Tersebut?</p>
-                            <input type="checkbox">
-                        </div>
-                        <div class="border-pertanyaan mb-3">
-                            <p>Sulit Menghayati Dan Mengeluarkan Perasaan</p>
-                            <input type="checkbox">
-                        </div>
-
-
-                    </div>
+                    @php
+                        $i +=1;
+                    @endphp
+                    @endforeach
                 </div>
             </div>
             <div class="kirim text-end  pb-3container">
-                <a href="">Kirim</a>
+                <button type="submit">Kirim</button>
             </div>
+        </form>
         </div>
     </div>
     {{-- isi sistem pakar --}}

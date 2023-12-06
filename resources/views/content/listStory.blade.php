@@ -49,16 +49,19 @@
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </div>
                     <div class="inputan">
-                        <input type="text" placeholder="Cari disini..">
+                        <form action="/list-story" method="post">
+                            @csrf
+                            <input type="text" name="name" placeholder="Cari disini..">
+
+                        </form>
                     </div>
                 </div>
             </div>
             <div class="col-lg-7">
-                <div class="filter">
-                    <a href="" class="active">Terlaris</a>
-                    <a href="">Terlaris</a>
-                    <a href="">Terlaris</a>
-                    <a href="">Terlaris</a>
+                <div class="filter justify-content-end">
+                    <a href="/list-story-like"  style="  @if($like == true) background-color: #0044a3; @endif margin-right: 15px">Menyukai</a>
+                    <a href="/list-story-view" style="  @if($view == true) background-color: #0044a3; @endif margin-right: 15px">Melihat</a>
+                    <a style="background-color: #0A6EF6" href="/list-story">Muat ulang</a>
                 </div>
             </div>
         </div>
@@ -75,13 +78,13 @@
 
 
                     <div class="col-12">
-
+                        @foreach ($listStory as $story)
                         <div class="cart-cerita mt-3">
                             <div class="row">
                                 <div class="col-lg-6">
 
                                     <div class="gambar-cerita"
-                                        style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; max-width: 500px; height: 300px;">
+                                        style="background-image: url('{{ asset($story->image) }}'); background-size: cover;background-position: center;background-repeat: no-repeat; max-width: 500px; height: 300px;">
 
                                     </div>
                                 </div>
@@ -89,14 +92,13 @@
 
                                     <div class="isi-cart-cerita">
                                         <div class="judul-cerita">
-                                            <h4>Hujan deras, senyum cahaya, tawa kecil.</h4>
-                                            <p>Matahari senyum di langit biru, kucing melintas dengan cuek di jalanan,
-                                                aroma kopi menyapa di sudut kafe, dan pohon-pohon menari sepoi-sepoi
-                                                angin.</p>
+                                            <h4>{{$story->title}}</h4>
+                                            <p>{{ Illuminate\Support\Str::limit($story->description, 150) }}</p>
                                         </div>
                                         <div class="kategori">
-                                            <a class="text-white " style="text-decoration: none;">Bahagia</a>
-                                            <a class="text-white" style="text-decoration: none;">Motivasi</a>
+                                            @foreach ($story->category as $category)
+                                            <a class="text-white " style="text-decoration: none;">{{$category}}</a>
+                                            @endforeach
                                         </div>
                                         <div class="icon-view-artikel pt-3">
                                             <div class="gambar-view-artikel">
@@ -105,22 +107,35 @@
                                                         src="{{ asset('images/main/icon_view.png') }}"
                                                         alt=""></a>
                                             </div>
+
                                             <div class="bungkus-icon-tombol">
 
                                                 <div class="isi_icon">
-                                                    <p class="text-white">View artikel</p>
-                                                    <h5 class="text-white">25.k</h5>
+                                                    <p class="text-white">View Story</p>
+                                                    <h5 class="text-white">{{$story->view}}</h5>
                                                 </div>
-                                                <div class="tombol-cerita">
-                                                    <a href="">Lihat</a>
+                                                <div class="gambar-view-artikel ms-2">
 
+                                                <a href=""><img class="img-fluid"
+                                                        src="{{ asset('images/content/like.png') }}"
+                                                        alt=""></a>
+                                            </div>
+                                             <div class="isi_icon">
+                                                    <p class="text-white">Like Story</p>
+                                                    <h5 class="text-white">{{$story->story_like_count}}</h5>
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="tombol-cerita mb-4">
+                                            <a href="">Lihat</a>
+
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+                        @endforeach
                     </div>
 
 
