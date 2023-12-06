@@ -1,0 +1,63 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.judul-halaman {
+    text-align: center;
+    background-color: #042E80;
+    color: white;
+    padding: 8px 10px;
+    border-radius: 5px;
+    max-width: 210px; /* Sesuaikan dengan lebar maksimum yang diinginkan */
+    margin: 0 auto; /* Untuk mengatur agar elemen berada di tengah */
+  }
+
+  .judul-halaman h2 {
+    margin: 0;
+  }
+  .pembungkus-search{
+    display: flex;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin-top: 2.5rem;
+    padding: 0.5rem 1rem;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid #042E80;
+  }
+.input {
+    width: 100%;
+}
+.input input {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border: none;
+    outline: none; /* Menghilangkan outline default ketika input aktif */
+}
+
+.input input:focus {
+    border: none; /* Menghilangkan border ketika input aktif */
+}
+.input{
+    display: flex;
+    gap: 1rem;
+}
+.pembungkus-search a{
+    text-decoration: none;
+    color: white;
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    background-color: #042E80;
+}
+textarea{
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    border: 2px solid #042E80;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+textarea:focus {
+    border-color: #042E80;
+    outline: none; /* Warna border ketika dalam keadaan fokus */
+}

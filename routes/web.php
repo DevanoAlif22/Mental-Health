@@ -104,3 +104,7 @@ Route::get('/cms-admin', function () {
 Route::get('/cms-story', function () {
     return view('cms.cms_story');
 });
+// tanya ai
+Route::get('/tanya-ai', function () {
+    return view('tanyaAi.tanya_ai');
+});
