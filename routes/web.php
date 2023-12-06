@@ -102,3 +102,14 @@ Route::post('/all-search', [MainController::class, 'searchAllSearch']);
 Route::get('/sistem-pakar', [MainController::class,'sistemPakar']);
 Route::post('/sistem-pakar', [MainController::class,'sistemPakarHasil']);
 
+// cms
+Route::get('/cms-admin', function () {
+    return view('cms.cms');
+});
+Route::get('/cms-story', function () {
+    return view('cms.cms_story');
+});
+// tanya ai
+Route::get('/tanya-ai', function () {
+    return view('tanyaAi.tanya_ai');
+});
