@@ -22,19 +22,26 @@ class ArticleController extends Controller
 
     function detail($id) {
         $article = Article::with(['users','commentArticle','ArticleLike'])->find($id);
-        if(Auth::user()) {
-            $like = $article->articleLike->where('id_user',Auth::user()->id)->where('id_article',$id)->first();
-        } else {
-            $like = null;
-        }
+
         if($article) {
-            $article->view = $article->view + 1;
-            $totalComment = $article->commentArticle->count();
-            $totalLike = $article->articleLike->count();
-            $article->update();
-            return view('content.article',['article' => $article, 'totalComment' => $totalComment, 'like' => $like, 'totalLike' => $totalLike]);
+
+            if(Auth::user()) {
+                $like = $article->articleLike->where('id_user',Auth::user()->id)->where('id_article',$id)->first();
+            } else {
+                $like = null;
+            }
+            if($article) {
+                $article->view = $article->view + 1;
+                $totalComment = $article->commentArticle->count();
+                $totalLike = $article->articleLike->count();
+                $article->update();
+                return view('content.article',['article' => $article, 'totalComment' => $totalComment, 'like' => $like, 'totalLike' => $totalLike]);
+            } else {
+                return redirect('/home');
+
+            }
         } else {
-            return view('main.index');
+            return redirect('/home');
 
         }
     }
@@ -94,7 +101,8 @@ class ArticleController extends Controller
             'title' => $request->title,
             'content' => $request->content,
             'view' => 0,
-            'image_path' => $imagePathFull
+            'image_path' => $imagePathFull,
+            'report' => false
         ]);
 
         return redirect('/profile-articleuser/'.Auth::user()->id)->with('success', 'Artikel berhasil diposting');
@@ -205,5 +213,20 @@ class ArticleController extends Controller
         ->where('title', 'LIKE', "%{$request->name}%")
         ->get();
         return view('content.listArticle',['like' => false, 'view' => false,'listArticle' => $listArticle]);
+    }
+
+    function report($id) {
+        $validasi = Article::where('id',$id)->first();
+        if($validasi) {
+            if($validasi->report == false) {
+                $validasi->report = true;
+                $validasi->update();
+                return redirect('/article/'.$id);
+            } else {
+                return redirect('/home');
+            }
+        } else {
+            return redirect('/home');
+        }
     }
 }

@@ -13,7 +13,7 @@ class Article extends Model
     use HasFactory;
 
     protected $table = 'articles';
-    protected $fillable = ['id_user','title','content','image','view','image_path'];
+    protected $fillable = ['id_user','title','content','image','view','image_path'.'report'];
 
     public function users()
     {

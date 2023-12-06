@@ -33,8 +33,8 @@
             </button>
             <div class="collapse navbar-collapse" style="justify-content: end" id="navbarNavAltMarkup">
                 <div class="navbar-nav" id="aboutme">
-                    <a class="nav-link aktive" href="#aboutme">Home</a>
-                    <a class="nav-link" href="#biodata">Sistem pakar</a>
+                    <a class="nav-link aktive" href="/home">Home</a>
+                    <a class="nav-link" href="/sistem-pakar">Sistem pakar</a>
                     @if (Auth::user())
                         @if($imageProfile == null)
                             <a class="nav-link" href="/profile-aboutuser/{{Auth::user()->id}}"><img style="width: 35px; height: 35px; margin-top:-10px" src="{{asset('images/profile/profile-null.png')}}" alt=""></a>

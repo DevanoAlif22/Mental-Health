@@ -79,6 +79,30 @@
     }
 }
 
+.laporkan {
+    text-decoration: none;
+    background-color: red;
+    color: white;
+    height: 35px;
+    padding: 5px 15px 5px 15px;
+    border-radius: 25px;
+}
+.laporkan:hover {
+    color: white;
+}
+
+.laporkan-mati {
+    text-decoration: none;
+    background-color: rgb(255, 163, 163);
+    color: rgb(0, 0, 0);
+    height: 35px;
+    padding: 5px 15px 5px 15px;
+    border-radius: 25px;
+}
+.laporkan-mati:hover {
+    color: white;
+}
+
 @media (max-width: 400px) {
     .img-article {
         height: 400px;

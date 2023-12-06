@@ -101,9 +101,19 @@
                 <i class="fa-solid fa-calendar-days fa-1x" style="padding-top:5px; color: #a6a6a6;"></i>
                 <p style="margin-left: 10px; ">{{$article->created_at}}</p>
             </div>
-            <div class="content">
+            <div class="content" style="margin-bottom: 20px">
                 {!! nl2br(e($article->content)) !!}
+
             </div>
+            @if ($article->report == false)
+            <div style="margin-right: 20px; display:flex; ">
+                <a href="/report-article/{{$article->id}}" class="laporkan">Laporkan</a>
+            </div>
+            @else
+            <div style="margin-right: 20px; display:flex; ">
+                <a style="pointer-events: none" href="/report-article/{{$article->id}}" class="laporkan-mati">Laporkan</a>
+            </div>
+            @endif
         </div>
 
         <div class="container" style="height: 3px; background-color:rgba(148, 148, 148, 0.474)"></div>
