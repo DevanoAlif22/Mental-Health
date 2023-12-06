@@ -75,7 +75,10 @@
                                     <i class="fa-solid fa-magnifying-glass"></i>
                                 </div>
                                 <div class="inputan">
-                                    <input type="text" placeholder="Cari disini..">
+                                    <form action="/all-search" method="post">
+                                        @csrf
+                                        <input name="search" type="text" placeholder="Cari disini..">
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -115,7 +118,7 @@
                 </div>
             </div>
             <div class="see_all text-end pt-5">
-                <a href="">See All..</a>
+                <a href="/list-profile">See All..</a>
             </div>
             <div class="wrap-card-profil ">
 
@@ -204,7 +207,7 @@
 
             <div class="wrap-card-artikel">
                 <div class="see_all text-end pt-5 mb-4">
-                    <a href="" class="text-white">See All..</a>
+                    <a href="/list-article" class="text-white">See All..</a>
                 </div>
                 <div class="row mb-3">
                     @foreach ($popularArticle as $article)
@@ -267,7 +270,7 @@
         </div>
     </div>
     <div class="see_all text-end pt-5 mb-2 container">
-        <a href="">See All..</a>
+        <a href="/list-story">See All..</a>
     </div>
     <div class="section-cerita">
 
@@ -295,7 +298,7 @@
                                         <div class="judul-cerita">
                                             <h4>{{$story->title}}</h4>
                                             <p style="color:white;">{{$story->users->name}}</p>
-                                            <p>{{ Illuminate\Support\Str::limit($article->content, 150) }}</p>
+                                            <p>{{ Illuminate\Support\Str::limit($story->description, 150) }}</p>
                                         </div>
                                         <div class="kategori">
                                             @foreach ($story->category as $category)

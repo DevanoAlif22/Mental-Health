@@ -58,36 +58,30 @@
 
                             <h4>Hasil Diagnosa</h4>
                         </div>
+                        @if ($hasil == true)
                         <div class="hasil-diagnosa mt-3">
-                            <h6>ANDA TIDAK DICATAT MEMILIKI MASALAH KESEHATAN JIWA DENGAN TINGKAT PERCAYA DIRI 87,8%
-                                SELAMAT ANDA TIDAK DITUNJUKKAN, TETAPI ANDA HARUS MENJAGA KESEHATAN MENTAL ANDA YANG
-                                HARUS ANDA LAKUKAN UNTUK MENJAGA KESEHATAN MENTAL</h6>
+                            <h6>Anda mengalami {{$diagnosa->name}}</h6>
                             <ul class="mt-3">
-                                <li>JANGAN MEMILIKI DIET NUTRISI DAN SEHAT</li>
-                                <li>TIDUR CUKUP 7-8 JAM</li>
-                                <li>LATIHAN RUTIN</li>
-                                <li>KONSULTASIKAN DENGAN PRISCHOLOGIS JIKA MERASA KURANG NYAMAN DENGAN KONDISI MENTAL
-                                    ANDA</li>
-                                <li>LAKUKAN MINIMAL SATU AKTIVITAS MENYENANGKAN SETIAP HARI</li>
-                                <li>BERITAHU ORANG TERDEKAT APA YANG ANDA MERASAKAN</li>
+                                Saran : {{$diagnosa->suggest}}
                             </ul>
                             <h6>INSTRUMEN YANG DIPILIH</h6>
                             <ol class="mt-3">
-                                <li>JANGAN MEMILIKI DIET NUTRISI DAN SEHAT</li>
-                                <li>TIDUR CUKUP 7-8 JAM</li>
-                                <li>LATIHAN RUTIN</li>
-                                <li>KONSULTASIKAN DENGAN PRISCHOLOGIS JIKA MERASA KURANG NYAMAN DENGAN KONDISI MENTAL
-                                    ANDA</li>
-                                <li>LAKUKAN MINIMAL SATU AKTIVITAS MENYENANGKAN SETIAP HARI</li>
-                                <li>BERITAHU ORANG TERDEKAT APA YANG ANDA MERASAKAN</li>
+                                @foreach ($gejala as $item)
+
+                                <li>{{$item->name}}</li>
+                                @endforeach
                             </ol>
                         </div>
+
+                        @else
+                        <p>Anda tidak terdiagnosa penyakit kesehatan mental atau inputan anda belum akurat</p>
+                        @endif
                     </div>
                 </div>
 
             </div>
             <div class="kirim text-end  pb-3container">
-                <a href="">Selesai</a>
+                <a href="/sistem-pakar">Selesai</a>
             </div>
         </div>
     </div>

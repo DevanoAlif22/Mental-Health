@@ -1,18 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 
-*{
+* {
     margin: 0;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     padding: 0;
 }
-p,h1,h2,h3,h4,h5,h6,a{
-    font-family: 'Poppins', sans-serif;
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a {
+    font-family: "Poppins", sans-serif;
 }
-body{
+body {
     overflow-x: hidden;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
 }
-.navbar-brand img{
+.navbar-brand img {
     width: 40px;
     height: auto;
     margin-right: 0.5rem;
@@ -21,49 +28,44 @@ body{
     display: flex;
     align-items: center;
 }
-a.navbar-brand{
-    color: #042E80;
+a.navbar-brand {
+    color: #042e80;
     font-weight: 600;
 }
-a.navbar-brand:hover{
-    color: #042E80;
+a.navbar-brand:hover {
+    color: #042e80;
 }
 a.nav-link {
     font-weight: 500;
     margin-right: 3rem;
     color: black;
 }
-a.nav-link:hover{
-
-    color: #0A6EF6;
+a.nav-link:hover {
+    color: #0a6ef6;
 }
 .nav-link.aktive {
-    color: #0A6EF6; /* Atur warna teks menjadi biru */
+    color: #0a6ef6; /* Atur warna teks menjadi biru */
     /* Anda juga dapat menambahkan properti gaya lainnya sesuai kebutuhan */
 }
-.navbar-nav button{
-    background-color: #0A6EF6;
+.navbar-nav button {
+    background-color: #0a6ef6;
     border: none;
     padding: 0 2rem;
     border-radius: 10px;
     color: white;
     font-weight: 600;
-    transition: .2s ease-in-out;
+    transition: 0.2s ease-in-out;
     width: 100px !important;
-    
-    
 }
-.navbar-nav button:hover{
+.navbar-nav button:hover {
     background-color: #0044a3;
-    
-    
 }
-button a{
+button a {
     color: white;
     text-decoration: none;
     font-weight: bold;
 }
-.inputan input{
+.inputan input {
     background-color: transparent;
     border: none;
 }
@@ -72,168 +74,171 @@ button a{
     border: none; /* Menghapus batas saat dalam keadaan aktif (focus) */
     /* Anda dapat menambahkan properti gaya lainnya sesuai kebutuhan */
 }
-.search{
+.search {
     display: flex;
     align-items: center;
     background-color: white;
     margin-top: 2rem;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+        rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
     padding: 0.5rem 1rem;
     width: 400px !important;
-    
+
     border-radius: 2rem;
 }
-.search i{
+.search i {
     margin-right: 1.5rem;
 }
-.filter a{
+.filter a {
     text-decoration: none;
     display: flex;
     align-items: center;
-    background-color: #BDBDBD;
+    background-color: #bdbdbd;
     color: white;
     padding: 0.4rem 2rem;
     border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    transition: .2s ease-in-out;
+    transition: 0.2s ease-in-out;
 }
-.filter a:hover{
+.filter a:hover {
     background-color: #0044a3;
 }
-.filter{
+.filter {
     margin-top: 2rem;
     display: flex;
     justify-content: space-around;
 }
-a.active{
+a.active {
     background-color: #0044a3;
 }
 /* isi */
-.wrap-card-cerita{
+.wrap-card-cerita {
     height: auto;
-    
 }
-.gambar-cerita img{
+.gambar-cerita img {
     height: 100%;
     border-radius: 10px;
 }
-.judul-cerita h4{
+.judul-cerita h4 {
     color: white;
     width: 70%;
     font-size: 1.3rem;
     padding-top: 0.5rem;
 }
-.isi-cart-cerita{
+.isi-cart-cerita {
     padding-left: 4rem;
 }
-.bungkus-icon-tombol{
+.bungkus-icon-tombol {
     display: flex;
 }
-.tombol-cerita a{
+.tombol-cerita {
+    margin-top: 1rem;
+}
+.tombol-cerita a {
     text-decoration: none;
     color: white;
-    display: flex;
-    margin-left: 2rem;
+    margin-top: 1rem;
     border-radius: 20px;
     align-items: center;
     padding: 0.3rem 2rem;
-    background-color: #006BFC;
+    background-color: #006bfc;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
-.cart-cerita{
+.cart-cerita {
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    background-color: #042E80;
-    transition: .2s ease-in-out;
+    background-color: #042e80;
+    transition: 0.2s ease-in-out;
 }
-.judul-cerita p{
-    color: #AAAAAA;
+.judul-cerita p {
+    color: #aaaaaa;
     width: 60%;
     font-size: 0.8rem;
 }
-.kategori{
+.kategori {
     display: flex;
     padding-bottom: 1rem;
     border-bottom: 1px solid white;
     width: 70%;
 }
-.kategori a{
+.kategori a {
     margin-left: 1rem;
     color: white;
-    background-color: #006BFC;
+    background-color: #006bfc;
     border-radius: 20px;
     padding: 0.2rem 0.7rem;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
-.cart-cerita:hover{
-   background-color: #0044a3;
+.cart-cerita:hover {
+    background-color: #0044a3;
 }
-.wrap-card-cerita{
-  
+.wrap-card-cerita {
 }
-.section-cerita{
+.section-cerita {
     padding-bottom: 3rem;
 }
-.gambar-view-artikel img{
+.gambar-view-artikel img {
     width: 30px;
     height: auto;
 }
-.gambar-view-artikel a{
+.gambar-view-artikel a {
     cursor: default;
     padding: 0.4rem;
     border-radius: 50%;
     display: flex;
     align-items: center;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    background-color: #006BFC;
+    background-color: #006bfc;
     margin-right: 1rem;
 }
-.icon-view-artikel{
+.icon-view-artikel {
     display: flex;
 }
-.isi_icon h5{
+.isi_icon h5 {
     margin-top: -1rem;
 }
-.gambar-cerita{
-
+.gambar-cerita {
     border-radius: 10px 0 0 10px;
 }
 
-@media (max-width:400px){
-    .search{
+@media (max-width: 400px) {
+    .search {
         width: 300px !important;
-    
     }
-    .filter{
+    .filter {
         margin-top: 2rem;
- 
     }
-    .filter a{
-       
+    .filter a {
         padding: 0.2rem 1rem;
         font-size: 13px;
         border-radius: 20px;
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     }
-    .judul-cerita h4{
+    .judul-cerita h4 {
         font-size: 20px;
     }
-    .isi-cart-cerita{
+    .isi-cart-cerita {
         width: 100%;
         padding-left: 3rem;
     }
-    .judul-cerita p{
-        color: #AAAAAA;
+    .judul-cerita p {
+        color: #aaaaaa;
         width: 80%;
         font-size: 0.6rem;
     }
-    .kategori a{
+    .kategori a {
         margin-left: 1rem;
         color: white;
-        background-color: #006BFC;
+        background-color: #006bfc;
         border-radius: 20px;
         font-size: 13px;
         padding: 0.2rem 0.5rem;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     }
-  }
+    .isi_icon {
+        font-size: 11px;
+    }
+    .isi_icon h5 {
+        font-size: 11px;
+    }
+}

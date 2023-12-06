@@ -232,4 +232,34 @@ class StoryController extends Controller
 
         }
     }
+
+    function listStory() {
+        $listStory = Story::withCount('storyLike as story_like_count')
+        ->with('users')
+        ->get();
+        return view('content.listStory',['like' => false, 'view' => false,'listStory' => $listStory]);
+    }
+
+    function listStoryLike() {
+        $listStory = Story::withCount('storyLike as story_like_count')
+        ->with('users')
+        ->orderBy('story_like_count', 'desc')
+        ->get();
+        return view('content.listStory',['like' => true, 'view' => false,'listStory' => $listStory]);
+    }
+
+    function listStoryView() {
+        $listStory =  Story::withCount('storyLike as story_like_count')
+        ->orderBy('view', 'desc')
+        ->get();
+        return view('content.listStory',['like' => false, 'view' => true,'listStory' => $listStory]);
+    }
+
+    function searchListStory(Request $request) {
+        $listStory = Story::withCount('storyLike as story_like_count')
+        ->with('users')
+        ->where('title', 'LIKE', "%{$request->name}%")
+        ->get();
+        return view('content.listStory',['like' => false, 'view' => false,'listStory' => $listStory]);
+    }
 }
