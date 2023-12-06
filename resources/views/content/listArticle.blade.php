@@ -49,16 +49,19 @@
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </div>
                     <div class="inputan">
-                        <input type="text" placeholder="Cari disini..">
+                        <form action="/list-article" method="post">
+                            @csrf
+                            <input type="text" name="name" placeholder="Cari disini..">
+
+                        </form>
                     </div>
                 </div>
             </div>
             <div class="col-lg-7">
-                <div class="filter">
-                    <a href="" class="active">Terlaris</a>
-                    <a href="">Terlaris</a>
-                    <a href="">Terlaris</a>
-                    <a href="">Terlaris</a>
+                <div class="filter justify-content-end">
+                    <a style=" @if($like == true) background-color: #0044a3; @endif margin-right: 20px" href="/list-article-like">Menyukai</a>
+                    <a style=" @if($view == true) background-color: #0044a3; @endif margin-right: 20px" href="/list-article-view">Melihat</a>
+                    <a style="background-color: #0A6EF6" href="/list-article">Muat ulang</a>
                 </div>
             </div>
         </div>
@@ -73,72 +76,32 @@
                     <a href="" class="text-white">See All..</a>
                 </div>
                 <div class="row mb-3">
+                    @foreach ($listArticle as $article)
                     <div class="col-lg-4 mb-3">
                         <div class="card-artikel">
                             <div class="gambar-artikel"
-                                style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; max-width: 357px; height: 200px;">
+                                style="background-image: url('{{ asset($article->image) }}'); background-size: cover;background-position: center;background-repeat: no-repeat; max-width: 450px; height: 200px;">
 
                             </div>
                             <div class="isi-artikel">
-                                <h4>Pelangi setelah hujan badai</h4>
+                                <h4>{{$article->title}}</h4>
                                 <div class="penuli-tombol">
                                     <div class="fery">
 
-                                        <p>Ferry yulia</p>
-                                        <a href="">Lihat</a>
+                                        <p>{{$article->users->name}}</p>
+                                        <a href="/article/{{$article->id}}">Lihat</a>
                                     </div>
                                     <div class="icon-mata">
+                                        <div class="icon-lihat">
 
-                                        <a> <img class="img-fluid" src="{{ asset('images/main/icon_view.png') }}"></a>
-                                        <p>25K</p>
-                                    </div>
-                                </div>
-                            </div>
+                                            <a> <img class="img-fluid" src="{{ asset('images/content/like.png') }}"></a>
+                                            <p class="mt-3">{{$article->article_like_count}}</p>
+                                        </div>
+                                        <div class="icon-lihat">
 
-                        </div>
-                    </div>
-                    <div class="col-lg-4 mb-3">
-                        <div class="card-artikel">
-                            <div class="gambar-artikel"
-                                style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; max-width: 357px; height: 200px;">
-
-                            </div>
-                            <div class="isi-artikel">
-                                <h4>Pelangi setelah hujan badai</h4>
-                                <div class="penuli-tombol">
-                                    <div class="fery">
-
-                                        <p>Ferry yulia</p>
-                                        <a href="">Lihat</a>
-                                    </div>
-                                    <div class="icon-mata">
-
-                                        <a> <img class="img-fluid" src="{{ asset('images/main/icon_view.png') }}"></a>
-                                        <p>25K</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-lg-4 mb-3">
-                        <div class="card-artikel">
-                            <div class="gambar-artikel"
-                                style="background-image: url('{{ asset('images/main/tesres.jpg') }}'); background-size: cover;background-position: center;background-repeat: no-repeat; max-width: 357px; height: 200px;">
-
-                            </div>
-                            <div class="isi-artikel">
-                                <h4>Pelangi setelah hujan badai</h4>
-                                <div class="penuli-tombol">
-                                    <div class="fery">
-
-                                        <p>Ferry yulia</p>
-                                        <a href="">Lihat</a>
-                                    </div>
-                                    <div class="icon-mata">
-
-                                        <a> <img class="img-fluid" src="{{ asset('images/main/icon_view.png') }}"></a>
-                                        <p>25K</p>
+                                            <a> <img class="img-fluid" src="{{ asset('images/main/icon_view.png') }}"></a>
+                                            <p class="mt-3">{{$article->view}}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -146,22 +109,10 @@
                         </div>
                     </div>
 
-
+                    @endforeach
                 </div>
-
-
             </div>
-
         </div>
-
-
-
-        </div>
-
-    </section>
-
-
-    </div>
     </section>
     {{-- isi profil --}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"

@@ -76,13 +76,24 @@ Route::get('/list-article', function () {
 Route::get('/list-story', function () {
     return view('content.listStory');
 });
-Route::get('/list-profile', function () {
-    return view('content.listProfile');
-});
-Route::get('/sistem-pakar', function () {
-    return view('sistempakar.sistemPakar');
-});
-Route::get('/sistem-pakar-hasil', function () {
-    return view('sistempakar.sistemPakarHasil');
-});
+Route::get('/list-profile', [ProfileController::class, 'listUser']);
+Route::get('/list-profile-follower', [ProfileController::class, 'listUserFollow']);
+Route::get('/list-profile-view', [ProfileController::class, 'listUserView']);
+Route::post('/list-profile', [ProfileController::class, 'searchListUser']);
+
+Route::get('/list-article', [ArticleController::class, 'listArticle']);
+Route::get('/list-article-like', [ArticleController::class, 'listArticleLike']);
+Route::get('/list-article-view', [ArticleController::class, 'listArticleView']);
+Route::post('/list-article', [ArticleController::class, 'searchListArticle']);
+
+Route::get('/list-story', [StoryController::class, 'listStory']);
+Route::get('/list-story-like', [StoryController::class, 'listStoryLike']);
+Route::get('/list-story-view', [StoryController::class, 'listStoryView']);
+Route::post('/list-story', [StoryController::class, 'searchListStory']);
+
+Route::get('/all-search', [MainController::class, 'allSearch']);
+Route::post('/all-search', [MainController::class, 'searchAllSearch']);
+
+Route::get('/sistem-pakar', [MainController::class,'sistemPakar']);
+Route::post('/sistem-pakar', [MainController::class,'sistemPakarHasil']);
 

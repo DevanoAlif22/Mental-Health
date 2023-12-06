@@ -176,4 +176,34 @@ class ArticleController extends Controller
 
         }
     }
+
+    function listArticle() {
+        $listArticle = Article::withCount('articleLike as article_like_count')
+        ->with('users')
+        ->get();
+        return view('content.listArticle',['like' => false, 'view' => false,'listArticle' => $listArticle]);
+    }
+
+    function listArticleLike() {
+        $listArticle = Article::withCount('articleLike as article_like_count')
+        ->with('users')
+        ->orderBy('article_like_count', 'desc')
+        ->get();
+        return view('content.listArticle',['like' => true, 'view' => false,'listArticle' => $listArticle]);
+    }
+
+    function listArticleView() {
+        $listArticle =  Article::withCount('articleLike as article_like_count')
+        ->orderBy('view', 'desc')
+        ->get();
+        return view('content.listArticle',['like' => false, 'view' => true,'listArticle' => $listArticle]);
+    }
+
+    function searchListArticle(Request $request) {
+        $listArticle = Article::withCount('articleLike as article_like_count')
+        ->with('users')
+        ->where('title', 'LIKE', "%{$request->name}%")
+        ->get();
+        return view('content.listArticle',['like' => false, 'view' => false,'listArticle' => $listArticle]);
+    }
 }

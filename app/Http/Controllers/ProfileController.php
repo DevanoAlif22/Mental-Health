@@ -19,6 +19,36 @@ class ProfileController extends Controller
         return [$profil,$totalFollower];
     }
 
+    function listUser() {
+        $listUser = User::withCount('followers as follower_count')
+        ->with('profiles')
+        ->get();
+        return view('content.listProfile',['follow' => false, 'view' => false,'listUser' => $listUser]);
+    }
+
+    function listUserFollow() {
+        $listUser = User::withCount('followers as follower_count')
+        ->with('profiles')
+        ->orderBy('follower_count', 'desc')
+        ->get();
+        return view('content.listProfile',['follow' => true, 'view' => false,'listUser' => $listUser]);
+    }
+
+    function listUserView() {
+        $listUser =  User::withCount('followers as follower_count')->leftJoin('profiles', 'users.id', '=', 'profiles.id_user')
+        ->orderByDesc('profiles.view')
+        ->get();
+        return view('content.listProfile',['follow' => false, 'view' => true,'listUser' => $listUser]);
+    }
+
+    function searchListUser(Request $request) {
+        $listUser = User::withCount('followers as follower_count')
+        ->with('profiles')
+        ->where('name', 'LIKE', "%{$request->name}%")
+        ->get();
+        return view('content.listProfile',['follow' => false, 'view' => false,'listUser' => $listUser]);
+    }
+
     function detailUser($id) {
         $validasi = User::find($id);
         if($validasi){
