@@ -24,12 +24,12 @@ Route::get('/coba', function () {
 Route::get('/home', [MainController::class, 'index'])->name('home');
 
 //  Konten
-Route::get('/article/{id}', [ArticleController::class,'detail']);
-Route::post('/comment-article/{id}', [ArticleController::class,'addComment']);
-Route::get('/like-article/{id}', [ArticleController::class,'addLike']);
-Route::get('/story/{id}', [StoryController::class,'detail']);
-Route::post('/comment-story/{id}', [StoryController::class,'addComment']);
-Route::get('/like-story/{id}', [StoryController::class,'addLike']);
+Route::get('/article/{id}', [ArticleController::class, 'detail']);
+Route::post('/comment-article/{id}', [ArticleController::class, 'addComment']);
+Route::get('/like-article/{id}', [ArticleController::class, 'addLike']);
+Route::get('/story/{id}', [StoryController::class, 'detail']);
+Route::post('/comment-story/{id}', [StoryController::class, 'addComment']);
+Route::get('/like-story/{id}', [StoryController::class, 'addLike']);
 
 
 Route::middleware('guest')->group(function () {
@@ -42,30 +42,30 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-Route::get('/profile-aboutuser/{id}', [ProfileController::class, 'detailUser']);
-Route::get('/profile-articleuser/{id}', [ProfileController::class, 'listArticle']);
-Route::get('/profile-storyuser/{id}', [ProfileController::class, 'listStory']);
+    Route::get('/profile-aboutuser/{id}', [ProfileController::class, 'detailUser']);
+    Route::get('/profile-articleuser/{id}', [ProfileController::class, 'listArticle']);
+    Route::get('/profile-storyuser/{id}', [ProfileController::class, 'listStory']);
 
-// edit user
-Route::get('/upload-articleuser', [ArticleController::class,'getUploadArticle']);
-Route::post('/upload-articleuser', [ArticleController::class,'uploadArticle']);
-Route::get('/delete-article/{id}', [ArticleController::class,'deleteArticle']);
-Route::get('/edit-article/{id}', [ArticleController::class,'getEditArticle']);
-Route::post('/edit-article/{id}', [ArticleController::class,'editArticle']);
+    // edit user
+    Route::get('/upload-articleuser', [ArticleController::class, 'getUploadArticle']);
+    Route::post('/upload-articleuser', [ArticleController::class, 'uploadArticle']);
+    Route::get('/delete-article/{id}', [ArticleController::class, 'deleteArticle']);
+    Route::get('/edit-article/{id}', [ArticleController::class, 'getEditArticle']);
+    Route::post('/edit-article/{id}', [ArticleController::class, 'editArticle']);
 
-Route::get('/upload-storyuser', [StoryController::class,'getUploadStory']);
-Route::post('/upload-storyuser', [StoryController::class,'uploadStory']);
-Route::get('/delete-story/{id}', [StoryController::class,'deleteStory']);
-Route::get('/edit-story/{id}', [StoryController::class,'getEditStory']);
-Route::post('/edit-story/{id}', [StoryController::class,'editStory']);
+    Route::get('/upload-storyuser', [StoryController::class, 'getUploadStory']);
+    Route::post('/upload-storyuser', [StoryController::class, 'uploadStory']);
+    Route::get('/delete-story/{id}', [StoryController::class, 'deleteStory']);
+    Route::get('/edit-story/{id}', [StoryController::class, 'getEditStory']);
+    Route::post('/edit-story/{id}', [StoryController::class, 'editStory']);
 
-Route::get('/edit-aboutuser', [ProfileController::class, 'getEditAbout']);
-Route::post('/edit-aboutuser', [ProfileController::class, 'editAbout']);
-Route::get('/edit-profileuser', [ProfileController::class, 'getEditProfil']);
-Route::post('/edit-profileuser', [ProfileController::class, 'editProfil']);
-Route::get('/logout', [AuthController::class, 'logout']);
+    Route::get('/edit-aboutuser', [ProfileController::class, 'getEditAbout']);
+    Route::post('/edit-aboutuser', [ProfileController::class, 'editAbout']);
+    Route::get('/edit-profileuser', [ProfileController::class, 'getEditProfil']);
+    Route::post('/edit-profileuser', [ProfileController::class, 'editProfil']);
+    Route::get('/logout', [AuthController::class, 'logout']);
 
-Route::get('/follow/{id}', [ProfileController::class, 'follow']);
+    Route::get('/follow/{id}', [ProfileController::class, 'follow']);
 
 });
 
@@ -86,3 +86,10 @@ Route::get('/sistem-pakar-hasil', function () {
     return view('sistempakar.sistemPakarHasil');
 });
 
+// cms
+Route::get('/cms-admin', function () {
+    return view('cms.cms');
+});
+Route::get('/cms-story', function () {
+    return view('cms.cms_story');
+});
