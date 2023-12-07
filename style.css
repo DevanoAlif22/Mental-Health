@@ -1,0 +1,90 @@
+.logo img{
+    width: 90px;
+}
+.logo{
+    text-align: right;
+}
+.bg-wrap {
+    margin-top: 3rem;
+    background-image: url("./assets/bg.png");
+    background-size: cover;
+    width: 100%;
+    height: auto;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+}
+.wrap-card{
+    padding: 0.5rem 1.5rem;
+    background-color: #0A6EF6;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: .2s ease-in-out;
+    border: 3px solid #0A6EF6;
+}
+.wrap-card:hover{
+    background-color: transparent;
+}
+.wrap-card2{
+    padding: 0.5rem 1.5rem;
+    background-color: transparent;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: .2s ease-in-out;
+    border: 3px solid #0A6EF6;
+}
+.wrap-card2:hover{
+    background-color: #0A6EF6;
+}
+.judul-card h1{
+    color: white;
+}
+.des p{
+    color: white;
+}
+.bulat{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: #042E80;
+    margin-right: 0.6rem;
+    margin-top: 0.5rem;
+}
+.list{
+    display: flex;
+}
+.isi-list p{
+    color: white;
+    
+}
+.tombol{
+    margin-top: 1.4rem;
+    margin-bottom: 2rem;
+
+}
+
+.tombol a{
+
+    text-decoration: none;
+    color: white;
+    background-color: #0A6EF6;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.kelebihan p{
+color: white;
+width: 100px;
+margin-bottom: -1rem;
+font-weight: 600;
+padding: 0.2rem 1.5rem;
+background-color: #042E80;
+border-radius: 20px;
+font-size: 11px;
+}
+.des p{
+    height: 80px;
+    font-size: 12px;
+    width: 80%;
+}
+
