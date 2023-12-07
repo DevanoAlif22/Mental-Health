@@ -1,11 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AiController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\StoryController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProfileController;
 
 /*
@@ -113,3 +115,8 @@ Route::get('/cms-story', function () {
 Route::get('/tanya-ai', function () {
     return view('tanyaAi.tanya_ai');
 });
+
+Route::get('/ai', [AiController::class,'index']);
+Route::post('/ai', [AiController::class,'result']);
+
+Route::get('/payment', [PaymentController::class,'process']);

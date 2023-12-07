@@ -7,6 +7,7 @@ use App\Models\Story;
 use App\Models\Profile;
 use App\Models\Follower;
 use App\Models\ArticleLike;
+use App\Models\Transaction;
 use App\Models\ArticleComments;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
@@ -71,5 +72,10 @@ class User extends Authenticatable
     public function stories()
     {
         return $this->hasMany(Story::class, 'id_user', 'id');
+    }
+
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class, 'id_user', 'id');
     }
 }
