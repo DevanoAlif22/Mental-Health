@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
-
 * {
     margin: 0;
     font-family: "Poppins", sans-serif;
@@ -16,7 +14,6 @@ a {
     font-family: "Poppins", sans-serif;
 }
 body {
-    overflow-x: hidden;
     font-family: "Poppins", sans-serif;
 }
 .navbar-brand img {
@@ -66,52 +63,8 @@ button a {
     font-weight: bold;
 }
 .hero {
+    background: linear-gradient(to right, #0148a9, #006bfc);
     width: 100%;
     margin: 0;
     padding: 0;
-}
-/* hero */
-.inputan input {
-    background-color: transparent;
-    border: none;
-}
-.inputan input:focus {
-    outline: none; /* Untuk menghapus garis fokus bawaan pada beberapa browser */
-    border: none; /* Menghapus batas saat dalam keadaan aktif (focus) */
-    /* Anda dapat menambahkan properti gaya lainnya sesuai kebutuhan */
-}
-.search {
-    display: flex;
-    align-items: center;
-    background-color: white;
-    margin-top: 2rem;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    padding: 0.5rem 1rem;
-    width: 300px !important;
-
-    border-radius: 2rem;
-}
-.search i {
-    margin-right: 1.5rem;
-}
-/* isi all search */
-.judul-all a {
-    text-decoration: none;
-    font-weight: 600;
-    color: white;
-    background-color: #042e80;
-    padding: 0.5rem 2rem;
-    border-radius: 10px;
-}
-.judul-all {
-    margin-top: 2rem;
-}
-.judul-yangdicari p {
-    color: #042e80;
-    font-size: 1.2rem;
-    font-weight: 600;
-}
-.judul-yangdicari {
-    margin-top: 2rem;
-    margin-bottom: -2rem;
 }

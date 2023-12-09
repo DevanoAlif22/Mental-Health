@@ -4,11 +4,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Mental Health - Story</title>
-    <link rel="stylesheet" href="{{asset('/css/content/style.css')}}">
+
+    <link rel="stylesheet" href="/css/navbar/style.css">
+    <link rel="stylesheet" href="/css/footer/style.css">
+    <link rel="icon" href="/images/main/logo2.png" type="image/png">
+    <link rel="stylesheet" href="/css/content/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   </head>
   <body>
+
+
+    {{-- nav --}}
+    @include('layout.navbarStory')
 
     <div class="container-fluid mb-5">
         <div class="container pt-3 mb-3">
@@ -16,7 +24,7 @@
 
         </div>
         <div class="container">
-            <img class="img-article" style="width: 100%" src="{{asset($story->image)}}" alt="">
+            <div class="img-article" style="background-image: url('{{asset($story->image)}}')"></div>
         </div>
         <div class="container mb-5">
             <audio controls style="width: 100%">
@@ -29,13 +37,21 @@
 
                 <div class="col-md-6 d-flex">
                     @if ($story->users->profiles->image == null)
-                    <img class="img-profile" src="{{asset('images/profile/profile-null.png')}}" alt="">
+                    <img class="img-profile" style="max-width: 65px" src="{{asset('images/profile/profile-null.png')}}" alt="">
                     @else
-                    <img class="img-profile" src="{{asset($story->users->profiles->image)}}" alt="">
+                    <img class="img-profile" style="max-width: 65px" src="{{asset($story->users->profiles->image)}}" alt="">
                     @endif
                     <div style="margin-left: 20px">
                         <h3>{{$story->title}}</h3>
-                        <h6><a style="text-decoration: none; color:black;" href="/profile-aboutuser/{{$story->users->id}}">{{$story->users->name}}</a> </h6>
+                        <div class="d-flex">
+                            <h6 style="padding-top: 10px; margin-right:20px;"><a style="text-decoration: none; color:black;" href="/profile-aboutuser/{{$story->users->id}}">{{$story->users->name}}</a> </h6>
+                            <div class="kategori">
+                                @foreach ($story->category as $category)
+                                <a class="text-white " style="text-decoration: none;">{{$category->storyCategory->name}}</a>
+                                @endforeach
+                            </div>
+
+                        </div>
                     </div>
 
                 </div>
@@ -126,7 +142,7 @@
                         @if (Auth::user()->profiles->image == NULL)
                             <img class="img-comment" src="{{asset('images/profile/profile-null.png')}}" alt="">
                         @else
-                            <img class="img-comment" src="{{asset('images/content/user1.png')}}" alt="">
+                            <img class="img-comment" src="{{Auth::user()->profiles->image}}" alt="">
                         @endif
                     </div>
                 </div>
@@ -150,10 +166,10 @@
             @foreach ($story->storyComment as $items)
             <div class="row mb-4 d-flex">
                 <div class="col-1">
-                    @if ($items->users->image == NULL)
+                    @if ($items->users->profiles->image == NULL)
                     <img class="img-comment" src="{{asset('images/profile/profile-null.png')}}" alt="">
                     @else
-                    <img class="img-comment" src="{{asset('images/content/user1.png')}}" alt="">
+                    <img class="img-comment" src="{{$items->users->profiles->image}}" alt="">
                     @endif
                 </div>
                 <div class="col-11">
@@ -170,6 +186,8 @@
         </div>
         @endif
     </div>
+
+    @include('layout.footer')
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
   </body>
 </html>

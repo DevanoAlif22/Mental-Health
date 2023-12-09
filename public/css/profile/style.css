@@ -2,7 +2,7 @@
     margin: 0px;
     padding: 0px;
 }
-body{
+body {
     overflow-x: hidden;
 }
 /* navbar */
@@ -17,7 +17,7 @@ body{
     width: 170px;
     margin-top: 15px;
     margin-bottom: 15px;
-    border-radius: 50px;
+    border-radius: 50%;
 }
 
 .wrap-profile {
@@ -69,7 +69,7 @@ body{
 .description {
     margin-left: 20px;
 }
-.wrap-profile{
+.wrap-profile {
     margin-left: 1rem;
 }
 .btn-follow {
@@ -94,229 +94,223 @@ body{
     padding-bottom: 5px;
 }
 /* isi artikel */
-.card-artikel{
+.card-artikel {
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     background-color: white;
-    }
-    .gambar-artikel img{
-        border-radius: 10px;
-    }
-    .wrap-isi-artikel{
-        display: flex;
-       justify-content: space-evenly;
-    }
-    .icon-view-artikel{
-        display: flex;
-    }
-    .gambar-view-artikel a img{
-        width: 14px;
-        height: auto;
-    }
-    .gambar-view-artikel a{
-        cursor: default;
-        padding: 0.4rem;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-        background-color: #006BFC;
-        margin-right: 1rem;
-    }
-    .isi_icon h5{
-        font-size: 10px;
-       
-    }
-    .judul-dan-sub h6{
-        color: #8D8D8D;
-        margin-top: -0.5rem;
-    }
-    .judul-dan-sub h4{
-        font-weight: 700;
-    
-    }
-    .isi_icon p{
-        font-size: 10px;
-        font-weight: 600;
-    }
-    .wrap-artikel{
-        padding-bottom: 2rem;
-    }
-    .card-artikel{
-     transition: .2s ease-in-out;
-    }
-    .card-artikel:hover{
-        background-color: #0044a3;
-        color: white;
-    }
-    
-    
-    .isi-artikel h4{
-        font-size: 15px;
-        font-weight: bold;
-    }
-    .isi-artikel {
+}
+.gambar-artikel img {
+    border-radius: 10px;
+}
+.wrap-isi-artikel {
+    display: flex;
+    justify-content: space-evenly;
+}
+.icon-view-artikel {
+    display: flex;
+}
+.gambar-view-artikel a img {
+    width: 14px;
+    height: auto;
+}
+.gambar-view-artikel a {
+    cursor: default;
+    padding: 0.4rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: #006bfc;
+    margin-right: 1rem;
+}
+.isi_icon h5 {
+    font-size: 10px;
+}
+.judul-dan-sub h6 {
+    color: #8d8d8d;
+    margin-top: -0.5rem;
+}
+.judul-dan-sub h4 {
+    font-weight: 700;
+}
+.isi_icon p {
+    font-size: 10px;
+    font-weight: 600;
+}
+.wrap-artikel {
+    padding-bottom: 2rem;
+}
+.card-artikel {
+    transition: 0.2s ease-in-out;
+}
+.card-artikel:hover {
+    background-color: #0044a3;
+    color: white;
+}
+
+.isi-artikel h4 {
+    font-size: 15px;
+    font-weight: bold;
+}
+.isi-artikel {
     padding: 1rem;
-    }
-    .penuli-tombol{
-        display: flex;
-        justify-content: space-between;
-    }
-   .icon-mata a img{
+}
+.penuli-tombol {
+    display: flex;
+    justify-content: space-between;
+}
+.icon-mata a img {
     width: 20px;
-   }
-    .icon-mata a{
-        text-decoration: none;
-        display: flex;
-        align-items: center;
+}
+.icon-mata a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
     color: white;
     cursor: default;
-        padding: 0.5rem;
-        background-color: #006BFC;
-        border-radius: 50%;
-    }
-    .icon-mata p{
-        margin-top: 0.7rem;
-    }
-    .fery p{
-    
-        font-size: 12px;
-    }
-    .fery a{
-        font-size: 15px;
-        padding: 0.2rem 1.5rem;
-        color: white;
-        text-decoration: none;
-        border-radius: 20px;
-        font-weight: 600;
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-        background-color: #006BFC;
-        transition: .2s ease-in-out;
-    }
-    .penuli-tombol p{
+    padding: 0.5rem;
+    background-color: #006bfc;
+    border-radius: 50%;
+}
+.icon-mata p {
+    margin-top: 0.7rem;
+}
+.fery p {
+    font-size: 12px;
+}
+.fery a {
+    font-size: 15px;
+    padding: 0.2rem 1.5rem;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: 600;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: #006bfc;
+    transition: 0.2s ease-in-out;
+}
+.penuli-tombol p {
     font-weight: 500;
-    }
-    .penuli-tombol img{
-        width: 30px;
-    }
-    .icon-mata{
-        gap: 0.5rem;
-        display: flex;
-        align-items: center;
-    }
-    .icon-mata p{
-        font-weight: 700;
-    }
-    .fery a:hover{
-        background-color: #005cdd;
-        color: white;
-    }
-    .gambar-artikel{
-        
-        padding-bottom: 10rem;
-    }
-    /* isi cerita */
-    .wrap-card-cerita{
-        height: auto;
-        
-    }
-    .gambar-cerita img{
-        height: 100%;
-        border-radius: 10px;
-    }
-    .judul-cerita h4{
-        color: white;
-        font-size: 1.3rem;
-        padding-top: 0.5rem;
-    }
-    .isi-cart-cerita{
-        padding-left: 4rem;
-    }
-    .bungkus-icon-tombol{
-        display: flex;
-    }
-    .tombol-cerita a{
-        text-decoration: none;
-        color: white;
-        display: flex;
-        margin-left: 2rem;
-        border-radius: 20px;
-        align-items: center;
-        font-size: 11px;
-        font-weight: 600;
-        padding: 0.3rem 2rem;
-        background-color: #006BFC;
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    }
-    .cart-cerita{
-        display: flex;
-        border-radius: 10px;
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-        background-color: #042E80;
-        transition: .2s ease-in-out;
-    }
-    .judul-cerita p{
-        color: #AAAAAA;
-        width: 60%;
-        font-size: 0.6rem;
-    }
-    .kategori{
-        display: flex;
-        padding-bottom: 1rem;
-        border-bottom: 1px solid white;
-        width: 70%;
-    }
-    .kategori a{
-        margin-left: 1rem;
-        color: white;
-        font-size: 10px;
-        background-color: #006BFC;
-        border-radius: 20px;
-        padding: 0.2rem 0.7rem;
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    }
-    .cart-cerita:hover{
-       background-color: #0044a3;
-    }
-    .wrap-card-cerita{
-      
-    }
-    .section-cerita{
-        padding-bottom: 3rem;
-    }
-    .gambar-view-artikel img{
-        width: 30px;
-        height: auto;
-    }
-    .gambar-view-artikel a{
-        cursor: default;
-        padding: 0.4rem;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-        background-color: #006BFC;
-        margin-right: 1rem;
-    }
-    .icon-view-artikel{
-        display: flex;
-    }
-    .isi_icon h5{
-        margin-top: -1rem;
-    }
-    .gambar-cerita{
-        border-radius: 10px 0 0 10px;
-        padding-right: 5rem;
-        padding-left: 5rem;
-        margin-bottom: -0.1rem;
-        padding-bottom: 13rem;
-    }
-    /* isi cerita */
+}
+.penuli-tombol img {
+    width: 30px;
+}
+.icon-mata {
+    gap: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+.icon-mata p {
+    font-weight: 700;
+}
+.fery a:hover {
+    background-color: #005cdd;
+    color: white;
+}
+.gambar-artikel {
+    padding-bottom: 10rem;
+}
+/* isi cerita */
+.wrap-card-cerita {
+    height: auto;
+}
+.gambar-cerita img {
+    height: 100%;
+    border-radius: 10px;
+}
+.judul-cerita h4 {
+    color: white;
+    font-size: 1.3rem;
+    padding-top: 0.5rem;
+}
+.isi-cart-cerita {
+    padding-left: 4rem;
+}
+.bungkus-icon-tombol {
+    display: flex;
+}
+.tombol-cerita a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    margin-left: 2rem;
+    border-radius: 20px;
+    align-items: center;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 0.3rem 2rem;
+    background-color: #006bfc;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.cart-cerita {
+    display: flex;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: #042e80;
+    transition: 0.2s ease-in-out;
+}
+.judul-cerita p {
+    color: #aaaaaa;
+    width: 60%;
+    font-size: 0.6rem;
+}
+.kategori {
+    display: flex;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid white;
+    width: 70%;
+}
+.kategori a {
+    margin-left: 1rem;
+    color: white;
+    font-size: 10px;
+    background-color: #006bfc;
+    border-radius: 20px;
+    padding: 0.2rem 0.7rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.cart-cerita:hover {
+    background-color: #0044a3;
+}
+.wrap-card-cerita {
+}
+.section-cerita {
+    padding-bottom: 3rem;
+}
+.gambar-view-artikel img {
+    width: 30px;
+    height: auto;
+}
+.gambar-view-artikel a {
+    cursor: default;
+    padding: 0.4rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: #006bfc;
+    margin-right: 1rem;
+}
+.icon-view-artikel {
+    display: flex;
+}
+.isi_icon h5 {
+    margin-top: -1rem;
+}
+.gambar-cerita {
+    border-radius: 10px 0 0 10px;
+    padding-right: 5rem;
+    padding-left: 5rem;
+    margin-bottom: -0.1rem;
+    padding-bottom: 13rem;
+}
+/* isi cerita */
 /* user */
-.img-profile{
+.img-profile {
     border-radius: 50%;
     padding-bottom: 10rem;
 }
+
 @media (max-width: 1000px) {
     .description {
         margin-left: 0px;
@@ -334,7 +328,7 @@ body{
         padding-top: 5px;
         padding-bottom: 0px;
     }
-    .wrap-profile{
+    .wrap-profile {
         margin-left: 0rem;
     }
     .category img {
@@ -344,17 +338,17 @@ body{
         border-radius: 100px;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     }
-    .tombol-cerita a{
+    .tombol-cerita a {
         font-size: 10px;
         padding: 0.3rem 1rem;
     }
 
-    .judul-cerita p{
-        color: #AAAAAA;
+    .judul-cerita p {
+        color: #aaaaaa;
         width: 90%;
         font-size: 0.6rem;
     }
-    .img-profile{
+    .img-profile {
         border-radius: 50%;
         padding-bottom: 9rem;
     }

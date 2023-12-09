@@ -25,7 +25,7 @@ class StoryController extends Controller
     function getUploadStory() {
         $data = $this->getData();
         $category = StoryCategory::get();
-        return view('profile.upload-storyuser', ['follow' => false, 'profilUser' => true, 'category' => $category,'story' => null,'profil' => $data[0], 'totalFollower' => $data[1]]);
+        return view('profile.upload-storyuser', ['imageProfile' => null, 'follow' => false, 'profilUser' => true, 'category' => $category,'story' => null,'profil' => $data[0], 'totalFollower' => $data[1]]);
     }
 
     function uploadStory(StoryRequestValidation $request) {
@@ -95,6 +95,8 @@ class StoryController extends Controller
                 Cloudinary::destroy($validasi->image_path);
                 Cloudinary::destroy($validasi->audio_path, ['resource_type' => 'video']);
                 Category::where('id_story',$id)->delete();
+                StoryLike::where('id_story',$validasi->id)->delete();
+                StoryComment::where('id_story',$validasi->id)->delete();
                 $validasi->delete();
                 return redirect('/profile-storyuser/'.Auth::user()->id)->with('success', 'Cerita berhasil dihapus');
             } else {
@@ -110,7 +112,7 @@ class StoryController extends Controller
         $category = StoryCategory::get();
         if($validasi) {
             $data = $this->getData();
-            return view('profile.upload-storyuser', ['follow' => false, 'profilUser' => true, 'category' => $category,'story' => $validasi, 'profil' => $data[0], 'totalFollower' => $data[1]]);
+            return view('profile.upload-storyuser', ['imageProfile' => null, 'follow' => false, 'profilUser' => true, 'category' => $category,'story' => $validasi, 'profil' => $data[0], 'totalFollower' => $data[1]]);
         } else {
             return redirect('/profile-articleuser/'.Auth::user()->id)->withErrors('Artikel tidak di temukan');
 
@@ -131,7 +133,7 @@ class StoryController extends Controller
                 $totalComment = $story->storyComment->count();
                 $totalLike = $story->storyLike->count();
                 $story->update();
-                return view('content.story',['story' => $story,'totalComment' => $totalComment, 'like' => $like, 'totalLike' => $totalLike]);
+                return view('content.story',['imageProfile' => null, 'story' => $story,'totalComment' => $totalComment, 'like' => $like, 'totalLike' => $totalLike]);
             } else {
                 return redirect('/home');
             }
@@ -178,10 +180,10 @@ class StoryController extends Controller
 
     function editStory(Request $request, $id) {
         $request->validate( [
-            'audio' => 'mimes:mp3,mpeg|max:5048',
+            'audio' => 'mimes:mp3,mpeg|max:8048',
             'image' => 'image|mimes:jpeg,png,jpg|max:5048',
-            'title' => 'required|string|max:35',
-            'description' => 'required|string',
+            'title' => 'required|string|max:60',
+            'description' => 'required|string|max:600',
         ], [
             'audio.mimes' => 'Format audio tidak valid. Gunakan format mp3 atau mpeg.',
             'audio.max' => 'Ukuran gambar tidak boleh melebihi 5MB.',
@@ -242,8 +244,9 @@ class StoryController extends Controller
     function listStory() {
         $listStory = Story::withCount('storyLike as story_like_count')
         ->with('users')
+        ->orderBy('id','desc')
         ->get();
-        return view('content.listStory',['like' => false, 'view' => false,'listStory' => $listStory]);
+        return view('content.listStory',['imageProfile' => null, 'like' => false, 'view' => false,'listStory' => $listStory]);
     }
 
     function listStoryLike() {
@@ -251,14 +254,14 @@ class StoryController extends Controller
         ->with('users')
         ->orderBy('story_like_count', 'desc')
         ->get();
-        return view('content.listStory',['like' => true, 'view' => false,'listStory' => $listStory]);
+        return view('content.listStory',['imageProfile' => null, 'like' => true, 'view' => false,'listStory' => $listStory]);
     }
 
     function listStoryView() {
         $listStory =  Story::withCount('storyLike as story_like_count')
         ->orderBy('view', 'desc')
         ->get();
-        return view('content.listStory',['like' => false, 'view' => true,'listStory' => $listStory]);
+        return view('content.listStory',['imageProfile' => null, 'like' => false, 'view' => true,'listStory' => $listStory]);
     }
 
     function searchListStory(Request $request) {
@@ -266,7 +269,7 @@ class StoryController extends Controller
         ->with('users')
         ->where('title', 'LIKE', "%{$request->name}%")
         ->get();
-        return view('content.listStory',['like' => false, 'view' => false,'listStory' => $listStory]);
+        return view('content.listStory',['imageProfile' => null, 'like' => false, 'view' => false,'listStory' => $listStory]);
     }
 
     function report($id) {

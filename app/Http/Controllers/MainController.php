@@ -9,6 +9,7 @@ use App\Models\Disease;
 use App\Models\Profile;
 use App\Models\Symptom;
 use App\Models\Indication;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -26,7 +27,7 @@ class MainController extends Controller
         $popularUser = User::withCount('followers as follower_count')
         ->with('profiles')
         ->orderBy('follower_count', 'desc')
-        ->take(8)
+        ->take(5)
         ->get();
 
         if(Auth::user()) {
@@ -42,7 +43,7 @@ class MainController extends Controller
         $profil = [];
         $article = [];
         $story = [];
-        return view('allsearch.allsearch',['data' => [$profil,$article,$story]]);
+        return view('allsearch.allsearch',['imageProfile' => null, 'data' => [$profil,$article,$story]]);
     }
 
     function searchAllSearch(Request $request) {
@@ -60,25 +61,53 @@ class MainController extends Controller
         ->get();
 
 
-        return view('allsearch.allsearch',['data' => [$profil,$article,$story]]);
+        return view('allsearch.allsearch',['imageProfile' => null,'data' => [$profil,$article,$story]]);
     }
 
     function sistemPakar() {
-        $indikasi = Symptom::get();
-        // dd($indikasi);
-        return view('sistempakar.sistemPakar',['indikasi' => $indikasi]);
+        if(Auth::user()) {
+            $indikasi = Symptom::get();
+            $validasi = Transaction::where('id_user', Auth::user()->id)->first();
+            if($validasi) {
+                if($validasi->status == 'success') {
+                    $premium = true;
+                } else {
+                    $premium = false;
+                }
+            } else {
+                $premium = false;
+
+            }
+            return view('sistempakar.sistemPakar',['imageProfile' => null,'indikasi' => $indikasi, 'premium' => $premium]);
+        } else {
+            return redirect('/home');
+        }
     }
 
     function sistemPakarHasil(Request $request) {
-        $input = $request->indikasi;
-        $hasil = $this->cekSistemPakar($input);
+        if(Auth::user()) {
+            $input = $request->indikasi;
+            if($input) {
+                $hasil = $this->cekSistemPakar($input);
+                if($hasil != 'no') {
+                    $diagnosa = Disease::where('code',$hasil)->first();
+                    $gejala = Symptom::whereIn('code',$input)->get();
+                    Auth::user()->premium = Auth::user()->premium + 1;
+                    Auth::user()->update();
+                    return view("sistempakar.sistemPakarHasil",['imageProfile' => null, 'hasil' => true, 'diagnosa' => $diagnosa, 'gejala' => $gejala]);
+                }
+                Auth::user()->premium = Auth::user()->premium + 1;
+                Auth::user()->update();
+                return view("sistempakar.sistemPakarHasil",['imageProfile' => null, 'hasil' => false, 'diagnosa' => 'Masukkan data yang sesuai dengan gejala anda', 'gejala' => null]);
+            } else {
 
-        if($hasil != 'no') {
-            $diagnosa = Disease::where('code',$hasil)->first();
-            $gejala = Symptom::whereIn('code',$input)->get();
-            return view("sistempakar.sistemPakarHasil",['hasil' => true, 'diagnosa' => $diagnosa, 'gejala' => $gejala]);
+                Auth::user()->premium = Auth::user()->premium + 1;
+                Auth::user()->update();
+                return view("sistempakar.sistemPakarHasil",['imageProfile' => null, 'hasil' => false, 'diagnosa' => 'Masukkan data yang sesuai dengan gejala anda', 'gejala' => null]);
+            }
+        } else {
+            return redirect('/home');
         }
-        return view("sistempakar.sistemPakarHasil",['hasil' => false, 'diagnosa' => 'Masukkan data yang sesuai dengan gejala anda', 'gejala' => null]);
 
     }
 

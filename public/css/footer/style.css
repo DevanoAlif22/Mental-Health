@@ -1,0 +1,153 @@
+footer {
+    height: auto;
+    padding-bottom: 2rem;
+    background-color: #042e80;
+}
+.logo-footer img {
+    width: 100px;
+    margin-bottom: 0.5rem;
+}
+.des-footer {
+    font-size: 10px;
+    width: 70%;
+    color: #aaaaaa;
+}
+.wrap-footer {
+    border-bottom: 2px solid white;
+}
+.judul-media-footer p {
+    color: white;
+    font-weight: 500;
+    padding-top: 1.5rem;
+    text-align: center;
+}
+.icon-media-footer {
+    display: flex;
+    margin: auto;
+}
+.icon-media-footer img {
+    width: 30px;
+}
+.wrap-link-media {
+    display: flex;
+    margin: auto;
+}
+.wrap-link-media a {
+    background-color: #006bfc;
+    padding: 0.5rem;
+    border-radius: 50%;
+    margin-right: 0.7rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: 0.2s ease-in-out;
+}
+.wrap-link-media a:hover {
+    background-color: #0044a3;
+}
+.judul-kontak p {
+    color: white;
+    font-weight: 500;
+    padding-top: 1.5rem;
+    text-align: center;
+}
+.isi-kontak p {
+    text-align: center;
+    color: #a9a9a9;
+}
+.logo-footer {
+}
+.des-footer {
+    display: flex;
+    margin: auto;
+}
+.bungkus-logo {
+    display: flex;
+    margin: auto;
+    width: 70%;
+}
+.logo img {
+    width: 90px;
+}
+.logo {
+    text-align: right;
+}
+.bg-wrap {
+    margin-top: 3rem;
+    background-image: url("/images/profile/bg.jpeg");
+    background-size: cover;
+    width: 100%;
+    height: auto;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+}
+.wrap-card {
+    padding: 0.5rem 1.5rem;
+    background-color: #0a6ef6;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: 0.2s ease-in-out;
+    border: 3px solid #0a6ef6;
+}
+.wrap-card:hover {
+    background-color: transparent;
+}
+.wrap-card2 {
+    padding: 0.5rem 1.5rem;
+    background-color: transparent;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: 0.2s ease-in-out;
+    border: 3px solid #0a6ef6;
+}
+.wrap-card2:hover {
+    background-color: #0a6ef6;
+}
+.judul-card h1 {
+    color: white;
+}
+.des p {
+    color: white;
+}
+.bulat {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: #042e80;
+    margin-right: 0.6rem;
+    margin-top: 0.5rem;
+}
+.list {
+    display: flex;
+}
+.isi-list p {
+    color: white;
+}
+.tombol {
+    margin-top: 1.4rem;
+    margin-bottom: 2rem;
+}
+
+.tombol a {
+    text-decoration: none;
+    color: white;
+    background-color: #0a6ef6;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.kelebihan p {
+    color: white;
+    width: 100px;
+    margin-bottom: -1rem;
+    font-weight: 600;
+    padding: 0.2rem 1.5rem;
+    background-color: #042e80;
+    border-radius: 20px;
+    font-size: 11px;
+}
+.des p {
+    height: 80px;
+    font-size: 12px;
+    width: 80%;
+}
+/*  footer*/

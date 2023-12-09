@@ -5,16 +5,22 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Mental Health - Profil</title>
-    <link rel="stylesheet" href="{{ asset('/css/edituser/style.css') }}">
+
+    <link rel="stylesheet" href="/css/navbar/style.css">
+    <link rel="stylesheet" href="/css/footer/style.css">
+    <link rel="icon" href="/images/main/logo2.png" type="image/png">
+    <link rel="stylesheet" href="/css/edituser/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    {{-- <link rel="stylesheet" href="{{ asset('/css/content/listStory_style.css') }}"> --}}
-    {{-- <link rel="stylesheet" href="{{ asset('/css/content/listArticle_style.css') }}"> --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 
 <body>
+
+
+    {{-- nav --}}
+    @include('layout.navbarDefault')
 
     <img class="bg-profile" src="{{ asset('images/profile/bg.png') }}" alt="">
 
@@ -53,7 +59,10 @@
                                                     alt="">
                                                 <h6>Klik Disini Untuk Memilih gambar</h6>
                                             </label>
-                                            <input type="file" class="masukgambar" name="image" id="imageUpload"
+                                        </div>
+                                        <div class="d-flex justify-content-center" style="width: 100%">
+
+                                            <input type="file"  class=" masukgambar" style="width:70%;" name="image" id="imageUpload"
                                                 accept="image/*">
                                         </div>
                                         <!-- Add a submit button if needed -->
@@ -66,7 +75,7 @@
                                     <h6>Judul Artikel</h6>
                                 </div>
                                 <div class="form-upload">
-                                    <input type="text" name="title">
+                                    <input maxlength="100" type="text" name="title">
                                 </div>
                                 <div class="judul-form mt-4">
                                     <h6>Isi Artikel</h6>
@@ -90,15 +99,18 @@
                                 </div>
 
                                 <div class="tempat-upload-gambar mt-4">
-                                        <div class="gambar-upload">
-                                            <label for="imageUpload" class="custom-file-upload">
-                                                <img src="{{ asset('images/profile/upload.png') }}" class="img-fluid"
-                                                    alt="">
-                                                <h6>Klik Disini Untuk Mengubah gambar (Opsional)</h6>
-                                            </label>
-                                            <input type="file" class="masukgambar" name="image" id="imageUpload"
-                                                accept="image/*">
-                                        </div>
+                                    <div class="gambar-upload">
+                                        <label for="imageUpload" class="custom-file-upload">
+                                            <img src="{{ asset('images/profile/upload.png') }}" class="img-fluid"
+                                                alt="">
+                                            <h6>Klik Disini Untuk Memilih gambar</h6>
+                                        </label>
+                                    </div>
+                                    <div class="d-flex justify-content-center" style="width: 100%">
+
+                                        <input type="file"  class=" masukgambar" style="width:70%;" name="image" id="imageUpload"
+                                            accept="image/*">
+                                    </div>
                                 </div>
                                 <p style="padding-top: 10px">Gambar sebelumnya</p>
                                 <img style="width: 200px" src="{{$article->image}}" alt="">
@@ -108,7 +120,7 @@
                                     <h6>Judul Artikel</h6>
                                 </div>
                                 <div class="form-upload">
-                                    <input value="{{$article->title}}" type="text" name="title">
+                                    <input value="{{$article->title}}" maxlength="100" type="text" name="title">
                                 </div>
                                 <div class="judul-form mt-4">
                                     <h6>Isi Artikel</h6>
@@ -129,6 +141,8 @@
         </div>
     </div>
     </div>
+
+    @include('layout.footer')
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
     </script>

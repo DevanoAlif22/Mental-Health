@@ -23,15 +23,16 @@ class AuthController extends Controller
     function login(Request $request) {
         // validasi
         $request->validate([
-            'name' => 'required',
+            'email' => 'required|email',
             'password' => 'required'
         ],[
-            'name.required' => 'username wajib di isi',
+            'email.required' => 'email wajib di isi',
+            'email.email' => 'harus berupa email',
             'password.required' => 'password wajib di isi'
         ]);
 
         $infologin = [
-            'name' => $request->name,
+            'email' => $request->email,
             'password' => $request->password,
         ];
 
@@ -86,7 +87,8 @@ class AuthController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'verify_key' => $str
+            'verify_key' => $str,
+            'premium' => 0
         ];
 
 

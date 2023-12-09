@@ -28,6 +28,7 @@ class User extends Authenticatable
         'email',
         'password',
         'verify_key',
+        'premium',
     ];
 
     /**
@@ -72,7 +73,7 @@ class User extends Authenticatable
     public function stories()
     {
         return $this->hasMany(Story::class, 'id_user', 'id');
-    }
+}
 
     public function transactions()
     {

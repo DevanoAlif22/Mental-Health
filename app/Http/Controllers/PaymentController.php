@@ -27,7 +27,7 @@ class PaymentController extends Controller
             // Set your Merchant Server Key
             \Midtrans\Config::$serverKey = config('midtrans.serverKey');
             // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
-            \Midtrans\Config::$isProduction = false;
+            \Midtrans\Config::$isProduction = true;
             // Set sanitization on (default)
             \Midtrans\Config::$isSanitized = true;
             // Set 3DS transaction for credit card to true
@@ -36,7 +36,7 @@ class PaymentController extends Controller
             $params = array(
                 'transaction_details' => array(
                     'order_id' => rand(),
-                    'gross_amount' => 10000,
+                    'gross_amount' => 1,
                 ),
                 'customer_details' => array(
                     'name' => Auth::user()->name,
@@ -48,14 +48,26 @@ class PaymentController extends Controller
 
             $transaction->token = $snapToken;
             $transaction->save();
-            return redirect('/checkout/'.$transaction->id);
+            return view('main.payment',['transaction' => $transaction]);
         } else {
 
             return redirect('/home');
         }
     }
 
-    
+    public function success($id) {
+        $validasi = Transaction::where('id', $id)->first();
+        if($validasi) {
+            $validasi->status = 'success';
+            $validasi->save();
+            return view('main.paymentSuccess');
+        } else {
+            return redirect('/home');
+
+        }
+    }
+
+
 
 
 }

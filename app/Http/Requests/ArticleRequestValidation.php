@@ -25,7 +25,7 @@ class ArticleRequestValidation extends FormRequest
     {
         return [
             'image' => 'required|image|mimes:jpeg,png,jpg|max:5048',
-            'title' => 'required|string|max:35',
+            'title' => 'required|string|max:100',
             'content' => 'required|string',
         ];
     }

@@ -297,10 +297,6 @@ textarea {
     .wrap-profile {
         margin-left: 0;
     }
-
-    .img-profile {
-        width: 70px;
-    }
 }
 @media (max-width: 400px) {
     .edit-isi {
@@ -314,8 +310,5 @@ textarea {
     }
     .wrap-profile-2 {
         margin-left: 0;
-    }
-    .img-profile {
-        width: 70px;
     }
 }

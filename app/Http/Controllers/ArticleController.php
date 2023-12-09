@@ -35,7 +35,7 @@ class ArticleController extends Controller
                 $totalComment = $article->commentArticle->count();
                 $totalLike = $article->articleLike->count();
                 $article->update();
-                return view('content.article',['article' => $article, 'totalComment' => $totalComment, 'like' => $like, 'totalLike' => $totalLike]);
+                return view('content.article',['imageProfile' => null, 'article' => $article, 'totalComment' => $totalComment, 'like' => $like, 'totalLike' => $totalLike]);
             } else {
                 return redirect('/home');
 
@@ -80,7 +80,7 @@ class ArticleController extends Controller
 
     function getUploadArticle() {
         $data = $this->getData();
-        return view('profile.upload-articleuser', ['follow' => false, 'profilUser' => true,'article' => null,'profil' => $data[0], 'totalFollower' => $data[1]]);
+        return view('profile.upload-articleuser', ['imageProfile' => null, 'follow' => false, 'profilUser' => true,'article' => null,'profil' => $data[0], 'totalFollower' => $data[1]]);
     }
 
     function uploadArticle(ArticleRequestValidation $request) {
@@ -113,6 +113,8 @@ class ArticleController extends Controller
             $validasi = Article::where('id',$id)->where('id_user', Auth::user()->id)->first();
             if($validasi) {
                 Cloudinary::destroy($validasi->image_path);
+                ArticleLike::where('id_article',$validasi->id)->delete();
+                ArticleComments::where('id_article',$validasi->id)->delete();
                 $validasi->delete();
                 return redirect('/profile-articleuser/'.Auth::user()->id)->with('success', 'Artikel berhasil dihapus');
             } else {
@@ -127,7 +129,7 @@ class ArticleController extends Controller
         $validasi = Article::where('id_user',Auth::user()->id)->where('id', $id)->first();
         if($validasi) {
             $data = $this->getData();
-            return view('profile.upload-articleuser', ['follow' => false ,'profilUser' => true, 'article' => $validasi, 'profil' => $data[0], 'totalFollower' => $data[1]]);
+            return view('profile.upload-articleuser', ['imageProfile' => null, 'follow' => false ,'profilUser' => true, 'article' => $validasi, 'profil' => $data[0], 'totalFollower' => $data[1]]);
         } else {
             return redirect('/profile-articleuser/'.Auth::user()->id)->withErrors('Artikel tidak di temukan');
 
@@ -137,7 +139,7 @@ class ArticleController extends Controller
     function editArticle(Request $request, $id) {
         $request->validate([
             'image' => 'image|mimes:jpeg,png,jpg|max:5048', // Sesuaikan dengan kebutuhan Anda
-            'title' => 'required|string|max:35',
+            'title' => 'required|string|max:100',
             'content' => 'required|string',
         ], [
             'image.required' => 'Gambar harus diisi.',
@@ -189,7 +191,7 @@ class ArticleController extends Controller
         $listArticle = Article::withCount('articleLike as article_like_count')
         ->with('users')
         ->get();
-        return view('content.listArticle',['like' => false, 'view' => false,'listArticle' => $listArticle]);
+        return view('content.listArticle',['imageProfile' => null, 'like' => false, 'view' => false,'listArticle' => $listArticle]);
     }
 
     function listArticleLike() {
@@ -197,14 +199,14 @@ class ArticleController extends Controller
         ->with('users')
         ->orderBy('article_like_count', 'desc')
         ->get();
-        return view('content.listArticle',['like' => true, 'view' => false,'listArticle' => $listArticle]);
+        return view('content.listArticle',['imageProfile' => null, 'like' => true, 'view' => false,'listArticle' => $listArticle]);
     }
 
     function listArticleView() {
         $listArticle =  Article::withCount('articleLike as article_like_count')
         ->orderBy('view', 'desc')
         ->get();
-        return view('content.listArticle',['like' => false, 'view' => true,'listArticle' => $listArticle]);
+        return view('content.listArticle',['imageProfile' => null, 'like' => false, 'view' => true,'listArticle' => $listArticle]);
     }
 
     function searchListArticle(Request $request) {
@@ -212,7 +214,7 @@ class ArticleController extends Controller
         ->with('users')
         ->where('title', 'LIKE', "%{$request->name}%")
         ->get();
-        return view('content.listArticle',['like' => false, 'view' => false,'listArticle' => $listArticle]);
+        return view('content.listArticle',['imageProfile' => null, 'like' => false, 'view' => false,'listArticle' => $listArticle]);
     }
 
     function report($id) {

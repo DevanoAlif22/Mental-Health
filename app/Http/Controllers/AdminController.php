@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Story;
 use App\Models\Article;
+use App\Models\StoryLike;
+use App\Models\ArticleLike;
+use App\Models\StoryComment;
 use Illuminate\Http\Request;
+use App\Models\ArticleComments;
 use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
@@ -15,7 +19,7 @@ class AdminController extends Controller
             return view('cms.cms',['article' => $article]);
             // return view('cms.cms');
         } else {
-            return view('main.index');
+            return redirect('/home');
         }
     }
 
@@ -41,6 +45,8 @@ class AdminController extends Controller
 
             $validasi = Article::where('id',$id)->where('report', true)->first();
             if($validasi) {
+                ArticleLike::where('id_article',$validasi->id)->delete();
+                ArticleComments::where('id_article',$validasi->id)->delete();
                 $validasi->delete();
                 return redirect('/article-admin')->with('success', 'Laporan Artikel Berhasil Di Hapus Dari Database');
             } else {
@@ -84,6 +90,8 @@ class AdminController extends Controller
 
             $validasi = Story::where('id',$id)->where('report', true)->first();
             if($validasi) {
+                StoryLike::where('id_story',$validasi->id)->delete();
+                StoryComment::where('id_story',$validasi->id)->delete();
                 $validasi->delete();
                 return redirect('/story-admin')->with('success', 'Laporan Cerita Berhasil Di Hapus Dari Database');
             } else {

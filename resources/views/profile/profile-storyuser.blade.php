@@ -5,16 +5,22 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Mental Health - Profil</title>
-    <link rel="stylesheet" href="{{ asset('/css/profileuser/style.css') }}">
+
+    <link rel="stylesheet" href="/css/navbar/style.css">
+    <link rel="stylesheet" href="/css/footer/style.css">
+    <link rel="icon" href="/images/main/logo2.png" type="image/png">
+    <link rel="stylesheet" href="/css/profileuser/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    {{-- <link rel="stylesheet" href="{{ asset('/css/content/listStory_style.css') }}"> --}}
-    {{-- <link rel="stylesheet" href="{{ asset('/css/content/listArticle_style.css') }}"> --}}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 
 <body>
+
+
+    {{-- nav --}}
+    @include('layout.navbarDefault')
 
     <img class="bg-profile" src="{{ asset('images/profile/bg.png') }}" alt="">
 
@@ -62,14 +68,14 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="gambar-cerita"
-                                            style="background-image: url('{{ asset($story->image) }}'); background-size: cover;background-position: center;background-repeat: no-repeat; max-width: 400px; height:300px">
+                                            style="background-image: url('{{ asset($story->image) }}'); background-size: cover;background-position: center;background-repeat: no-repeat; max-width: 800px; height:360px">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 isi-card"
                                         <div class="isi-cart-cerita">
                                             <div class="judul-cerita">
-                                                <h4>{{$story->title}}</h4>
-                                                <p>{{ Illuminate\Support\Str::limit($story->description, 100) }}.</p>
+                                                <h4>{{ Illuminate\Support\Str::limit($story->title, 34) }}</h4>
+                                                <p>{{ Illuminate\Support\Str::limit($story->description, 50) }}</p>
                                             </div>
                                             <div class="kategori">
                                                 @foreach ($story->category as $category)
@@ -118,6 +124,8 @@
             </div>
         </div>
     </div>
+
+    @include('layout.footer')
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
     </script>

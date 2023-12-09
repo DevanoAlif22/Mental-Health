@@ -15,7 +15,7 @@ class ProfileController extends Controller
     //
     function getData() {
         $profil = User::with(['profiles','followers'])->where('id',Auth::user()->id)->first();
-        $totalFollower = Follower::where('id_follow',Auth::user()->id)->count();
+        $totalFollower = Follower::where('id_user',Auth::user()->id)->count();
         return [$profil,$totalFollower];
     }
 
@@ -23,7 +23,7 @@ class ProfileController extends Controller
         $listUser = User::withCount('followers as follower_count')
         ->with('profiles')
         ->get();
-        return view('content.listProfile',['follow' => false, 'view' => false,'listUser' => $listUser]);
+        return view('content.listProfile',['imageProfile' => null, 'follow' => false, 'view' => false,'listUser' => $listUser]);
     }
 
     function listUserFollow() {
@@ -31,14 +31,14 @@ class ProfileController extends Controller
         ->with('profiles')
         ->orderBy('follower_count', 'desc')
         ->get();
-        return view('content.listProfile',['follow' => true, 'view' => false,'listUser' => $listUser]);
+        return view('content.listProfile',['imageProfile' => null, 'follow' => true, 'view' => false,'listUser' => $listUser]);
     }
 
     function listUserView() {
         $listUser =  User::withCount('followers as follower_count')->leftJoin('profiles', 'users.id', '=', 'profiles.id_user')
         ->orderByDesc('profiles.view')
         ->get();
-        return view('content.listProfile',['follow' => false, 'view' => true,'listUser' => $listUser]);
+        return view('content.listProfile',['imageProfile' => null, 'follow' => false, 'view' => true,'listUser' => $listUser]);
     }
 
     function searchListUser(Request $request) {
@@ -46,7 +46,7 @@ class ProfileController extends Controller
         ->with('profiles')
         ->where('name', 'LIKE', "%{$request->name}%")
         ->get();
-        return view('content.listProfile',['follow' => false, 'view' => false,'listUser' => $listUser]);
+        return view('content.listProfile',['imageProfile' => null, 'follow' => false, 'view' => false,'listUser' => $listUser]);
     }
 
     function detailUser($id) {
@@ -56,17 +56,17 @@ class ProfileController extends Controller
             if(Auth::user()) {
                 if(Auth::user()->id == $id) {
                     $data = $this->getData();
-                    return view('profile.profile-aboutuser', ['follow' => false ,'profilUser' => true, 'profil' => $data[0], 'totalFollower' => $data[1]]);
+                    return view('profile.profile-aboutuser', ['imageProfile' => null, 'follow' => false ,'profilUser' => true, 'profil' => $data[0], 'totalFollower' => $data[1]]);
                 } else {
                     $profil = User::with(['profiles','followers'])->where('id',$id)->first();
                     $profil->profiles->view = $profil->profiles->view + 1;
                     $profil->profiles->update();
-                    $totalFollower = Follower::where('id_follow',$id)->count();
-                    $follow = Follower::where('id_user', Auth::user()->id)->where('id_follow',$id)->first();
+                    $totalFollower = Follower::where('id_user',$id)->count();
+                    $follow = Follower::where('id_user', $id)->where('id_follow',Auth::user()->id)->first();
                     if($follow){
-                        return view('profile.profile-aboutuser', ['follow' => true, 'profilUser' => false,'profil' => $profil, 'totalFollower' => $totalFollower]);
+                        return view('profile.profile-aboutuser', ['imageProfile' => null, 'follow' => true, 'profilUser' => false,'profil' => $profil, 'totalFollower' => $totalFollower]);
                     } else {
-                        return view('profile.profile-aboutuser', ['follow' => false, 'profilUser' => false,'profil' => $profil, 'totalFollower' => $totalFollower]);
+                        return view('profile.profile-aboutuser', ['imageProfile' => null, 'follow' => false, 'profilUser' => false,'profil' => $profil, 'totalFollower' => $totalFollower]);
                     }
                 }
             }
@@ -82,16 +82,16 @@ class ProfileController extends Controller
             if(Auth::user()->id == $id) {
                 $dataArticle = Article::where('id_user', Auth::user()->id)->get();
                 $data = $this->getData();
-                return view('profile.profile-articleuser', ['follow' => false,'profilUser' => true, 'listArticle' => $dataArticle, 'profil' => $data[0], 'totalFollower' => $data[1]]);
+                return view('profile.profile-articleuser', ['imageProfile' => null, 'follow' => false,'profilUser' => true, 'listArticle' => $dataArticle, 'profil' => $data[0], 'totalFollower' => $data[1]]);
             } else {
                 $dataArticle = Article::where('id_user', $id)->get();
                 $profil = User::with(['profiles','followers'])->where('id',$id)->first();
                 $totalFollower = Follower::where('id_follow',$id)->count();
                 $follow = Follower::where('id_user', Auth::user()->id)->where('id_follow',$id)->first();
                 if($follow){
-                    return view('profile.profile-articleuser', ['follow' => true, 'profilUser' => false, 'listArticle' => $dataArticle, 'profil' => $profil, 'totalFollower' => $totalFollower]);
+                    return view('profile.profile-articleuser', ['imageProfile' => null, 'follow' => true, 'profilUser' => false, 'listArticle' => $dataArticle, 'profil' => $profil, 'totalFollower' => $totalFollower]);
                 } else {
-                    return view('profile.profile-articleuser', ['follow' => false, 'profilUser' => false, 'listArticle' => $dataArticle, 'profil' => $profil, 'totalFollower' => $totalFollower]);
+                    return view('profile.profile-articleuser', ['imageProfile' => null, 'follow' => false, 'profilUser' => false, 'listArticle' => $dataArticle, 'profil' => $profil, 'totalFollower' => $totalFollower]);
 
                 }
             }
@@ -110,16 +110,16 @@ class ProfileController extends Controller
         if(Auth::user()->id == $id){
             $dataStory = Story::with('category')->where('id_user', Auth::user()->id)->orderBy('id','desc')->get();
             $data = $this->getData();
-            return view('profile.profile-storyuser', ['follow' =>  false, 'profilUser' => true, 'listStory' => $dataStory, 'profil' => $data[0], 'totalFollower' => $data[1]]);
+            return view('profile.profile-storyuser', ['imageProfile' => null, 'follow' =>  false, 'profilUser' => true, 'listStory' => $dataStory, 'profil' => $data[0], 'totalFollower' => $data[1]]);
         } else {
             $dataStory = Story::with('category')->where('id_user', $id)->orderBy('id','desc')->get();
             $profil = User::with(['profiles','followers'])->where('id',$id)->first();
             $totalFollower = Follower::where('id_follow',$id)->count();
             $follow = Follower::where('id_user', Auth::user()->id)->where('id_follow',$id)->first();
             if($follow){
-                return view('profile.profile-storyuser', ['follow' => true,'profilUser' => false, 'listStory' => $dataStory, 'profil' => $profil, 'totalFollower' => $totalFollower]);
+                return view('profile.profile-storyuser', ['imageProfile' => null, 'follow' => true,'profilUser' => false, 'listStory' => $dataStory, 'profil' => $profil, 'totalFollower' => $totalFollower]);
             } else {
-                return view('profile.profile-storyuser', ['follow' => false,'profilUser' => false, 'listStory' => $dataStory, 'profil' => $profil, 'totalFollower' => $totalFollower]);
+                return view('profile.profile-storyuser', ['imageProfile' => null, 'follow' => false,'profilUser' => false, 'listStory' => $dataStory, 'profil' => $profil, 'totalFollower' => $totalFollower]);
 
             }
         }
@@ -131,12 +131,12 @@ class ProfileController extends Controller
 
     function getEditAbout() {
         $data = $this->getData();
-        return view('profile.upload-aboutuser', ['follow' => false, 'profilUser' => true,'profil' => $data[0], 'totalFollower' => $data[1]]);
+        return view('profile.upload-aboutuser', ['imageProfile' => null, 'follow' => false, 'profilUser' => true,'profil' => $data[0], 'totalFollower' => $data[1]]);
     }
 
     function getEditProfil() {
         $data = $this->getData();
-        return view('profile.edit-profileuser', ['follow' => false, 'profilUser' => true, 'profil' => $data[0], 'totalFollower' => $data[1]]);
+        return view('profile.edit-profileuser', ['imageProfile' => null, 'follow' => false, 'profilUser' => true, 'profil' => $data[0], 'totalFollower' => $data[1]]);
     }
 
     function editAbout(Request $request) {
@@ -159,7 +159,7 @@ class ProfileController extends Controller
         $request->validate( [
             'image' => 'image|mimes:jpeg,png,jpg|max:5048',
             'name' => 'required|string|max:15',
-            'gender' => 'max:10',
+            'gender' => 'max:15',
             'age' => 'max:15',
         ], [
             'image.image' => 'File harus berupa gambar.',
@@ -200,13 +200,14 @@ class ProfileController extends Controller
             $validasi = User::find($id);
             if($validasi) {
                 // apakah dia sudah follow atau tidak
-                $follow = Follower::where('id_user', Auth::user()->id)->where('id_follow', $id)->first();
+                $follow = Follower::where('id_user', $validasi->id)->where('id_follow', Auth::user()->id)->first();
+
                 if($follow) {
                     $follow->delete();
                 } else {
                     Follower::create([
-                        'id_user' => Auth::user()->id,
-                        'id_follow' => $id
+                        'id_user' => $validasi->id,
+                        'id_follow' => Auth::user()->id
                     ]);
                 }
                 return redirect('/profile-aboutuser/'.$id);
