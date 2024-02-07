@@ -61,7 +61,7 @@ class ProfileController extends Controller
                     $profil = User::with(['profiles','followers'])->where('id',$id)->first();
                     $profil->profiles->view = $profil->profiles->view + 1;
                     $profil->profiles->update();
-                    $totalFollower = Follower::where('id_user',$id)->count();
+                    $totalFollower = Follower::where('id_user',$validasi->id)->count();
                     $follow = Follower::where('id_user', $id)->where('id_follow',Auth::user()->id)->first();
                     if($follow){
                         return view('profile.profile-aboutuser', ['imageProfile' => null, 'follow' => true, 'profilUser' => false,'profil' => $profil, 'totalFollower' => $totalFollower]);
@@ -86,7 +86,7 @@ class ProfileController extends Controller
             } else {
                 $dataArticle = Article::where('id_user', $id)->get();
                 $profil = User::with(['profiles','followers'])->where('id',$id)->first();
-                $totalFollower = Follower::where('id_follow',$id)->count();
+                $totalFollower = Follower::where('id_user',$validasi->id)->count();
                 $follow = Follower::where('id_user', Auth::user()->id)->where('id_follow',$id)->first();
                 if($follow){
                     return view('profile.profile-articleuser', ['imageProfile' => null, 'follow' => true, 'profilUser' => false, 'listArticle' => $dataArticle, 'profil' => $profil, 'totalFollower' => $totalFollower]);
@@ -114,7 +114,7 @@ class ProfileController extends Controller
         } else {
             $dataStory = Story::with('category')->where('id_user', $id)->orderBy('id','desc')->get();
             $profil = User::with(['profiles','followers'])->where('id',$id)->first();
-            $totalFollower = Follower::where('id_follow',$id)->count();
+            $totalFollower = Follower::where('id_user',$validasi->id)->count();
             $follow = Follower::where('id_user', Auth::user()->id)->where('id_follow',$id)->first();
             if($follow){
                 return view('profile.profile-storyuser', ['imageProfile' => null, 'follow' => true,'profilUser' => false, 'listStory' => $dataStory, 'profil' => $profil, 'totalFollower' => $totalFollower]);

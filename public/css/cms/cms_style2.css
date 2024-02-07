@@ -1,0 +1,149 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    overflow-x: hidden;
+    background-color: #F1F1F1;
+    padding-right: 1rem;
+}
+section{
+    height: 100vh;
+    width: 100%;
+}
+.nav-left{
+    background-color: #042E80;
+    height: 100vh;
+}
+ img.logo{
+    width: 40px;
+}
+img.article{
+    width: 30px;
+}
+.active{
+    background-color: #0040BE;
+}
+
+.link-nav a{
+    padding: 0.6rem 0;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+
+
+    display: flex;
+justify-content: space-evenly;
+    align-items: center;
+}
+.link-nav{
+    padding-top: 2rem;
+}
+.isi-right{
+    height: 100vh;
+
+}
+
+.nav-right{
+    padding-top: 5rem;
+}
+.link-right{
+    display: flex;
+    gap: 4rem;
+    margin-left: 3rem;
+}
+.nav-right p{
+    font-weight: 600;
+}
+.active-p{
+color: #042E80;
+}
+.section-right{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    height: 80vh;
+    background-color: white;
+    border-radius: 20px;
+    padding: 1.5rem;
+}
+.judul-section{
+    display: flex;
+    justify-content: space-around;
+}
+.section-user{
+    display: flex;
+    justify-content: space-around;
+}
+.judul-section p{
+    color: rgb(151, 151, 151);
+}
+.judul-artikel{
+    text-align: center;
+}
+.profil{
+    text-align: center;
+}
+.nama-user{
+    text-align: center;
+}
+.aksi{
+    text-align: center;
+}
+.pengikut{
+    text-align: center;
+}
+.penonton{
+    text-align: center;
+}
+.isi p{
+    color: black;
+    font-size: 12px;
+    font-weight: bold;
+}
+.isi a{
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    background-color: #FF0A0A;
+    border-radius: 20px;
+    font-size: 12px;
+    padding: 0.3rem 1rem;
+}
+a.lihat{
+    background-color: #0FBE00;
+}
+.isi{
+    margin-bottom: 1.1rem;
+}
+.isi p{
+    margin-top: 1.8rem;
+}
+.isi-aksi{
+    margin-top: 1.4rem;
+}
+.gambar-cerita{
+    border-radius: 50%;
+}
+.section-right{
+    height: 80vh;
+    max-width: 200vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+a.tolak{
+    background-color: #0040BE;
+}
+@media (max-width:1000px){
+    .link-nav span{
+        display: none;
+
+    }
+    img.logo{
+        width: 15px;
+    }
+    img.article{
+        width: 13px;
+    }
+    img.story{
+        width: 13px;
+    }
+  }

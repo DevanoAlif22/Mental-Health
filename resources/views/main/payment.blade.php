@@ -23,7 +23,7 @@
     @include('layout.navbarDefault')
     <div class="container">
         <div class="row">
-            <div class=" offset-3 col-6">
+            <div class=" offset-lg-3 col-lg-6">
 
                 <div class="wrap-card">
 

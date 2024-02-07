@@ -237,7 +237,7 @@
                                         </div>
                                         <div class="kategori">
                                             @foreach ($story->category as $category)
-                                            <a class="text-white " style="text-decoration: none;">{{$category}}</a>
+                                            <a class="text-white " style="text-decoration: none;">{{$category->storyCategory->name}}</a>
                                             @endforeach
                                         </div>
                                         <div class="icon-view-artikel pt-3">

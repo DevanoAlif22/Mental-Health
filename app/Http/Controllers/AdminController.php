@@ -17,7 +17,6 @@ class AdminController extends Controller
         if(Auth::user()->name == 'admin' && Auth::user()->email == 'admin@gmail.com') {
             $article = Article::withCount('articleLike as article_like_count')->with('users')->where('report', true)->get();
             return view('cms.cms',['article' => $article]);
-            // return view('cms.cms');
         } else {
             return redirect('/home');
         }
@@ -61,8 +60,7 @@ class AdminController extends Controller
     function listStory() {
         if(Auth::user()->name == 'admin' && Auth::user()->email == 'admin@gmail.com') {
             $story = Story::withCount('storyLike as story_like_count')->with('users')->where('report', true)->get();
-            return view('cms.cms_story',['story' => $story]);
-            // return view('cms.cms');
+            return view('cms.cmsStory',['story' => $story]);
         } else {
             return view('main.index');
         }
@@ -87,7 +85,6 @@ class AdminController extends Controller
 
     function reportStoryAccept($id) {
         if(Auth::user()->name == 'admin' && Auth::user()->email == 'admin@gmail.com') {
-
             $validasi = Story::where('id',$id)->where('report', true)->first();
             if($validasi) {
                 StoryLike::where('id_story',$validasi->id)->delete();
@@ -95,7 +92,6 @@ class AdminController extends Controller
                 $validasi->delete();
                 return redirect('/story-admin')->with('success', 'Laporan Cerita Berhasil Di Hapus Dari Database');
             } else {
-
                 return redirect('/story-admin')->withErrors('Laporan Cerita Tidak Di Temukan');
             }
         } else {
